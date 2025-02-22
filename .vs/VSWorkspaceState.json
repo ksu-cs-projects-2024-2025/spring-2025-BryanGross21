@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CIS598Project",
+    "\\CIS598Project\\Content"
   ],
-  "SelectedNode": "\\C:\\Users\\bryan\\Source\\Repos\\spring-2025-BryanGross21",
+  "SelectedNode": "\\CIS598Project\\CIS598Project.csproj",
   "PreviewInSolutionExplorer": false
 }
