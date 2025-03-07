@@ -4,10 +4,12 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Room_Renders/Fred_Faz.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Room_Renders/Party_Room/Stage_Render.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Room_Renders/Party_Room/Table_Render.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
   </DestFiles>
