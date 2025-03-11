@@ -15,6 +15,8 @@ using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ScrollBar;
+using System.Threading;
+
 
 namespace CIS598Project.Rooms
 {
@@ -58,6 +60,10 @@ namespace CIS598Project.Rooms
 
 		bool[] showDucks = new bool[16];
 
+		bool canSelect = true;
+
+		Rectangle whereToDraw;
+
 		private int duckIdleAnimationFrame = 0;
 
 		private int duckSelectedAnimationFrame = 0;
@@ -73,7 +79,11 @@ namespace CIS598Project.Rooms
 			
 		BoundingRectangle mouse = new(0, 0, 32, 32);
 
-		public BoundingRectangle Bounds => mouse;
+		int count = 3;
+
+		int score = 0;
+
+		int timeToShowScore;
 
 		Player playerRef;
 
@@ -83,12 +93,12 @@ namespace CIS598Project.Rooms
 			if (player.consecutivePlays[1] == 1 && player.foundSecret[1] == false)
 			{
 				duckType = DuckType.GFred;
-				game.Window.Title = "I'M SO LONELY...";
+				game.Window.Title = "Fredbear and Friends";
 			}
 			else if (player.consecutivePlays[1] == 2 && player.foundSecret[1] == false)
 			{
 				duckType = DuckType.SadFred;
-				game.Window.Title = "DO YOU HEAR ME?";
+				game.Window.Title = "Fredbear";
 			}
 			else 
 			{
@@ -114,6 +124,11 @@ namespace CIS598Project.Rooms
 					has900Points = true;
 				}
 				showDucks[i] = true;
+			}
+
+			if (duckType == DuckType.SadFred) 
+			{
+				count = 5;
 			}
 		}
 
@@ -199,9 +214,15 @@ namespace CIS598Project.Rooms
 			}
 
 			font = _content.Load<SpriteFont>("MiniGame_Font");
+			select = _content.Load<SoundEffect>("Duck_Pond/Duck_Pond_Sounds/pickupCoin");
+			chosen = _content.Load<SoundEffect>("Duck_Pond/Duck_Pond_Sounds/powerUp");
+			Crash = _content.Load<SoundEffect>("Duck_Pond/Duck_Pond_Sounds/df");
+
+			ducksCollision[0] = new BoundingRectangle(new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2), 193, 134);
+			ducksCollision[1] = new BoundingRectangle(new Vector2(ScreenManager.GraphicsDevice.Viewport.Width / 2 - 250, ScreenManager.GraphicsDevice.Viewport.Height / 2 - 200), 193, 134);
 
 			MediaPlayer.IsRepeating = true;
-			//MediaPlayer.Play(songs[(int)duckType]);
+			MediaPlayer.Play(songs[(int)duckType]);
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
@@ -230,6 +251,34 @@ namespace CIS598Project.Rooms
 			}
 
 			Vector2 mousePosition = new Vector2(currentMousePosition.X, currentMousePosition.Y);
+			for (int i = 0; i < ducks.Length; i++) {
+				if (mouse.collidesWith(ducksCollision[i]) && showDucks[i] && canSelect)
+				{
+					if (i == 0)
+					{
+						//whereToDraw = new Rectangle(ScreenManager.GraphicsDevice.Viewport.Width / 2, ScreenManager.GraphicsDevice.Viewport.Height / 2, 84, 84);
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+						{
+							canSelect = false;
+							chosen.Play();
+							whereToDraw = new Rectangle(0 ,0, 0, 0);
+							ducks[i].selected = true;
+						}
+					}
+					if (i == 1) 
+					{
+						//whereToDraw = new Rectangle(ScreenManager.GraphicsDevice.Viewport.Width / 2 - 250, ScreenManager.GraphicsDevice.Viewport.Height / 2 - 200, 84, 84);
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+						{
+							canSelect = false;
+							chosen.Play();
+							whereToDraw = new Rectangle(0, 0, 0, 0);
+							ducks[i].selected = true;
+						}
+					}
+				}
+
+			}
 
 
 			mouse.X = mousePosition.X;
@@ -263,6 +312,41 @@ namespace CIS598Project.Rooms
 				spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
 			}
 
+			spriteBatch.DrawString(font, "Duck pulls: " + count, new Vector2(50, 0), Color.White);
+
+			if (duckType != DuckType.SadFred)
+			{
+				spriteBatch.DrawString(font, "Score: " + score, new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+			}
+			else
+			{
+				if (count == 5)
+				{
+					spriteBatch.DrawString(font, "Score: " + score, new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+				else if (count == 4)
+				{
+					spriteBatch.DrawString(font, "Score: Susie", new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+				else if (count == 3) 
+				{
+					spriteBatch.DrawString(font, "Score: Jeremy", new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+				else if (count == 2)
+				{
+					spriteBatch.DrawString(font, "Score: Gabriel", new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+				else if (count == 1)
+				{
+					spriteBatch.DrawString(font, "Score: Fritz", new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+				else if (count == 0)
+				{
+					spriteBatch.DrawString(font, "Score: Cassidy", new Vector2(50, graphics.Viewport.Height - 100), Color.White);
+				}
+			}
+
+
 
 			duckAnimationTimer_idle += gameTime.ElapsedGameTime.TotalSeconds;
 			if (duckAnimationTimer_idle > .25)
@@ -275,15 +359,102 @@ namespace CIS598Project.Rooms
 				duckAnimationTimer_idle -= .25;
 			}
 
+			int i = 0;
 
-			if (!ducks[0].selected)
+			if (!ducks[i].selected && showDucks[i])
 			{
-				spriteBatch.Draw(idle[duckIdleAnimationFrame], new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.White);
+				spriteBatch.Draw(idle[duckIdleAnimationFrame], new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), null, Color.White, 0f, new Vector2(97.3f, 76.6f), 1f, SpriteEffects.None, 0);
+				spriteBatch.Draw(overlay, whereToDraw, null, Color.White, 0f, new Vector2(42, 42), SpriteEffects.None, 0);
 			}
-			else if (ducks[0].selected) 
+			else if (ducks[i].selected && showDucks[i]) 
 			{
+				duckAnimationTimer_select += gameTime.ElapsedGameTime.TotalSeconds;
+				if (duckAnimationTimer_select > .25)
+				{
+
+					duckSelectedAnimationFrame++;
+					if (duckSelectedAnimationFrame >= 14)
+					{
+						duckSelectedAnimationFrame = 14;
+					}
+					duckAnimationTimer_select -= .25;
+				}
+
+
+				spriteBatch.Draw(selected[duckSelectedAnimationFrame], new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), null, Color.White, 0f, new Vector2(97.3f, 76.6f), 1f, SpriteEffects.None, 0);
+
+				if (duckSelectedAnimationFrame == 14)
+				{
+					spriteBatch.Draw(banner, new Vector2(graphics.Viewport.Width / 2 - 50, graphics.Viewport.Height / 2 - 12.5f), null, Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0);
+					if (duckType != DuckType.SadFred)
+					{
+						spriteBatch.DrawString(font, ducks[0].points.ToString(), new Vector2(graphics.Viewport.Width / 2 - 10, graphics.Viewport.Height / 2 - 15), Color.White, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+					}
+					timeToShowScore += 1;
+
+					if (timeToShowScore == 100)
+					{
+						showDucks[i] = false;
+						count--;
+						score += ducks[i].points;
+						duckSelectedAnimationFrame = 0;
+						timeToShowScore = 0;
+						canSelect = true;
+					}
+				}
 
 			}
+			i++;
+			if (!ducks[i].selected && showDucks[i])
+			{
+				spriteBatch.Draw(idle[duckIdleAnimationFrame], new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 2 - 200), null, Color.White, 0f, new Vector2(97.3f, 76.6f), 1f, SpriteEffects.None, 0);
+				spriteBatch.Draw(overlay, whereToDraw, null, Color.White, 0f, new Vector2(42, 42), SpriteEffects.None, 0);
+			}
+			else if (ducks[i].selected && showDucks[i])
+			{
+				duckAnimationTimer_select += gameTime.ElapsedGameTime.TotalSeconds;
+				if (duckAnimationTimer_select > .25)
+				{
+
+					duckSelectedAnimationFrame++;
+					if (duckSelectedAnimationFrame >= 14)
+					{
+						duckSelectedAnimationFrame = 14;
+					}
+					duckAnimationTimer_select -= .25;
+				}
+
+
+				spriteBatch.Draw(selected[duckSelectedAnimationFrame], new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 2 - 200), null, Color.White, 0f, new Vector2(97.3f, 76.6f), 1f, SpriteEffects.None, 0);
+
+				if (duckSelectedAnimationFrame == 14)
+				{
+					spriteBatch.Draw(banner, new Vector2(graphics.Viewport.Width / 2 - 250 - 50, graphics.Viewport.Height / 2 - 200 - 12.5f), null, Color.White, 0f, Vector2.Zero, 2f, SpriteEffects.None, 0);
+					if (duckType != DuckType.SadFred)
+					{
+						spriteBatch.DrawString(font, ducks[i].points.ToString(), new Vector2(graphics.Viewport.Width / 2  - 250 - 10, graphics.Viewport.Height / 2 - 200 - 15), Color.White, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+					}
+					timeToShowScore += 1;
+
+					if (timeToShowScore == 100)
+					{
+						showDucks[i] = false;
+						count--;
+						score += ducks[i].points;
+						duckSelectedAnimationFrame = 0;
+						timeToShowScore = 0;
+						canSelect = true;
+					}
+				}
+
+			}
+
+
+
+
+
+
+
 			spriteBatch.End();
 
 		}

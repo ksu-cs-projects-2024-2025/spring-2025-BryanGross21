@@ -39,7 +39,6 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Music\Swallowed_By_The_Void.wma
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Music\Swallowed_By_The_Void.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Sounds\Creepy_Transition.xnb
-C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Sounds\df.wma
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Sounds\df.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Sounds\pickupCoin.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Duck_Pond_Sounds\powerUp.xnb
@@ -159,3 +158,4 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Room_Renders\Party_Room\Stage_Render.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Room_Renders\Party_Room\Table_Render.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fredbear_Icon.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Duck_Pond\Other_Sprites\Cassidy.xnb

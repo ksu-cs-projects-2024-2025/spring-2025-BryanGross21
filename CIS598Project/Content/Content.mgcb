@@ -85,11 +85,11 @@
 /processorParam:Quality=Best
 /build:Duck_Pond/Duck_Pond_Sounds/Creepy_Transition.wav
 
-#begin Duck_Pond/Duck_Pond_Sounds/df.mp3
-/importer:Mp3Importer
-/processor:SongProcessor
+#begin Duck_Pond/Duck_Pond_Sounds/df.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
 /processorParam:Quality=Best
-/build:Duck_Pond/Duck_Pond_Sounds/df.mp3
+/build:Duck_Pond/Duck_Pond_Sounds/df.wav
 
 #begin Duck_Pond/Duck_Pond_Sounds/pickupCoin.wav
 /importer:WavImporter
@@ -822,6 +822,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Duck_Pond/Idles/Fredbear_Duck_3/0020.png
+
+#begin Duck_Pond/Other_Sprites/Cassidy.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Duck_Pond/Other_Sprites/Cassidy.png
 
 #begin Duck_Pond/Other_Sprites/Duck_Select.png
 /importer:TextureImporter
