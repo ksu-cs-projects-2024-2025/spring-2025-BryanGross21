@@ -6,8 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-//Reuses the code from the collision exercise, just worked for my purposes
-namespace BalloonWorld.Collisions
+//Reuses the code from the collision exercise from CIS 580, just worked for my purposes
+namespace CIS598Project.Collisions
 {
 	/// <summary>
 	/// A bounding rectangle for collision

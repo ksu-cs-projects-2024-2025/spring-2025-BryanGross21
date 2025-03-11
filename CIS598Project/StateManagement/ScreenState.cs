@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BalloonWorld.StateManagement
+namespace CIS598Project.StateManagement
 {
     /// <summary>
     /// Enumerations of the possible screen states

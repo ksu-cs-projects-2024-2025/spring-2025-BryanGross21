@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 
-namespace BalloonWorld.Collisions
+namespace CIS598Project.Collisions
 {
 	public static class CollisionHelper
 	{

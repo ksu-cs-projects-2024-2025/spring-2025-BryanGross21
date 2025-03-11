@@ -1,6 +1,9 @@
-﻿using Microsoft.Xna.Framework;
+﻿using CIS598Project.Rooms;
+using CIS598Project.StateManagement;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+
 
 namespace CIS598Project
 {
@@ -8,13 +11,25 @@ namespace CIS598Project
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
+		private readonly ScreenManager _screens;
 
-        public Game1()
+		public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
-            Content.RootDirectory = "Content";
+			DisplayMode screen = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
+			Content.RootDirectory = "Content";
             IsMouseVisible = true;
-        }
+			Window.Title = "Fredbear and Friends: Arcade";
+			var screenFactory = new ScreenFactory();
+			Services.AddService(typeof(IScreenFactory), screenFactory);
+			_graphics.PreferredBackBufferWidth = 1920;
+			_graphics.PreferredBackBufferHeight = 1080;
+
+			_screens = new ScreenManager(this);
+			Components.Add(_screens);
+			_screens.AddScreen(new DuckPond(new Game_Entities.Player(), this), null);
+
+		}
 
         protected override void Initialize()
         {
@@ -45,7 +60,7 @@ namespace CIS598Project
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             // TODO: Add your drawing code here
-
+            _screens.Draw(gameTime);
             base.Draw(gameTime);
         }
     }

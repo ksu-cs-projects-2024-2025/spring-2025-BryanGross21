@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Xna.Framework;
 
-namespace BalloonWorld.StateManagement
+namespace CIS598Project.StateManagement
 {
     /// <summary>
     /// A screen is a single layer of game content that has

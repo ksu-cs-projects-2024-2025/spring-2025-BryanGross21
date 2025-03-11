@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace BalloonWorld.StateManagement
+namespace CIS598Project.StateManagement
 {
     /// <summary>
     /// The ScreenManager is a component which manages one or more GameScreen instance.
@@ -59,9 +59,6 @@ namespace BalloonWorld.StateManagement
         protected override void LoadContent()
         {
             SpriteBatch = new SpriteBatch(GraphicsDevice);
-            Font = _content.Load<SpriteFont>("menuFont");
-            BlankTexture = _content.Load<Texture2D>("blank");
-
             // Tell each of the screens to load thier content 
             foreach (var screen in _screens)
             {
@@ -171,12 +168,12 @@ namespace BalloonWorld.StateManagement
 
         // Helper draws a translucent black fullscreen sprite, used for fading
         // screens in and out, and for darkening the background behind popups.
-        public void FadeBackBufferToBlack(float alpha)
+        /*public void FadeBackBufferToBlack(float alpha)
         {
             SpriteBatch.Begin();
             SpriteBatch.Draw(BlankTexture, GraphicsDevice.Viewport.Bounds, Color.Black * alpha);
             SpriteBatch.End();
-        }
+        }*/
 
         public void Deactivate()
         {
