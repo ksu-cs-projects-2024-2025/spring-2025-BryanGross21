@@ -14,6 +14,7 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Music/Swallowed_By_The_Void.ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Sounds/Creepy_Transition.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Sounds/df.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Sounds/jump.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Sounds/pickupCoin.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Duck_Pond_Sounds/powerUp.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Idles/Fredbear_Duck_1/0001.png</File>
@@ -135,6 +136,7 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Room_Renders/Party_Room/Table_Render.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

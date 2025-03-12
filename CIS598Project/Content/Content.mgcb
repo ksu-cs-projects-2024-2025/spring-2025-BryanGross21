@@ -91,6 +91,12 @@
 /processorParam:Quality=Best
 /build:Duck_Pond/Duck_Pond_Sounds/df.wav
 
+#begin Duck_Pond/Duck_Pond_Sounds/jump.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Duck_Pond/Duck_Pond_Sounds/jump.wav
+
 #begin Duck_Pond/Duck_Pond_Sounds/pickupCoin.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
