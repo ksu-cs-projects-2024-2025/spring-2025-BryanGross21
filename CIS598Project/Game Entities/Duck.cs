@@ -35,7 +35,7 @@ namespace CIS598Project.Game_Entities
 			}
 			else 
 			{
-				int num = ran.Next(duckNum * 5, 101);
+				int num = ran.Next(duckNum * 7, 101);
 				if (num < 75)
 				{
 					points = 100;
@@ -47,10 +47,6 @@ namespace CIS598Project.Game_Entities
 				else
 				{
 					points = 900;
-				}
-				if (duckNum == 16 && points != 900) 
-				{
-					points = 900; //Ensures that at least one duck is worth 900 points
 				}
 			}
 		}
