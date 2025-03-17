@@ -94,7 +94,7 @@ namespace CIS598Project.Rooms
 
 		Player playerRef;
 
-		public DuckPond(Player player, Game game) 
+		public DuckPond(Game game,Player player) 
 		{
 			this.game = game;
 			if (player.consecutivePlays[1] == 1 && player.foundSecret[1] == false)

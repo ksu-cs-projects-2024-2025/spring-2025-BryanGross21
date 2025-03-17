@@ -21,7 +21,7 @@ namespace CIS598Project.Game_Entities
 		{
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
-				consecutivePlays[i] = 0;
+				consecutivePlays[i] = 5;
 			}
 		}
 	}

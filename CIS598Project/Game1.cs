@@ -27,7 +27,7 @@ namespace CIS598Project
 
 			_screens = new ScreenManager(this);
 			Components.Add(_screens);
-			_screens.AddScreen(new DuckPond(new Game_Entities.Player(), this), null);
+			_screens.AddScreen(new BalloonBarrel(this, new Game_Entities.Player()), null);
 
 		}
 
