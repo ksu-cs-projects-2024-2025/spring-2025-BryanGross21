@@ -22,6 +22,7 @@ namespace CIS598Project.Game_Entities
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
 				consecutivePlays[i] = 5;
+				foundSecret[i] = true;
 			}
 		}
 	}

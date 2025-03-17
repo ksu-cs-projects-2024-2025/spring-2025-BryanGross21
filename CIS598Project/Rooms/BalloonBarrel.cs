@@ -192,6 +192,7 @@ namespace CIS598Project.Rooms
 			else
 			{
 				backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop");
+				victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Fredbear/FredbearB");
 			}
 
 			font = _content.Load<SpriteFont>("MiniGame_Font");
