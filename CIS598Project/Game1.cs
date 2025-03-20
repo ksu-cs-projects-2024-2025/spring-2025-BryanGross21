@@ -27,7 +27,7 @@ namespace CIS598Project
 
 			_screens = new ScreenManager(this);
 			Components.Add(_screens);
-			_screens.AddScreen(new BalloonBarrel(this, new Game_Entities.Player()), null);
+			_screens.AddScreen(new Ballpit_Tower(this, new Game_Entities.Player()), null);
 
 		}
 

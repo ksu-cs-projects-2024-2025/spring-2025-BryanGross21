@@ -35,6 +35,8 @@ namespace CIS598Project.Rooms
 
 		Texture2D[] victoryScreen = new Texture2D[2];
 
+		Texture2D crashScreen;
+
 		string[] ourple = { "You aren't sad about\na balloon, are you?", "You miss your friends,\ndon't you?", "Lucky for you, I know\nwhere they all are.", "They're waiting to give you\na birthday surprise!", "Follow me and I'll\ntake you to them..." };
 
 		int ourpleCount = 0;
@@ -53,9 +55,13 @@ namespace CIS598Project.Rooms
 
 		SoundEffect crying;
 
+		SoundEffect Crash;
+
 		bool overlayShow = false;
 
 		bool victory = false;
+
+		bool crash = false;
 
 		KeyboardState pastKeyboardState;
 
@@ -78,6 +84,8 @@ namespace CIS598Project.Rooms
 		SoundEffectInstance horn;
 
 		SoundEffectInstance cry;
+
+		SoundEffectInstance crashing;
 
 
 		public BalloonBarrel(Game game, Player player) 
@@ -199,7 +207,8 @@ namespace CIS598Project.Rooms
 			overlay = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Overlay");
 			crying = _content.Load<SoundEffect>("Balloon_Barrel/Sounds/Soundeffect/cry");
 			airHorn = _content.Load<SoundEffect>("Balloon_Barrel/Sounds/Soundeffect/win");
-
+			Crash = _content.Load<SoundEffect>("Duck_Pond/Duck_Pond_Sounds/df");
+			crashScreen = _content.Load<Texture2D>("Duck_Pond/Crash");
 
 			MediaPlayer.IsRepeating = true;
 			MediaPlayer.Play(backgroundSong);
@@ -276,8 +285,22 @@ namespace CIS598Project.Rooms
 				}
 				if (cry.State != SoundState.Playing)
 				{
+										
 					player.ticketAmount += score;
 					overlayShow = true;
+				}
+			}
+
+			if (victory == true && crash == true) 
+			{
+				if (crashing == null) 
+				{
+					crashing = Crash.CreateInstance();
+					crashing.Play();
+				}
+				if (crashing.State != SoundState.Playing) 
+				{
+					game.Exit();
 				}
 			}
 		}
@@ -323,7 +346,7 @@ namespace CIS598Project.Rooms
 			{
 				spriteBatch.Draw(victoryScreen[0], Vector2.Zero, Color.White);
 			}
-			else if (character == charType.GFred && victory)
+			else if (character == charType.GFred && victory && !crash)
 			{
 				spriteBatch.Draw(victoryScreen[0], Vector2.Zero, Color.White);
 				if (overlayShow) 
@@ -339,7 +362,7 @@ namespace CIS598Project.Rooms
 					}
 					if (ourpleCount >= ourple.Length) 
 					{
-						game.Exit();
+						crash = true;
 					}
 				}
 			}
@@ -361,6 +384,10 @@ namespace CIS598Project.Rooms
 					spriteBatch.DrawString(font, "PRESS SPACE", new Vector2(graphics.Viewport.Width / 2, 0), Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
 				}
 				counter++;
+			}
+			if (crash) 
+			{
+				spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
 			}
 
 			spriteBatch.End();

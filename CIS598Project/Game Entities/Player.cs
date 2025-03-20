@@ -11,6 +11,11 @@ namespace CIS598Project.Game_Entities
 	{
 		public int[] consecutivePlays = new int[16];
 
+		/// <summary>
+		/// 0 represents the ballpit tower, 1 represents prize king
+		/// </summary>
+		public int[] losses = new int[2];
+
 		public bool[] foundSecret = new bool[16];
 
 		public int ticketAmount;
@@ -21,9 +26,10 @@ namespace CIS598Project.Game_Entities
 		{
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
-				consecutivePlays[i] = 5;
-				foundSecret[i] = true;
+				consecutivePlays[i] = 0;
+				foundSecret[i] = false;
 			}
+			losses[0] = 0;
 		}
 	}
 }
