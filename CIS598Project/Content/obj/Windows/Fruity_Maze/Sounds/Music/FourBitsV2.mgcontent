@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Sounds/Music/FourBitsV2.ogg</SourceFile>
+  <SourceTime>2025-03-24T23:50:51.4110411-05:00</SourceTime>
+  <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Fruity_Maze/Sounds/Music/FourBitsV2.xnb</DestFile>
+  <DestTime>2025-03-25T01:28:02.5890992-05:00</DestTime>
+  <Importer>OggImporter</Importer>
+  <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
+  <Processor>SongProcessor</Processor>
+  <ProcessorTime>2024-08-16T12:05:56-05:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput>
+    <string>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Fruity_Maze/Sounds/Music/FourBitsV2.wma</string>
+  </BuildOutput>
+</PipelineBuildEvent>
