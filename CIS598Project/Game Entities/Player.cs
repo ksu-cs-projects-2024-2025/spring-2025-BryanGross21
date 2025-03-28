@@ -11,6 +11,8 @@ namespace CIS598Project.Game_Entities
 	{
 		public int[] consecutivePlays = new int[16];
 
+		public int fruityMazeWins = 1;
+
 		/// <summary>
 		/// 0 represents the ballpit tower, 1 represents prize king
 		/// </summary>

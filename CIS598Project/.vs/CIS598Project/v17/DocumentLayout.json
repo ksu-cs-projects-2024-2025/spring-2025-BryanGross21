@@ -3,32 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\ballpit_tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\ballpit_tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\duckpond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\duckpond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\game entities\\duck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:game entities\\duck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\pity_system.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:pity_system.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\fruitymaze.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\fruitymaze.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\game entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:game entities\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\balloonbarrel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\balloonbarrel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:game1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\balloonbarrel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\balloonbarrel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\ballpit_tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\ballpit_tower.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\game entities\\duck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:game entities\\duck.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\duckpond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\duckpond.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,104 +38,94 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Duck.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Duck.cs",
-              "RelativeDocumentMoniker": "Game Entities\\Duck.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Duck.cs",
-              "RelativeToolTip": "Game Entities\\Duck.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwAwAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T00:49:17.914Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DuckPond.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\DuckPond.cs",
-              "RelativeDocumentMoniker": "Rooms\\DuckPond.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\DuckPond.cs",
-              "RelativeToolTip": "Rooms\\DuckPond.cs",
-              "ViewState": "AQIAAI4BAAAAAAAAAAAIwJUAAAADAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T00:48:39.51Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Pity_System.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Pity_System.cs",
-              "RelativeDocumentMoniker": "Pity_System.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Pity_System.cs",
-              "RelativeToolTip": "Pity_System.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T00:41:00.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Ballpit_Tower.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\Ballpit_Tower.cs",
-              "RelativeDocumentMoniker": "Rooms\\Ballpit_Tower.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\Ballpit_Tower.cs*",
-              "RelativeToolTip": "Rooms\\Ballpit_Tower.cs*",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwCUAAACWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-20T00:39:32.025Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Game1.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game1.cs",
-              "RelativeDocumentMoniker": "Game1.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game1.cs",
-              "RelativeToolTip": "Game1.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAnAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T05:54:05.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Player.cs",
-              "RelativeDocumentMoniker": "Game Entities\\Player.cs",
-              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Player.cs",
-              "RelativeToolTip": "Game Entities\\Player.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T00:49:01.146Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "BalloonBarrel.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\BalloonBarrel.cs",
               "RelativeDocumentMoniker": "Rooms\\BalloonBarrel.cs",
               "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\BalloonBarrel.cs",
               "RelativeToolTip": "Rooms\\BalloonBarrel.cs",
-              "ViewState": "AQIAAFUAAAAAAAAAAAAQwFwBAAA3AAAA",
+              "ViewState": "AgIAAAABAAAAAAAAAAArwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-17T05:36:35.716Z",
+              "WhenOpened": "2025-03-27T23:42:12.002Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ballpit_Tower.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\Ballpit_Tower.cs",
+              "RelativeDocumentMoniker": "Rooms\\Ballpit_Tower.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\Ballpit_Tower.cs",
+              "RelativeToolTip": "Rooms\\Ballpit_Tower.cs",
+              "ViewState": "AgIAAPMAAAAAAAAAAAAkwA4BAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T23:00:03.27Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "FruityMaze.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\FruityMaze.cs",
+              "RelativeDocumentMoniker": "Rooms\\FruityMaze.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\FruityMaze.cs*",
+              "RelativeToolTip": "Rooms\\FruityMaze.cs*",
+              "ViewState": "AgIAADIBAAAAAAAAAAAawDQBAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-27T22:59:45.743Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Player.cs",
+              "RelativeDocumentMoniker": "Game Entities\\Player.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Player.cs",
+              "RelativeToolTip": "Game Entities\\Player.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAgwA0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T18:17:12.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Duck.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Duck.cs",
+              "RelativeDocumentMoniker": "Game Entities\\Duck.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game Entities\\Duck.cs",
+              "RelativeToolTip": "Game Entities\\Duck.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T19:49:52.362Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DuckPond.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\DuckPond.cs",
+              "RelativeDocumentMoniker": "Rooms\\DuckPond.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\DuckPond.cs",
+              "RelativeToolTip": "Rooms\\DuckPond.cs",
+              "ViewState": "AgIAAK4BAAAAAAAAAAAAALsBAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T18:16:30.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Game1.cs",
+              "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game1.cs",
+              "RelativeDocumentMoniker": "Game1.cs",
+              "ToolTip": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Game1.cs",
+              "RelativeToolTip": "Game1.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAYwB0AAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T18:16:17.731Z"
             }
           ]
         }
