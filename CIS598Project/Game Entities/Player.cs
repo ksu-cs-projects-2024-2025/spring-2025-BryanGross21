@@ -11,7 +11,7 @@ namespace CIS598Project.Game_Entities
 	{
 		public int[] consecutivePlays = new int[16];
 
-		public int fruityMazeWins = 1;
+		public int fruityMazeWins = 2;
 
 		/// <summary>
 		/// 0 represents the ballpit tower, 1 represents prize king
@@ -21,8 +21,6 @@ namespace CIS598Project.Game_Entities
 		public bool[] foundSecret = new bool[16];
 
 		public int ticketAmount;
-
-		public int tokenAmount;
 
 		public Player() 
 		{

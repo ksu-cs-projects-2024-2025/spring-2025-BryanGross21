@@ -20,5 +20,16 @@ namespace CIS598Project.Collisions
 		{
 			return !(a.Right < b.Left || a.Left > b.Right || a.Top > b.Bottom || a.Bottom < b.Top);
 		}
+
+		/// <summary>
+		/// Detects collision between two bounding rectangles
+		/// </summary>
+		/// <param name="a">the first rectangle</param>
+		/// <param name="b">the second rectangle</param>
+		/// <returns>True if there is a collision, false if there isn't one</returns>
+		public static bool Collides(BoundingRectangle a, BoundingRectanglePriority b)
+		{
+			return !(a.Right < b.Left || a.Left > b.Right || a.Top > b.Bottom || a.Bottom < b.Top);
+		}
 	}
 }

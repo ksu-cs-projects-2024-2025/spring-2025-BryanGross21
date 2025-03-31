@@ -3283,6 +3283,42 @@
 /processorParam:TextureFormat=Color
 /build:Fruity_Maze/Textures/Chica/Chica3.png
 
+#begin Fruity_Maze/Textures/Chica/Chica4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fruity_Maze/Textures/Chica/Chica4.png
+
+#begin Fruity_Maze/Textures/Chica/Chica5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fruity_Maze/Textures/Chica/Chica5.png
+
+#begin Fruity_Maze/Textures/Chica/Chica6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fruity_Maze/Textures/Chica/Chica6.png
+
 #begin Fruity_Maze/Textures/Fruit/Coconut.png
 /importer:TextureImporter
 /processor:TextureProcessor

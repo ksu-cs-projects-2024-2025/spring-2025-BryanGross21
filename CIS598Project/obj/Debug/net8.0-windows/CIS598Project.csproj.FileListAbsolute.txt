@@ -345,3 +345,6 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Screen\ScreenBorder.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Signs\End.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Signs\Start.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Chica\Chica4.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Chica\Chica5.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fruity_Maze\Textures\Chica\Chica6.xnb

@@ -291,6 +291,9 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica1.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica2.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica4.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica5.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Chica/Chica6.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Fruit/Coconut.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Fruit/Grape.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Fruit/Melon.png</File>
@@ -310,6 +313,9 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/MiniGame_Font.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
