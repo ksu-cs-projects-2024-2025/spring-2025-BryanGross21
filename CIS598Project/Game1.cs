@@ -27,7 +27,7 @@ namespace CIS598Project
 
 			_screens = new ScreenManager(this);
 			Components.Add(_screens);
-			_screens.AddScreen(new FruityMaze(this, new Game_Entities.Player()), null);
+			_screens.AddScreen(new Discount_Ballpit(this, new Game_Entities.Player()), null);
 
 		}
 

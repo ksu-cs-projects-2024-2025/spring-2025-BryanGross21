@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fredbear_Icon.ico</SourceFile>
-  <SourceTime>2025-03-11T01:34:02.9746727-05:00</SourceTime>
+  <SourceTime>2025-03-12T13:14:15.4809671-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Content/Fredbear_Icon.xnb</DestFile>
-  <DestTime>2025-03-29T16:45:48.3489064-05:00</DestTime>
+  <DestTime>2025-03-31T16:50:02.2515411-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
