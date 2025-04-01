@@ -97,6 +97,8 @@ namespace CIS598Project.Rooms
 
 		SoundEffectInstance cry;
 
+		SoundEffectInstance crashed;
+
         bool goRight = true;
 
 		int misses = 0;
@@ -112,6 +114,8 @@ namespace CIS598Project.Rooms
 		double thoughtsTimer = 0;
 
 		double finalThoughtsTime = 0;
+
+
 
 		double buffer = 0;
 
@@ -313,74 +317,101 @@ namespace CIS598Project.Rooms
 
 				if (reactionTimer >= 3) 
 				{
-					fredbear = FredbearState.idle;
-					ballpit = ballpitState.wait;
 					reactionTimer -= 3;
-					if (roundNum != 6 || misses == 5)
+
+					if (PlayerRef.foundSecret[2] == true)
 					{
-						if (misses == 0 && previousSong != songs[0])
+						fredbear = FredbearState.idle;
+						ballpit = ballpitState.wait;
+						MediaPlayer.Play(songs[0]);
+					}
+					else if (roundNum != 6 || misses == 5 && PlayerRef.foundSecret[2] != true)
+					{
+						if (misses == 0 && previousSong != songs[0] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[0]);
 							previousSong = songs[0];
 						}
-						else if (misses == 1 && previousSong != songs[1])
+						else if (misses == 1 && previousSong != songs[1] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[1]);
 							previousSong = songs[1];
 						}
-						else if (misses == 2 && previousSong != songs[2])
+						else if (misses == 2 && previousSong != songs[2] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[2]);
 							previousSong = songs[2];
 						}
-						else if (misses == 3 && previousSong != songs[3])
+						else if (misses == 3 && previousSong != songs[3] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[3]);
 							previousSong = songs[3];
 						}
-						else if (misses == 4 && previousSong != songs[4])
+						else if (misses == 4 && previousSong != songs[4] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[4]);
 							previousSong = songs[4];
 						}
-						else if (misses == 5 && previousSong != songs[5])
+						else if (misses == 5 && previousSong != songs[5] && PlayerRef.foundSecret[2] == false)
 						{
 							MediaPlayer.Play(songs[5]);
 							previousSong = songs[5];
 						}
-					}
-					else if (roundNum == 6 && misses != 5)
-					{
-						if (complete == null)
+						if (misses != 5)
 						{
-							complete = completed.CreateInstance();
-							complete.Play();
-						}
-						if (complete.State != SoundState.Playing)
-						{
-							PlayerRef.ticketAmount += score;
-							PlayerRef.ballpitPlays += 1;
-							game.Exit();
+							fredbear = FredbearState.idle;
+							ballpit = ballpitState.wait;
 						}
 					}
-					else 
-					{
-						if (cry == null) 
-						{
-							cry = crying.CreateInstance();
-							cry.Play();
-						}
-						if (cry.State != SoundState.Playing) 
-						{
-							showFinalThought = true;
-						}
-					}
-                }
+
+				}
 
 			}
 
+			if (roundNum == 6 && misses == 5 && PlayerRef.foundSecret[2] == false)
+			{
+				if (cry == null)
+				{
+					cry = crying.CreateInstance();
+					cry.Play();
+				}
+				if (cry.State != SoundState.Playing)
+				{
+					showFinalThought = true;
+				}
 
-        }
+			}
+			else if (roundNum == 6 && misses != 5 && PlayerRef.foundSecret[2] == false)
+			{
+				if (complete == null)
+				{
+					complete = completed.CreateInstance();
+					complete.Play();
+				}
+				if (complete.State != SoundState.Playing)
+				{
+					PlayerRef.ticketAmount += score;
+					PlayerRef.ballpitPlays += 1;
+					game.Exit();
+				}
+			}
+			else if (roundNum == 6 && PlayerRef.foundSecret[2] == true) 
+			{
+				if (complete == null)
+				{
+					complete = completed.CreateInstance();
+					complete.Play();
+				}
+				if (complete.State != SoundState.Playing)
+				{
+					PlayerRef.ticketAmount += score;
+					PlayerRef.ballpitPlays += 1;
+					game.Exit();
+				}
+			}
+
+
+			}
 
 		public override void Draw(GameTime gameTime)
 		{
@@ -404,7 +435,7 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
             }
 
-            if (misses != 5 && PlayerRef.foundSecret[2] != true)
+            if (misses != 5)
             {
                 spriteBatch.DrawString(font, "Score: " + score, Vector2.Zero, Color.White);
             }
@@ -424,10 +455,6 @@ namespace CIS598Project.Rooms
 					}
 				}
                 spriteBatch.DrawString(font, "Score: " + thoughts[random], Vector2.Zero, Color.Purple);
-            }
-            else
-            {
-                spriteBatch.DrawString(font, "Score: " + score, Vector2.Zero, Color.White);
             }
 
 			if (fredbear == FredbearState.idle) 
@@ -552,32 +579,38 @@ namespace CIS598Project.Rooms
 			else if (fredbear == FredbearState.fail && misses == 5) 
 			{
 				fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (fredbearTimer >= .1) 
+				if (fredbearTimer >= .3) 
 				{
                     fredbear_Frame++;
                     if (fredbear_Frame >= 5)
                     {
                         fredbear_Frame = 0;
                     }
-                    fredbearTimer -= .1;
+                    fredbearTimer -= .3;
                 }
-                spriteBatch.Draw(Golden_Cry[fredbear_Frame], fredbearPosition, null, Color.White, 0f, new Vector2(194 / 2, 325f / 2f), .75f, SpriteEffects.None, 0);
+                spriteBatch.Draw(Golden_Cry[fredbear_Frame], new Vector2(fredbearPosition.X, fredbearPosition.Y + 200), null, Color.White, 0f, new Vector2(194 / 2, 325f / 2f), .75f, SpriteEffects.None, 0);
             }
 
 			if (showFinalThought) 
 			{
+				MediaPlayer.Stop();
+
 				spriteBatch.Draw(overlay, Vector2.Zero, Color.White);
 
-				spriteBatch.DrawString(font, finalThought, new Vector2(graphics.Viewport.Width + 150 / 2, graphics.Viewport.Height / 2 - 150), Color.Yellow);
+				spriteBatch.DrawString(font, finalThought, new Vector2(graphics.Viewport.Width / 2 - 100, graphics.Viewport.Height / 2 - 100), Color.Yellow);
 
 				finalThoughtsTime += gameTime.ElapsedGameTime.TotalSeconds;
 
-				if (finalThoughtsTime >= 3) 
+				if (finalThoughtsTime >= 5) 
 				{
 					spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
-					crash.Play();
-					if (finalThoughtsTime > 5) 
+					if (crashed == null)
 					{
+						crashed = crash.CreateInstance();
+						crashed.Play();
+					}
+					if(crashed.State != SoundState.Playing)
+					{ 
 						PlayerRef.foundSecret[2] = true;
 						game.Exit();
 					}
