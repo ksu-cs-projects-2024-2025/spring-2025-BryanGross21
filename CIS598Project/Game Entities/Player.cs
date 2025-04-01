@@ -13,7 +13,7 @@ namespace CIS598Project.Game_Entities
 
 		public int fruityMazeWins = 0;
 
-		public int ballpitPlays = 0;
+		public int ballpitPlays = 4;
 
 		/// <summary>
 		/// 0 represents the ballpit tower, 1 represents prize king
@@ -29,7 +29,7 @@ namespace CIS598Project.Game_Entities
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
 				consecutivePlays[i] = 0;
-				foundSecret[i] = false;
+				foundSecret[i] = true;
 			}
 			losses[0] = 0;
 		}
