@@ -435,7 +435,7 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
             }
 
-            if (misses != 5)
+            if (misses != 5 || PlayerRef.foundSecret[2] == true)
             {
                 spriteBatch.DrawString(font, "Score: " + score, Vector2.Zero, Color.White);
             }
@@ -462,7 +462,7 @@ namespace CIS598Project.Rooms
 				fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
 				double gate = 0; //How fast the animation should go based off the amount of misses
-				if (misses == 0)
+				if (misses == 0 || PlayerRef.foundSecret[2] == true)
 				{
 					gate = .5;
 				}
@@ -538,12 +538,12 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(jumped, fredbearPosition, Color.White);
 			}
 
-			if (fredbear == FredbearState.fail && misses != 5)
+			if (fredbear == FredbearState.fail && PlayerRef.foundSecret[2] == true )
 			{
                 fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
                 double gate = 0; //How fast the animation should go based off the amount of misses
-                if (misses == 0)
+                if (misses == 0 || PlayerRef.foundSecret[2] == true)
                 {
                     gate = .5;
                 }
@@ -576,7 +576,7 @@ namespace CIS598Project.Rooms
 
                 spriteBatch.Draw(Fredbear_Cry[fredbear_Frame], new Vector2(fredbearPosition.X, fredbearPosition.Y + 100), Color.White);
             }
-			else if (fredbear == FredbearState.fail && misses == 5) 
+			else if (fredbear == FredbearState.fail && misses == 5 && PlayerRef.foundSecret[2] == false) 
 			{
 				fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 				if (fredbearTimer >= .3) 
