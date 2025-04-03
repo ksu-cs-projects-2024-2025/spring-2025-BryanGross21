@@ -152,7 +152,7 @@ namespace CIS598Project.Rooms
 		{
 			this.game = game;
 			playerRef = player;
-			//game.IsMouseVisible = false;
+			game.IsMouseVisible = false;
 			if (player.foundSecret[5] == false)
 			{
 				if (player.fruityMazeWins == 0)

@@ -29,7 +29,7 @@ namespace CIS598Project.Game_Entities
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
 				consecutivePlays[i] = 0;
-				foundSecret[i] = true;
+				foundSecret[i] = false;
 			}
 			losses[0] = 0;
 		}

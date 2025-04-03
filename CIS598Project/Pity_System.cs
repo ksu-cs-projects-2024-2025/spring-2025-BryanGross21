@@ -23,7 +23,7 @@ namespace CIS598Project
 		{
 			Random ran = new();
 
-			return ran.Next(95 + (player.losses[0] * 5), 101);
+			return ran.Next(0 + (player.losses[0] * 5), 101);
 		}
 	}
 }
