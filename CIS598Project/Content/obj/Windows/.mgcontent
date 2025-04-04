@@ -345,8 +345,134 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Signs/End.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Signs/Start.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/MiniGame_Font.spritefont</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Sounds/Music/Alchemists_Fantasy.ogg</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Sounds/Soundeffects/increaseDecrease.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Sounds/Soundeffects/nextround.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Sounds/Soundeffects/yourdone.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Backgrounds/Camera_off.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Backgrounds/Camera_on.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Blue1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Blue2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Green1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Green2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Red1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Red2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Yellow1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bands/Yellow2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid1_Base_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid1_Base_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid1_Base_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid2_Base_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid2_Base_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid2_Base_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid3_Base_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid3_Base_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid3_Base_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid4_Base_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid4_Base_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Bodies/Kid4_Base_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Eyes/Blink.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Eyes/Blue_eyes.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Eyes/Green_eyes.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Eyes/Hazel_eyes.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Eyes/White_eyes.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Han4_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand3_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand3_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand3_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand4_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand4_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands1_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands1_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands1_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands2_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands2_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hands2_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt1_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt1_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt1_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt2_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt2_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt2_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt3_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt3_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt3_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt4_1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt4_2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Shirts/shirt4_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Misc/Decrease.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Misc/Increase.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred4.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred5.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Reflections/Fred/Fred6.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
