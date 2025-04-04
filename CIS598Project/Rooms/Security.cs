@@ -133,6 +133,8 @@ namespace CIS598Project.Rooms
 
 		int chosenChildPosition = 0;
 
+		int guess = 0;
+
 		bool showText = false;
 
 		int currentRound = 1;
@@ -259,31 +261,25 @@ namespace CIS598Project.Rooms
 
 		private void GenerateGroup() 
 		{
+			chosenChild = GenerateChildren();
 			Random ran = new();
 			int randomNum = ran.Next(0, children[currentRound - 1].Length);
 			for (int i = 0; i < children[currentRound - 1].Length; i++) 
 			{
 				if (i == randomNum)
 				{
-					chosenChild = GenerateChildren();
 					children[currentRound - 1][i] = chosenChild;
 					chosenChildPosition = i;
 				}
 				else 
 				{
-					if (chosenChild == null)
+
+					Security_Children child = GenerateChildren();
+					while (chosenChild.bandColor == child.bandColor && chosenChild.color == child.color && chosenChild.shirtColor == child.shirtColor && chosenChild.eyeColor == child.eyeColor) 
 					{
-						children[currentRound - 1][i] = GenerateChildren();
+						child = GenerateChildren();
 					}
-					else 
-					{
-						Security_Children child = GenerateChildren();
-						while (chosenChild.bandColor == child.bandColor && chosenChild.color == child.color && chosenChild.shirtColor == child.shirtColor && chosenChild.eyeColor == child.eyeColor) 
-						{
-							child = GenerateChildren();
-						}
-						children[currentRound - 1][i] = child;
-					}
+					children[currentRound - 1][i] = child;
 				}
 			}
 		}
@@ -328,7 +324,7 @@ namespace CIS598Project.Rooms
 
 				if (childPosition.X < game.GraphicsDevice.Viewport.Width - 249 && hasChildTouchedDoor == false)
 				{
-					childPosition.X += 1 + (currentRound * 2.5f);
+					childPosition.X += 10 + (currentRound * 2.5f);
 				}
 
 				if (childPosition.X >= game.GraphicsDevice.Viewport.Width - 249 && hasChildTouchedDoor == false) 
@@ -338,7 +334,7 @@ namespace CIS598Project.Rooms
 
 				if (hasChildTouchedDoor == true) 
 				{
-					childPosition.X -= (1 + currentRound * 2.5f);
+					childPosition.X -= (10 + currentRound * 2.5f);
 				}
 		
 				if (childCounter == children[currentRound - 1].Length) 
@@ -447,6 +443,13 @@ namespace CIS598Project.Rooms
 			else 
 			{
 				spriteBatch.Draw(background[0], Vector2.Zero, Color.White);
+			}
+
+			if (gameState == GameStateSecurity.Guess) 
+			{
+				spriteBatch.Draw(signs[0], new Vector2(graphics.Viewport.Width / 2 + 150, graphics.Viewport.Height / 2), Color.White);
+				spriteBatch.Draw(signs[1], new Vector2(graphics.Viewport.Width / 2 + 150, graphics.Viewport.Height / 2 + 150), Color.White);
+				spriteBatch.DrawString(font, "Your guess: " + guess.ToString(), new Vector2(graphics.Viewport.Width / 2 - 350, graphics.Viewport.Height / 2 + 100), Color.White);
 			}
 
 			if (gameState == GameStateSecurity.Start || gameState == GameStateSecurity.Intermission)
