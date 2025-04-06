@@ -16,7 +16,7 @@ using static System.Net.Mime.MediaTypeNames;
 using System.Xml.Linq;
 using System.Threading;
 using System.Data;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+
 
 
 
@@ -149,10 +149,12 @@ namespace CIS598Project.Rooms
 		int count = 0;
 			
 		BoundingRectangle mouse = new(0, 0, 64, 64);
+		BoundingRectangle increaseBox;
+		BoundingRectangle decreaseBox;
 
-		int score = 0;
 
-		Player playerRef;
+        int score = 0;
+        Player playerRef;
 
 		public Security(Game game,Player player) 
 		{
@@ -243,6 +245,8 @@ namespace CIS598Project.Rooms
 			Screens[2] = _content.Load<Texture2D>("Fruity_Maze/Textures/Screen/ScreenBorder");
 
 			childPosition = new Vector2(0, game.GraphicsDevice.Viewport.Height / 2);
+			increaseBox = new(game.GraphicsDevice.Viewport.Width / 2 + 150, game.GraphicsDevice.Viewport.Height / 2, 128, 128);
+			decreaseBox = new(game.GraphicsDevice.Viewport.Width / 2 + 150, game.GraphicsDevice.Viewport.Height / 2 + 150, 128, 128);
 
 			for (int i = 5; i >= 0; i--) 
 			{
@@ -313,9 +317,9 @@ namespace CIS598Project.Rooms
 
 			Vector2 mousePosition = new Vector2(currentMousePosition.X, currentMousePosition.Y);
 
-			if (gameState == GameStateSecurity.Play) 
+			if (gameState == GameStateSecurity.Play)
 			{
-				if (hasChildTouchedDoor == true && childPosition.X <= -250) 
+				if (hasChildTouchedDoor == true && childPosition.X <= -250)
 				{
 					hasChildTouchedDoor = false;
 					childPosition.X = -250;
@@ -327,19 +331,30 @@ namespace CIS598Project.Rooms
 					childPosition.X += 10 + (currentRound * 2.5f);
 				}
 
-				if (childPosition.X >= game.GraphicsDevice.Viewport.Width - 249 && hasChildTouchedDoor == false) 
+				if (childPosition.X >= game.GraphicsDevice.Viewport.Width - 249 && hasChildTouchedDoor == false)
 				{
 					hasChildTouchedDoor = true;
 				}
 
-				if (hasChildTouchedDoor == true) 
+				if (hasChildTouchedDoor == true)
 				{
 					childPosition.X -= (10 + currentRound * 2.5f);
 				}
-		
-				if (childCounter == children[currentRound - 1].Length) 
+
+				if (childCounter == children[currentRound - 1].Length)
 				{
 					gameState = GameStateSecurity.Guess;
+				}
+			}
+			else if (gameState == GameStateSecurity.Guess) 
+			{
+				if (mouse.collidesWith(increaseBox))
+				{
+
+				}
+				else if (mouse.collidesWith(decreaseBox)) 
+				{
+
 				}
 			}
 
