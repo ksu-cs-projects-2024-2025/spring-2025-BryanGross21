@@ -452,3 +452,6 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Textures\Reflections\Fred\Fred4.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Textures\Reflections\Fred\Fred5.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Textures\Reflections\Fred\Fred6.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Textures\Misc\Go.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Sounds\Soundeffects\boo.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Sounds\Soundeffects\yay.xnb

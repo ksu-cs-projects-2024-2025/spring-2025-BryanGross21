@@ -3878,6 +3878,12 @@
 /processorParam:Quality=Best
 /build:Security/Sounds/Music/Alchemists_Fantasy.ogg
 
+#begin Security/Sounds/Soundeffects/boo.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Security/Sounds/Soundeffects/boo.wav
+
 #begin Security/Sounds/Soundeffects/increaseDecrease.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -3889,6 +3895,12 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Security/Sounds/Soundeffects/nextround.wav
+
+#begin Security/Sounds/Soundeffects/yay.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Security/Sounds/Soundeffects/yay.wav
 
 #begin Security/Sounds/Soundeffects/yourdone.wav
 /importer:WavImporter
@@ -4519,6 +4531,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Security/Textures/Misc/Decrease.png
+
+#begin Security/Textures/Misc/Go.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Security/Textures/Misc/Go.png
 
 #begin Security/Textures/Misc/Increase.png
 /importer:TextureImporter
