@@ -173,18 +173,19 @@ namespace CIS598Project.Rooms
 
 
         int score = 0;
-        Player playerRef;
+        Player player;
 
 		public Security(Game game,Player player) 
 		{
 			this.game = game;
-			playerRef = player;
+			this.player = player;
 			game.IsMouseVisible = false;
 			for (int i = 0; i < children.Length; i++) 
 			{
 				children[i] = new Security_Children[4 + (i * 2)];
 			}
 
+			
 			game.IsMouseVisible = true;
 		}
 
@@ -417,6 +418,90 @@ namespace CIS598Project.Rooms
 				}
 			}
 
+			if (gameState == GameStateSecurity.Win) 
+			{
+				if (airHorn == null)
+				{
+					MediaPlayer.Stop();
+					airHorn = horn.CreateInstance();
+					airHorn.Play();
+				}
+				if (airHorn.State != SoundState.Playing)
+				{
+					player.ticketAmount += score;
+					if (player.foundSecret[15])
+					{
+						for (int i = 0; i < player.consecutivePlays.Length; i++)
+						{
+							if (i != 0)
+							{
+								player.consecutivePlays[i] = 0;
+							}
+
+						}
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					}
+					else
+					{
+						gameState = GameStateSecurity.Secret;
+					}
+				}
+			}
+
+			if (gameState == GameStateSecurity.GameOver) 
+			{
+				if (result == null)
+				{
+					result = failed.CreateInstance();
+					result.Play();
+				}
+				if (result.State != SoundState.Playing)
+				{
+					player.ticketAmount += score;
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+
+					}
+
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+				}
+			}
+
+			if (crash) 
+			{
+				if (crashing == null)
+				{
+					crashing = Crash.CreateInstance();
+					crashing.Play();
+				}
+				if (crashing.State != SoundState.Playing)
+				{
+					player.foundSecret[15] = true;
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+				}
+			}
+
             mouse.X = mousePosition.X;
 			mouse.Y = mousePosition.Y;
 
@@ -453,7 +538,7 @@ namespace CIS598Project.Rooms
 					}
 					if (showText)
 					{
-						spriteBatch.DrawString(font, "GUESSING TIME!!!\n" + (chosenChildPosition + 1) , new Vector2(graphics.Viewport.Width / 2 - 250, 50), Color.White);
+						spriteBatch.DrawString(font, "GUESSING TIME!!!\n" , new Vector2(graphics.Viewport.Width / 2 - 250, 50), Color.White);
 					}
 				}
 				spriteBatch.DrawString(font, "Chosen kid: ", new Vector2(75, 50), Color.White);
@@ -592,24 +677,6 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.Green);
 				}
-				if (airHorn == null)
-				{
-					MediaPlayer.Stop();
-					airHorn = horn.CreateInstance();
-					airHorn.Play();
-				}
-				if (airHorn.State != SoundState.Playing)
-				{
-					playerRef.ticketAmount += score;
-					if (playerRef.foundSecret[15])
-					{
-						game.Exit();
-					}
-					else 
-					{
-						gameState = GameStateSecurity.Secret;
-					}
-				}
 			}
 
 			if (gameState == GameStateSecurity.Secret) 
@@ -655,92 +722,67 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.DrawString(font, "GAME OVER!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.Red);
 				}
-				if (result == null)
-				{
-					result = failed.CreateInstance();
-					result.Play();
-				}
-				if (result.State != SoundState.Playing)
-				{
-					playerRef.ticketAmount += score;
-					game.Exit();
-				}
-
-
 			}
 
-			if (gameState == GameStateSecurity.Start || gameState == GameStateSecurity.Intermission)
-			{
-				if (gameState == GameStateSecurity.Intermission && MediaPlayer.State != MediaState.Playing) 
+				if (gameState == GameStateSecurity.Start || gameState == GameStateSecurity.Intermission)
 				{
-					MediaPlayer.Play(backgroundMusic,currentPosition);
+					if (gameState == GameStateSecurity.Intermission && MediaPlayer.State != MediaState.Playing)
+					{
+						MediaPlayer.Play(backgroundMusic, currentPosition);
+					}
+
+					buffer += gameTime.ElapsedGameTime.TotalSeconds;
+
+					if (buffer <= 2)
+					{
+						spriteBatch.DrawString(font, "ROUND " + currentRound + "!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
+					}
+					else if (buffer > 2 && buffer < 4)
+					{
+						spriteBatch.DrawString(font, "READY!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
+					}
+					else if (buffer >= 4 && buffer < 6)
+					{
+						spriteBatch.DrawString(font, "GO!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
+					}
+					else
+					{
+						GenerateGroup();
+						gameState = GameStateSecurity.Play;
+						buffer = 0;
+					}
 				}
 
-				buffer += gameTime.ElapsedGameTime.TotalSeconds;
+				spriteBatch.DrawString(font, "Score: " + score, new Vector2(graphics.Viewport.Width - 550, 50), Color.White);
 
-				if (buffer <= 2)
-				{
-					spriteBatch.DrawString(font, "ROUND " + currentRound + "!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
-				}
-				else if (buffer > 2 && buffer < 4)
-				{
-					spriteBatch.DrawString(font, "READY!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
-				}
-				else if (buffer >= 4 && buffer < 6)
-				{
-					spriteBatch.DrawString(font, "GO!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.White);
-				}
-				else
-				{
-					GenerateGroup();
-					gameState = GameStateSecurity.Play;
-					buffer = 0;
-				}
-			}
 
-			spriteBatch.DrawString(font, "Score: " + score, new Vector2(graphics.Viewport.Width - 550, 50), Color.White);
 
+				spriteBatch.Draw(Screens[0], Vector2.Zero, Color.White);
+				spriteBatch.Draw(Screens[1], Vector2.Zero, Color.White);
+				spriteBatch.Draw(Screens[2], Vector2.Zero, Color.White);
+
+				if (purpleDialogue && crash == false)
+				{
+					ourpleTimer += gameTime.ElapsedGameTime.TotalSeconds;
+					spriteBatch.DrawString(font, ourple[ourpleCount], new Vector2(graphics.Viewport.Width / 2 - 350, 250), Color.Purple);
+					if (ourpleTimer > 10)
+					{
+						ourpleCount++;
+						ourpleTimer -= 10;
+					}
+					if (ourpleCount == ourple.Length)
+					{
+						crash = true;
+					}
+				}
+
+				if (crash == true)
+				{
+					spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
+				}
 			
 
-			spriteBatch.Draw(Screens[0], Vector2.Zero, Color.White);
-			spriteBatch.Draw(Screens[1], Vector2.Zero, Color.White);
-			spriteBatch.Draw(Screens[2], Vector2.Zero, Color.White);
-
-			if (purpleDialogue && crash == false)
-			{
-				ourpleTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				spriteBatch.DrawString(font, ourple[ourpleCount], new Vector2(graphics.Viewport.Width / 2 - 350, 250), Color.Purple);
-				if (ourpleTimer > 10)
-				{
-					ourpleCount++;
-					ourpleTimer -= 10;
-				}
-				if (ourpleCount == ourple.Length)
-				{
-					crash = true;
-				}
-			}
-
-			if (crash == true)
-			{
-				spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
-				if (crashing == null)
-				{
-					crashing = Crash.CreateInstance();
-					crashing.Play();
-				}
-				if (crashing.State != SoundState.Playing)
-				{
-					playerRef.foundSecret[15] = true;
-					game.Exit();
-				}
-			}
-
-
-			spriteBatch.End();
-
-			
-
+				spriteBatch.End();
         }
 	}
 }

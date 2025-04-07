@@ -4628,3 +4628,9 @@
 /processorParam:TextureFormat=Color
 /build:Security/Textures/Reflections/Fred/Fred6.png
 
+#begin Thank_You_For_Your_Patience_2_.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Thank_You_For_Your_Patience_2_.ogg
+

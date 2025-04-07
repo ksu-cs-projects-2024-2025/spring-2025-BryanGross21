@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CIS598Project")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6d9b00f93496915ff39b415b8da387ad61ad193a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+13178f5e84504beafda612d6e35f2562dd1ab5e8")]
 [assembly: System.Reflection.AssemblyProductAttribute("CIS598Project")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CIS598Project")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

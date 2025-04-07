@@ -455,3 +455,5 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Textures\Misc\Go.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Sounds\Soundeffects\boo.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Security\Sounds\Soundeffects\yay.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Thank_You_For_Your_Patience_2_.wma
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Thank_You_For_Your_Patience_2_.xnb

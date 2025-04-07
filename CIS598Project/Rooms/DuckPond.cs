@@ -287,7 +287,13 @@ namespace CIS598Project.Rooms
 			if (duckType != DuckType.SadFred && close == true)
 			{
 				canSelect = false;
-				playerRef.ticketAmount += score;
+				for (int i = 0; i < playerRef.consecutivePlays.Length; i++) 
+				{
+					if (i != 1) 
+					{
+						playerRef.consecutivePlays[i] = 0;
+					}
+				}
 				timeToShowScore += 1;
 				if (timeToShowScore == 1) 
 				{
@@ -295,7 +301,12 @@ namespace CIS598Project.Rooms
 				}
 				if (timeToShowScore == 100)
 				{
-					game.Exit();
+					playerRef.consecutivePlays[1] += 1;
+					playerRef.ticketAmount += score;
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(playerRef, game), PlayerIndex.One);
 				}
 			}
 			else if (duckType == DuckType.SadFred && close == true)
@@ -310,15 +321,26 @@ namespace CIS598Project.Rooms
                     if (timeToShowScore == 2)
 					{
                         Crash.Play();
-                        playerRef.ticketAmount += score;
-                    }
+						playerRef.foundSecret[1] = true;
+						for (int i = 0; i < playerRef.consecutivePlays.Length; i++)
+						{
+							if (i != 1)
+							{
+								playerRef.consecutivePlays[i] = 0;
+							}
+						}
+					}
                     crash = true;
                 }
 
                 if (timeToShowScore == 100)
                 {
-                    game.Exit();
-                }
+					playerRef.ticketAmount += score;
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(playerRef, game), PlayerIndex.One);
+				}
             }
 
 			mouse.X = mousePosition.X;

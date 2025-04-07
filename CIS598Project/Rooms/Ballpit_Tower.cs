@@ -270,7 +270,15 @@ namespace CIS598Project.Rooms
 					if (lost.State != SoundState.Playing)
 					{
 						player.losses[0]++;
-						game.Exit();
+						for (int i = 0; i < player.consecutivePlays.Length; i++)
+						{
+							player.consecutivePlays[i] = 0;
+
+						}
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
 					}
 				}
 				if (horn != null)
@@ -278,7 +286,15 @@ namespace CIS598Project.Rooms
 					if (horn.State != SoundState.Playing)
 					{
 						player.losses[0] = 0;
-						game.Exit();
+						for (int i = 0; i < player.consecutivePlays.Length; i++)
+						{
+							player.consecutivePlays[i] = 0;
+
+						}
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
 					}
 				}
 			}
@@ -305,7 +321,17 @@ namespace CIS598Project.Rooms
 				}
 				if (crashing.State != SoundState.Playing) 
 				{
-					game.Exit();
+					player.foundSecret[11] = true;
+					player.losses[0] = 0;
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						player.consecutivePlays[i] = 0;
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
 				}
 			}
 		}

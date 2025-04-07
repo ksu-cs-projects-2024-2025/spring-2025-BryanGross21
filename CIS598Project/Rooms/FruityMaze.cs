@@ -146,12 +146,12 @@ namespace CIS598Project.Rooms
 
 		int score = 5000;
 
-		Player playerRef;
+		Player player;
 
 		public FruityMaze(Game game,Player player) 
 		{
 			this.game = game;
-			playerRef = player;
+			this.player = player;
 			game.IsMouseVisible = false;
 			if (player.foundSecret[5] == false)
 			{
@@ -369,8 +369,19 @@ namespace CIS598Project.Rooms
 				}
 				if (StateChange.State != SoundState.Playing)
 				{
-					
-					game.Exit();
+
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
 				}
 			}
 
@@ -384,10 +395,52 @@ namespace CIS598Project.Rooms
 				}
 				if (airHorn.State != SoundState.Playing) 
 				{
-					playerRef.ticketAmount += score;
-					game.Exit();
+					player.ticketAmount += score;
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
 				}
 			}
+
+			if (crash) 
+			{
+				if (crashing == null)
+				{
+					crashing = Crash.CreateInstance();
+					crashing.Play();
+				}
+				if (crashing.State != SoundState.Playing)
+				{
+					player.foundSecret[5] = true;
+					if (state == GameState.Win)
+					{
+						player.ticketAmount += score;
+					}
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+				}
+			}
+
+
 
             mouse.X = mousePosition.X;
 			mouse.Y = mousePosition.Y;
@@ -568,20 +621,6 @@ namespace CIS598Project.Rooms
 			if (crash == true) 
 			{
 				spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
-				if (crashing == null) 
-				{
-					crashing = Crash.CreateInstance();
-					crashing.Play();
-				}
-				if (crashing.State != SoundState.Playing) 
-				{
-					playerRef.foundSecret[5] = true;
-					if (state == GameState.Win) 
-					{
-						playerRef.ticketAmount += score;
-					}
-					game.Exit();
-				}
 			}
 
 

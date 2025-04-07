@@ -392,7 +392,15 @@ namespace CIS598Project.Rooms
 				{
 					PlayerRef.ticketAmount += score;
 					PlayerRef.ballpitPlays += 1;
-					game.Exit();
+					for (int i = 0; i < PlayerRef.consecutivePlays.Length; i++)
+					{
+						PlayerRef.consecutivePlays[i] = 0;
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
 				}
 			}
 			else if (roundNum == 6 && PlayerRef.foundSecret[2] == true) 
@@ -406,7 +414,15 @@ namespace CIS598Project.Rooms
 				{
 					PlayerRef.ticketAmount += score;
 					PlayerRef.ballpitPlays += 1;
-					game.Exit();
+					for (int i = 0; i < PlayerRef.consecutivePlays.Length; i++)
+					{
+						PlayerRef.consecutivePlays[i] = 0;
+
+					}
+					foreach (var screen in ScreenManager.GetScreens())
+						screen.ExitScreen();
+
+					ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
 				}
 			}
 
@@ -538,7 +554,7 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(jumped, fredbearPosition, Color.White);
 			}
 
-			if (fredbear == FredbearState.fail && PlayerRef.foundSecret[2] == true )
+			if (fredbear == FredbearState.fail || PlayerRef.foundSecret[2] == true )
 			{
                 fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
@@ -611,8 +627,16 @@ namespace CIS598Project.Rooms
 					}
 					if(crashed.State != SoundState.Playing)
 					{ 
-						PlayerRef.foundSecret[2] = true;
-						game.Exit();
+						PlayerRef.foundSecret[0] = true;
+						for (int i = 0; i < PlayerRef.consecutivePlays.Length; i++) 
+						{
+							PlayerRef.consecutivePlays[i] = 0;
+							
+						}
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
 					}
 				}
 			}
