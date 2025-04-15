@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Security/Textures/Children/Hands/Hand4_1.png</SourceFile>
-  <SourceTime>2025-04-03T16:33:31.2913628-05:00</SourceTime>
+  <SourceTime>2025-04-02T19:04:45.9523838-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Security/Textures/Children/Hands/Hand4_1.xnb</DestFile>
-  <DestTime>2025-04-06T18:23:38.9945621-05:00</DestTime>
+  <DestTime>2025-04-14T19:31:04.1493191-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

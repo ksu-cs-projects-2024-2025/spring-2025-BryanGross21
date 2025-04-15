@@ -3865,6 +3865,432 @@
 /processorParam:TextureFormat=Color
 /build:Fruity_Maze/Textures/Signs/Start.png
 
+#begin Memory/Sounds/Ambience/buzz.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Ambience/buzz.ogg
+
+#begin Memory/Sounds/Soundeffects/Colors/black.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/black.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/blue.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/blue.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/green.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/green.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/orange.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/orange.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/purple.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/purple.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/red.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/red.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/white.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/white.wav
+
+#begin Memory/Sounds/Soundeffects/Colors/yellow.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Colors/yellow.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/aoogah.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/aoogah.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/bikehorn.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/bikehorn.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/bugle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/bugle.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/Cymbol.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/Cymbol.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/foghorn.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/foghorn.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/guitar.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/guitar.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/kazoo.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/kazoo.wav
+
+#begin Memory/Sounds/Soundeffects/Instruments/whistle.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Instruments/whistle.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/gameover.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/gameover.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/round1.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/round1.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/round2.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/round2.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/round3.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/round3.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/round4.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/round4.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/round5.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/round5.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/you'rewinner.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/you'rewinner.wav
+
+#begin Memory/Sounds/Soundeffects/Intermission/youwin.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Intermission/youwin.wav
+
+#begin Memory/Sounds/Soundeffects/Misc/colorSelect.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Misc/colorSelect.wav
+
+#begin Memory/Sounds/Soundeffects/Misc/failed.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Memory/Sounds/Soundeffects/Misc/failed.wav
+
+#begin Memory/Textures/Backgrounds/Black.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Black.png
+
+#begin Memory/Textures/Backgrounds/Blue.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Blue.png
+
+#begin Memory/Textures/Backgrounds/Green.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Green.png
+
+#begin Memory/Textures/Backgrounds/Orange.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Orange.png
+
+#begin Memory/Textures/Backgrounds/Purple.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Purple.png
+
+#begin Memory/Textures/Backgrounds/Red.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Red.png
+
+#begin Memory/Textures/Backgrounds/White.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/White.png
+
+#begin Memory/Textures/Backgrounds/Yellow.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Backgrounds/Yellow.png
+
+#begin Memory/Textures/Bon/Bon1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon1.png
+
+#begin Memory/Textures/Bon/Bon2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon2.png
+
+#begin Memory/Textures/Bon/Bon3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon3.png
+
+#begin Memory/Textures/Bon/Bon4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon4.png
+
+#begin Memory/Textures/Bon/Bon5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon5.png
+
+#begin Memory/Textures/Bon/Bon6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Bon/Bon6.png
+
+#begin Memory/Textures/Buttons/black_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/black_button.png
+
+#begin Memory/Textures/Buttons/blue_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/blue_button.png
+
+#begin Memory/Textures/Buttons/green_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/green_button.png
+
+#begin Memory/Textures/Buttons/orange_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/orange_button.png
+
+#begin Memory/Textures/Buttons/purple_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/purple_button.png
+
+#begin Memory/Textures/Buttons/red_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/red_button.png
+
+#begin Memory/Textures/Buttons/white_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/white_button.png
+
+#begin Memory/Textures/Buttons/yellow_button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Memory/Textures/Buttons/yellow_button.png
+
 #begin MiniGame_Font.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor

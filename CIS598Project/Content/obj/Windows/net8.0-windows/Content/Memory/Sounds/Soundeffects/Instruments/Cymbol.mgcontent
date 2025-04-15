@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Memory/Sounds/Soundeffects/Instruments/Cymbol.wav</SourceFile>
+  <SourceTime>2025-04-09T16:36:59.2420654-05:00</SourceTime>
+  <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Content/Memory/Sounds/Soundeffects/Instruments/Cymbol.xnb</DestFile>
+  <DestTime>2025-04-09T19:04:14.5051494-05:00</DestTime>
+  <Importer>WavImporter</Importer>
+  <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
+  <Processor>SoundEffectProcessor</Processor>
+  <ProcessorTime>2024-08-16T12:05:56-05:00</ProcessorTime>
+  <Parameters>
+    <Key>Quality</Key>
+    <Value>Best</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>

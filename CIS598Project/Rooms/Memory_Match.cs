@@ -17,6 +17,7 @@ using System.Xml.Linq;
 using System.Threading;
 using System.Data;
 using System.Formats.Tar;
+using SharpDX.Direct2D1;
 
 namespace CIS598Project.Rooms
 {
@@ -27,7 +28,6 @@ namespace CIS598Project.Rooms
 		start,
 		play,
 		intermission,
-		transition,
 		win,
 		fail,
 		secret
@@ -64,6 +64,8 @@ namespace CIS598Project.Rooms
 
 		SoundEffect Crash;
 
+		SoundEffect select;
+
 		SoundEffectInstance crashing;
 
 		SoundEffectInstance failed;
@@ -92,7 +94,7 @@ namespace CIS598Project.Rooms
 		bool showAlternativeWin = false;
 
 
-		string[] ourple = { "Hi there, I noticed that\nyou just beat this game.", "You know what we do for\nguests that beat this game?", "We give them a special badge\nsince you know you're now a \npart of our security team!", "Hmm?", "Right, Freddy's Security Team!", "All we need to make you a part\nof the team is that badge.", "Follow me and I'll\nget you that badge." };
+		string[] ourple = { "Heya there, pal.", "You're really smart if\nyou beat that game.", "It must've ate so\nmany of your tokens up.", "No?", "Well still no one has\nbeat that game before.", "Don't you want\nmto be rewarded?", "Really, I insist follow me and \nI'll give you a nice reward." };
 
 		int ourpleCount = 0;
 
@@ -120,6 +122,8 @@ namespace CIS598Project.Rooms
 
 		Vector2[] topButtonLocations = new Vector2[4];
 
+		bool showText;
+
 
 		private MouseState pastMousePosition;
 		private MouseState currentMousePosition;
@@ -141,8 +145,6 @@ namespace CIS598Project.Rooms
 			{
 				buttons[i] = new MemoryButton(i);
 			}
-
-			
 		}
 
 		public override void Activate()
@@ -155,8 +157,8 @@ namespace CIS598Project.Rooms
             backgrounds[2] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Red");
             backgrounds[3] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Yellow");
             backgrounds[4] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Orange");
-            backgrounds[5] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/White");
-            backgrounds[6] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Black");
+            backgrounds[5] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Black");
+            backgrounds[6] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/White");
             backgrounds[7] = _content.Load<Texture2D>("Memory/Textures/Backgrounds/Purple");
 
 			buttonIcons[0] = _content.Load<Texture2D>("Memory/Textures/Buttons/blue_button");
@@ -164,9 +166,11 @@ namespace CIS598Project.Rooms
             buttonIcons[2] = _content.Load<Texture2D>("Memory/Textures/Buttons/red_button");
             buttonIcons[3] = _content.Load<Texture2D>("Memory/Textures/Buttons/yellow_button");
             buttonIcons[4] = _content.Load<Texture2D>("Memory/Textures/Buttons/orange_button");
-            buttonIcons[5] = _content.Load<Texture2D>("Memory/Textures/Buttons/white_button");
-            buttonIcons[6] = _content.Load<Texture2D>("Memory/Textures/Buttons/black_button");
+            buttonIcons[5] = _content.Load<Texture2D>("Memory/Textures/Buttons/black_button");
+            buttonIcons[6] = _content.Load<Texture2D>("Memory/Textures/Buttons/white_button");
             buttonIcons[7] = _content.Load<Texture2D>("Memory/Textures/Buttons/purple_button");
+
+			select = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Misc/colorSelect");
 
 			foreach (MemoryButton button in buttons) 
 			{
@@ -199,8 +203,8 @@ namespace CIS598Project.Rooms
             speakingColors[2] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/red");
             speakingColors[3] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/yellow");
             speakingColors[4] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/orange");
-            speakingColors[5] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/white");
-            speakingColors[6] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/black");
+            speakingColors[5] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/black");
+            speakingColors[6] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/white");
             speakingColors[7] = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Colors/purple");
 
             backgroundMusic = _content.Load<Song>("Memory/Sounds/Ambience/buzz");
@@ -214,15 +218,19 @@ namespace CIS598Project.Rooms
 				Bon[i] = _content.Load<Texture2D>("Memory/Textures/Bon/Bon" + (i + 1));
 			}
 
-			/*topButtonLocations[0] = new Vector2(-500, -125); //orange
-            topButtonLocations[1] = new Vector2(-200, -125); //white
-            topButtonLocations[2] = new Vector2(200, -125); //black
-            topButtonLocations[3] = new Vector2(500, -125); //purple*/
+			topButtonLocations[0] = new Vector2(-500, 300); //orange
+            topButtonLocations[1] = new Vector2(-200, 300); //white
+            topButtonLocations[2] = new Vector2(200, 300); //black
+            topButtonLocations[3] = new Vector2(500, 300); //purple*/
 
-			boundingRectangles[0] = new(game.GraphicsDevice.Viewport.Width / 2 - 550, game.GraphicsDevice.Viewport.Height - 300, 208, 208);
-            boundingRectangles[1] = new(game.GraphicsDevice.Viewport.Width / 2 - 250, game.GraphicsDevice.Viewport.Height - 300, 208, 208);
-            boundingRectangles[2] = new(game.GraphicsDevice.Viewport.Width / 2 + 50, game.GraphicsDevice.Viewport.Height - 300, 208, 208);
-            boundingRectangles[3] = new(game.GraphicsDevice.Viewport.Width / 2 + 350, game.GraphicsDevice.Viewport.Height - 300, 208, 208);
+			boundingRectangles[0] = new(game.GraphicsDevice.Viewport.Width / 2 - 500, game.GraphicsDevice.Viewport.Height - 300, 256, 256);
+            boundingRectangles[1] = new(game.GraphicsDevice.Viewport.Width / 2 - 200, game.GraphicsDevice.Viewport.Height - 300, 256, 256);
+            boundingRectangles[2] = new(game.GraphicsDevice.Viewport.Width / 2 + 200, game.GraphicsDevice.Viewport.Height - 300, 256, 256);
+            boundingRectangles[3] = new(game.GraphicsDevice.Viewport.Width / 2 + 500, game.GraphicsDevice.Viewport.Height - 300, 256, 256);
+            boundingRectangles[4] = new(game.GraphicsDevice.Viewport.Width / 2 - 500, 125, 256, 256);
+            boundingRectangles[5] = new(game.GraphicsDevice.Viewport.Width / 2 - 200, 125, 256, 256);
+            boundingRectangles[6] = new(game.GraphicsDevice.Viewport.Width / 2 + 200, 125, 256, 256);
+            boundingRectangles[7] = new(game.GraphicsDevice.Viewport.Width / 2 + 500, 125, 256, 256);
 
             pattern = new();
 
@@ -280,6 +288,7 @@ namespace CIS598Project.Rooms
 			{
 				int value = 0;
 				Random ran = new();
+				colorsToGoThrough = 0;
                 if (currentRound == 1)
 				{
 					value = ran.Next(0, 4);
@@ -322,11 +331,11 @@ namespace CIS598Project.Rooms
 				}
 				else if (value == 5)
 				{
-					pattern.Add(buttonColors.white);
+					pattern.Add(buttonColors.black);
 				}
 				else if (value == 6)
 				{
-					pattern.Add(buttonColors.black);
+					pattern.Add(buttonColors.white);
 				}
 				else if (value == 7) 
 				{
@@ -337,48 +346,204 @@ namespace CIS598Project.Rooms
 
 			if (gameState == GameStateMemory.play && guessingIndex != pattern.Count) 
 			{
-                for (int i = 0; i < 4; i++)
+				bool check = true;
+                if (mouse.collidesWith(boundingRectangles[0]))
                 {
-                    if (currentRound >= 1)
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
                     {
-                        if (mouse.collidesWith(boundingRectangles[0]))
-                        {
-                            if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-                            {
-                                buttons[0].sound.Play();
-								comparison(buttonColors.blue);
-                            }
-                        }
-                        if (mouse.collidesWith(boundingRectangles[1]))
-                        {
-                            if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-                            {
-                                buttons[1].sound.Play();
-                            }
-                        }
-                        if (mouse.collidesWith(boundingRectangles[2]))
-                        {
-                            if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-                            {
-                                buttons[2].sound.Play();
-                            }
-                        }
-                        if (mouse.collidesWith(boundingRectangles[3]))
-                        {
-                            if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-                            {
-                                buttons[3].sound.Play();
-                            }
-                        }
+                        select.Play();
+                        check = comparison(buttonColors.blue);
                     }
                 }
+                if (mouse.collidesWith(boundingRectangles[1]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.green);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[2]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.red);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[3]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.yellow);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[4]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.orange);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[5]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.black);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[6]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+						select.Play();
+                        check = comparison(buttonColors.white);
+                    }
+                }
+                if (mouse.collidesWith(boundingRectangles[7]))
+                {
+                    if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+                    {
+                        select.Play();
+                        check = comparison(buttonColors.purple);
+                    }
+                }
+
+                if (check == false)
+					{
+						gameState = GameStateMemory.fail;
+					}
+            }
+
+			if (gameState == GameStateMemory.fail) 
+			{
+				if (failed == null) 
+				{
+					failed = fail.CreateInstance();
+					failed.Play();
+				}
+				if (failed.State != SoundState.Playing) 
+				{
+					if (roundState == null) 
+					{
+						roundState = gameOver.CreateInstance();
+						roundState.Play();
+					}
+					if (roundState.State != SoundState.Playing) 
+					{
+						player.ticketAmount += score;
+                        for (int i = 0; i < player.consecutivePlays.Length; i++)
+                        {
+                            if (i != 0)
+                            {
+                                player.consecutivePlays[i] = 0;
+                            }
+
+                        }
+                        foreach (var screen in ScreenManager.GetScreens())
+                            screen.ExitScreen();
+
+                        ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+                    }
+				}
 			}
 
-			if (guessingIndex == pattern.Count && gameState == GameStateMemory.play) 
+            if (gameState == GameStateMemory.win || gameState == GameStateMemory.secret)
+            {
+                if (failed == null)
+                {
+                    failed = fail.CreateInstance();
+                    failed.Play();
+                }
+                if (failed.State != SoundState.Playing)
+                {
+                    if (roundState == null)
+                    {
+                        roundState = win.CreateInstance();
+                        roundState.Play();
+                    }
+                    if (roundState.State != SoundState.Playing)
+                    {
+                        for (int i = 0; i < player.consecutivePlays.Length; i++)
+                        {
+                            if (i != 0)
+                            {
+                                player.consecutivePlays[i] = 0;
+                            }
+
+                        }
+						if (gameState == GameStateMemory.win)
+						{
+                            player.ticketAmount += score;
+
+                            foreach (var screen in ScreenManager.GetScreens())
+								screen.ExitScreen();
+
+							ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+						}
+                    }
+                }
+
+                if (crash)
+                {
+                    if (crashing == null)
+                    {
+                        crashing = Crash.CreateInstance();
+                        crashing.Play();
+                    }
+                    if (crashing.State != SoundState.Playing)
+                    {
+                        player.foundSecret[7] = true;
+                        for (int i = 0; i < player.consecutivePlays.Length; i++)
+                        {
+                            if (i != 0)
+                            {
+                                player.consecutivePlays[i] = 0;
+                            }
+
+                        }
+
+                        player.ticketAmount += score;
+                        foreach (var screen in ScreenManager.GetScreens())
+                            screen.ExitScreen();
+
+                        ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+                    }
+                }
+            }
+
+            if (guessingIndex == pattern.Count && gameState == GameStateMemory.play) 
 			{
 				showSequence = false;
 				gameState = GameStateMemory.intermission;
-				guessingIndex = 0;
+				if (guessingIndex >= 2) //currentRound + 4)
+				{
+					score += 250;
+                    guessingIndex = 0;
+                    colorsToGoThrough = 0;
+                    gameState = GameStateMemory.start;
+                    pattern.Clear();
+                    currentRound++;
+					if (currentRound > roundAmount) 
+					{
+						if (player.foundSecret[7])
+						{
+							gameState = GameStateMemory.win;
+						}
+						else 
+						{
+							gameState = GameStateMemory.secret;
+						}
+					}
+                }
+				else
+				{
+					guessingIndex = 0;
+					colorsToGoThrough = 0;
+				}
 			}
 
             mouse.X = mousePosition.X;
@@ -388,11 +553,11 @@ namespace CIS598Project.Rooms
 
 		private bool comparison(buttonColors color) 
 		{
-			if (color == pattern[guessingIndex]) {
-				//guessingIndex++;
+			if (color == pattern[guessingIndex]) 
+			{
+				guessingIndex++;
 				return true;
 			}
-			guessingIndex++;
 			return false;
 		}
 
@@ -416,127 +581,191 @@ namespace CIS598Project.Rooms
 				{
 					while (colorsToGoThrough != pattern.Count) 
 					{
-						if (colorState == null) 
+						if (colorState == null)
 						{
-							if (pattern[colorsToGoThrough] == buttonColors.blue) 
+							if (pattern[colorsToGoThrough] == buttonColors.blue)
 							{
-								spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
-								spriteBatch.DrawString(font, "Blue", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
 								colorState = speakingColors[0].CreateInstance();
-								colorState.Play();
+							
 							}
-                            if (pattern[colorsToGoThrough] == buttonColors.green)
-                            {
-                                spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Green", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[1].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.red)
-                            {
-                                spriteBatch.Draw(backgrounds[2], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Red", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[2].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.yellow)
-                            {
-                                spriteBatch.Draw(backgrounds[3], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Yellow", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[3].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.orange)
-                            {
-                                spriteBatch.Draw(backgrounds[4], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Orange", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[4].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.black)
-                            {
-                                spriteBatch.Draw(backgrounds[5], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Black", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.White);
-                                colorState = speakingColors[5].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.white)
-                            {
-                                spriteBatch.Draw(backgrounds[6], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "White", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[6].CreateInstance();
-                                colorState.Play();
-                            }
-                            if (pattern[colorsToGoThrough] == buttonColors.purple)
-                            {
-                                spriteBatch.Draw(backgrounds[7], Vector2.Zero, Color.White);
-                                spriteBatch.DrawString(font, "Purple", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                                colorState = speakingColors[7].CreateInstance();
-                                colorState.Play();
-                            }
-
+							if (pattern[colorsToGoThrough] == buttonColors.green)
+							{
+								colorState = speakingColors[1].CreateInstance();
+						
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.red)
+							{
+								colorState = speakingColors[2].CreateInstance();
+								
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.yellow)
+							{
+								colorState = speakingColors[3].CreateInstance();
+								
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.orange)
+							{
+								colorState = speakingColors[4].CreateInstance();
+								
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.black)
+							{
+								colorState = speakingColors[5].CreateInstance();
+								
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.white)
+							{
+								colorState = speakingColors[6].CreateInstance();
+			
+							}
+							if (pattern[colorsToGoThrough] == buttonColors.purple)
+							{
+								colorState = speakingColors[7].CreateInstance();
+								
+							}
+                            colorState.Play();
                         }
 						if (colorState.State != SoundState.Playing)
 						{
 							colorState = null;
 							colorsToGoThrough++;
+							if (colorsToGoThrough == pattern.Count) 
+							{
+								gameState = GameStateMemory.play;
+							}
 						}
 					}
-					if (gameState != GameStateMemory.play) 
+					if (gameState != GameStateMemory.start && gameState != GameStateMemory.fail && gameState != GameStateMemory.win)
 					{
-						gameState = GameStateMemory.play;
+						if (pattern[pattern.Count - 1] == buttonColors.blue)
+						{
+							spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Blue", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.green)
+						{
+							spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Green", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.red)
+						{
+							spriteBatch.Draw(backgrounds[2], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Red", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.yellow)
+						{
+							spriteBatch.Draw(backgrounds[3], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Yellow", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.orange)
+						{
+							spriteBatch.Draw(backgrounds[4], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Orange", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.black)
+						{
+							spriteBatch.Draw(backgrounds[5], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Black", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Gray);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.white)
+						{
+							spriteBatch.Draw(backgrounds[6], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "White", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
+						if (pattern[pattern.Count - 1] == buttonColors.purple)
+						{
+							spriteBatch.Draw(backgrounds[7], Vector2.Zero, Color.White);
+							spriteBatch.DrawString(font, "Purple", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+						}
 					}
-                    if (pattern[pattern.Count - 1] == buttonColors.blue)
-                    {
-                        spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Blue", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.green)
-                    {
-                        spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Green", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.red)
-                    {
-                        spriteBatch.Draw(backgrounds[2], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Red", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.yellow)
-                    {
-                        spriteBatch.Draw(backgrounds[3], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Yellow", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.orange)
-                    {
-                        spriteBatch.Draw(backgrounds[4], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Orange", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.black)
-                    {
-                        spriteBatch.Draw(backgrounds[5], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Black", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.White);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.white)
-                    {
-                        spriteBatch.Draw(backgrounds[6], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "White", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
-                    if (pattern[pattern.Count - 1] == buttonColors.purple)
-                    {
-                        spriteBatch.Draw(backgrounds[7], Vector2.Zero, Color.White);
-                        spriteBatch.DrawString(font, "Purple", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
-                    }
 				}
 			}
 
-			spriteBatch.Draw(buttonIcons[0], new Vector2(graphics.Viewport.Width / 2 - 600, graphics.Viewport.Height - 300), null, Color.White);
-            spriteBatch.Draw(buttonIcons[1], new Vector2(graphics.Viewport.Width / 2 - 300, graphics.Viewport.Height - 300), null, Color.White);
-            spriteBatch.Draw(buttonIcons[2], new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height - 300), null, Color.White);
-            spriteBatch.Draw(buttonIcons[3], new Vector2(graphics.Viewport.Width / 2 + 300, graphics.Viewport.Height - 300), null, Color.White);
+			if (gameState == GameStateMemory.fail) 
+			{
+                spriteBatch.Draw(backgrounds[2], Vector2.Zero, Color.White);
+                resultsTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (resultsTimer >= .5)
+                {
+                    showText = !showText;
+                    resultsTimer -= .5;
+                }
+				if (showText)
+				{
+					spriteBatch.DrawString(font, "GAME OVER!!!", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+				}
+            }
+
+            if (gameState == GameStateMemory.win || gameState == GameStateMemory.secret)
+            {
+                spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
+                resultsTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (resultsTimer >= .5)
+                {
+                    showText = !showText;
+                    resultsTimer -= .5;
+                }
+                if (showText)
+                {
+                    spriteBatch.DrawString(font, "YOU WIN!!!", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.Black);
+                }
+            }
+
+
+            
+
+            spriteBatch.Draw(buttonIcons[0], new Vector2(graphics.Viewport.Width / 2 - 500, graphics.Viewport.Height - 300), null, Color.White);
+            spriteBatch.Draw(buttonIcons[1], new Vector2(graphics.Viewport.Width / 2 - 200, graphics.Viewport.Height - 300), null, Color.White);
+            spriteBatch.Draw(buttonIcons[2], new Vector2(graphics.Viewport.Width / 2 + 200, graphics.Viewport.Height - 300), null, Color.White);
+            spriteBatch.Draw(buttonIcons[3], new Vector2(graphics.Viewport.Width / 2 + 500, graphics.Viewport.Height - 300), null, Color.White);
+			spriteBatch.Draw(buttonIcons[4], new Vector2(graphics.Viewport.Width / 2 - 500, 125), null, Color.White);
+            spriteBatch.Draw(buttonIcons[5], new Vector2(graphics.Viewport.Width / 2 - 200, 125), null, Color.White);
+            spriteBatch.Draw(buttonIcons[6], new Vector2(graphics.Viewport.Width / 2 + 200, 125), null, Color.White);
+            spriteBatch.Draw(buttonIcons[7], new Vector2(graphics.Viewport.Width / 2 + 500, 125), null, Color.White);
 
             spriteBatch.Draw(Screens[0], Vector2.Zero, Color.White);
             spriteBatch.Draw(Screens[1], Vector2.Zero, Color.White);
             spriteBatch.Draw(Screens[2], Vector2.Zero, Color.White);
+
+            if (gameState == GameStateMemory.secret)
+            {
+                bonTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+                if (bonTimer >= 3 && bonCounter > 0)
+                {
+                    bonCounter--;
+                    bonTimer -= 3;
+                }
+
+                if (bonCounter == 0)
+                {
+                    purpleDialogue = true;
+                }
+
+                spriteBatch.Draw(Bon[bonCounter], Vector2.Zero, Color.White);
+            }
+
+            if (purpleDialogue && crash == false)
+            {
+                ourpleTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                spriteBatch.DrawString(font, ourple[ourpleCount], new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 2 - 100), Color.Purple);
+                if (ourpleTimer > 10)
+                {
+                    ourpleCount++;
+                    ourpleTimer -= 10;
+                }
+                if (ourpleCount == ourple.Length)
+                {
+                    crash = true;
+                }
+            }
+
+			if (crash) 
+			{
+				spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
+			}
+
+
 
             spriteBatch.End();
         }

@@ -10,7 +10,7 @@ namespace CIS598Project
 	public class Pity_System
 	{
 		Player player;
-		public Pity_System(Player player) 
+		public Pity_System(Player player)	
 		{
 			this.player = player;
 		}

@@ -31,5 +31,16 @@ namespace CIS598Project.Collisions
 		{
 			return !(a.Right < b.Left || a.Left > b.Right || a.Top > b.Bottom || a.Bottom < b.Top);
 		}
-	}
+
+        public static bool Collides(BoundingCircle circle, BoundingRectangle rectangle)
+        {
+            float nearestX = MathHelper.Clamp(circle.Center.X, rectangle.Left, rectangle.Right);
+            float nearestY = MathHelper.Clamp(circle.Center.Y, rectangle.Top, rectangle.Bottom);
+            return Math.Pow(circle.Radius, 2) >=
+            Math.Pow(circle.Center.X - nearestX, 2) +
+            Math.Pow(circle.Center.Y - nearestY, 2);
+        }
+
+        public static bool Collides(BoundingRectangle r, BoundingCircle c) => Collides(c, r);
+    }
 }

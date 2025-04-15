@@ -101,17 +101,10 @@ namespace CIS598Project.Rooms
 
 		GameStateSecurity gameState;
 
-		bool invert = true;
-
 		bool crash = false;
-
-		bool end = false;
 
 		bool fail = false;
 
-		bool[] flashed = new bool[9];
-
-		int j = 0;
 
 		private int childAnimationFrame = 0;
 
@@ -179,14 +172,12 @@ namespace CIS598Project.Rooms
 		{
 			this.game = game;
 			this.player = player;
-			game.IsMouseVisible = false;
 			for (int i = 0; i < children.Length; i++) 
 			{
 				children[i] = new Security_Children[4 + (i * 2)];
 			}
 
 			
-			game.IsMouseVisible = true;
 		}
 
 		public override void Activate()
@@ -365,6 +356,7 @@ namespace CIS598Project.Rooms
 
 				if (hasChildTouchedDoor == true)
 				{
+				
 					childPosition.X -= 5f + currentRound * 2.5f;
 				}
 

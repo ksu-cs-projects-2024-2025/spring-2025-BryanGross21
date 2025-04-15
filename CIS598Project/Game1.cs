@@ -24,10 +24,11 @@ namespace CIS598Project
 			Services.AddService(typeof(IScreenFactory), screenFactory);
 			_graphics.PreferredBackBufferWidth = 1920;
 			_graphics.PreferredBackBufferHeight = 1080;
+            _graphics.IsFullScreen = false;
 
 			_screens = new ScreenManager(this);
 			Components.Add(_screens);
-			_screens.AddScreen(new GameSelect( new Game_Entities.Player(), this), null);
+			_screens.AddScreen(new Memory_Match( this, new Game_Entities.Player()), null);
 
 		}
 
