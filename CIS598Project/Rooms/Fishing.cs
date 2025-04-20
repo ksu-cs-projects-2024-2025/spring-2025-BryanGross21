@@ -63,7 +63,7 @@ namespace CIS598Project.Rooms
 		SoundEffectInstance released;
 
 
-		GameStateFishing state = GameStateFishing.Play;
+		GameStateFishing state = GameStateFishing.Start;
 
 
 		Fish[][] fishes = new Fish[3][];
@@ -122,6 +122,18 @@ namespace CIS598Project.Rooms
 		{
 			this.game = game;
 			this.player = player;
+			for (int i = 0; i < fishes.Length; i++)
+			{
+				fishes[i] = new Fish[6 * (i + 1)];
+			}
+
+			for (int i = 0; i < 1; i++)
+			{
+				for (int j = 0; j < fishes[0].Length; j++)
+				{
+
+				}
+			}
 		}
 
 		public override void Activate()
@@ -130,18 +142,6 @@ namespace CIS598Project.Rooms
 
 			if (_content == null) _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-			for (int i = 0; i < fishes.Length; i++) 
-			{
-				fishes[i] = new Fish[6 * (i + 1)];
-			}
-
-			for (int i = 0; i < 1; i++) 
-			{
-				for (int j = 0; j < fishes[0].Length; i++) 
-				{
-
-				}
-			}
 
 			Freddy = _content.Load<Texture2D>("Fishing/Textures/Ship/Fred/Fred_Left");
 			Plunger = _content.Load<Texture2D>("Fishing/Textures/Ship/Fishing_supplies/Plunger");
@@ -268,13 +268,13 @@ namespace CIS598Project.Rooms
 
 			spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
 
-			/*if (state == GameStateFishing.Start) 
+			if (state == GameStateFishing.Start) 
 			{
 				textTime += gameTime.ElapsedGameTime.TotalSeconds;
 
 				if (textTime <= 2)
 				{
-					spriteBatch.DrawString(font, "ROUND " + round + "!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
+					spriteBatch.DrawString(font, "ROUND " + (round + 1) + "!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
 				}
 				else if (textTime >= 2 && textTime < 4)
 				{
@@ -288,7 +288,7 @@ namespace CIS598Project.Rooms
 					state = GameStateFishing.Play;
                     textTime = 0;
                 }
-            }*/
+            }
 
 			if (state != GameStateFishing.Start)
 			{
