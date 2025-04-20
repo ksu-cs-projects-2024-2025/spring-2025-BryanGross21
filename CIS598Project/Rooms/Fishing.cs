@@ -13,10 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
-using System.Xml.Linq;
-using System.Threading;
-using System.Data;
-using SharpDX.WIC;
+
 
 
 
@@ -72,7 +69,7 @@ namespace CIS598Project.Rooms
 		Fish[][] fishes = new Fish[3][];
 
 
-		bool invert = true;
+		bool releasePlunger = false;
 
 		bool crash = false;
 
@@ -113,7 +110,7 @@ namespace CIS598Project.Rooms
 			
 		BoundingRectangle plunger = new(0, 0, 104, 68);
 
-		Vector2 plungerPosition = new(0, 0);
+		Vector2 plungerPosition = new(0, 200);
 
 		Vector2 fredPosition = new(0,125);
 
@@ -132,6 +129,19 @@ namespace CIS598Project.Rooms
 			base.Activate();
 
 			if (_content == null) _content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+			for (int i = 0; i < fishes.Length; i++) 
+			{
+				fishes[i] = new Fish[6 * (i + 1)];
+			}
+
+			for (int i = 0; i < 1; i++) 
+			{
+				for (int j = 0; j < fishes[0].Length; i++) 
+				{
+
+				}
+			}
 
 			Freddy = _content.Load<Texture2D>("Fishing/Textures/Ship/Fred/Fred_Left");
 			Plunger = _content.Load<Texture2D>("Fishing/Textures/Ship/Fishing_supplies/Plunger");
@@ -181,39 +191,64 @@ namespace CIS598Project.Rooms
 				}
 			}
 
+			if (state == GameStateFishing.Start) 
+			{
+                plungerPosition = new(-50, 200);
+
+                fredPosition = new(0, 125);
+
+            }
+
 			if (state == GameStateFishing.Play)
 			{
-				if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyUp(Keys.A))
+				if (releasePlunger == false)
 				{
-					fredPosition.X += 10;
-				}
-				if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyUp(Keys.D))
+					if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyUp(Keys.A))
+					{
+						fredPosition.X += 10;
+					}
+					if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyUp(Keys.D))
+					{
+						fredPosition.X -= 10;
+					}
+
+					if (fredPosition.X >= game.GraphicsDevice.Viewport.Width - 300)
+					{
+						fredPosition.X = game.GraphicsDevice.Viewport.Width - 300;
+					}
+					else if (fredPosition.X <= 25)
+					{
+						fredPosition.X = 25;
+					}
+
+                    roundTimer += .025;
+
+                    if (roundTimer >= 60)
+                    {
+                        roundTimer = 0;
+                    }
+
+                    if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
+                    {
+                        releasePlunger = true;
+                    }
+
+                    plungerPosition.X = fredPosition.X - 50;
+
+                }
+
+				if (releasePlunger) 
 				{
-					fredPosition.X -= 10;
+					plungerPosition.Y += 10;
 				}
 
-				if (fredPosition.X >= game.GraphicsDevice.Viewport.Width - 300)
-				{
-					fredPosition.X = game.GraphicsDevice.Viewport.Width - 300;
-				}
-				else if (fredPosition.X <= 25)
-				{
-					fredPosition.X = 25;
-				}
+				plunger.X = plungerPosition.X;
+				plunger.Y = plungerPosition.Y;
 
-				roundTimer += .025;
-
-				if (roundTimer >= 60) 
-				{
-					roundTimer = 0;
-				}
 			}
 			
 
 		}
-
-		double duckAnimationTimer_idle = 0;
-		double duckAnimationTimer_select = 0;
 
 		/// <summary>
 		/// Draws the sprite using the supplied SpriteBatch
@@ -233,9 +268,34 @@ namespace CIS598Project.Rooms
 
 			spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
 
+			/*if (state == GameStateFishing.Start) 
+			{
+				textTime += gameTime.ElapsedGameTime.TotalSeconds;
+
+				if (textTime <= 2)
+				{
+					spriteBatch.DrawString(font, "ROUND " + round + "!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
+				}
+				else if (textTime >= 2 && textTime < 4)
+				{
+					spriteBatch.DrawString(font, "READY!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
+				}
+				else if (textTime >= 4 && textTime < 6)
+				{
+					spriteBatch.DrawString(font, "GO!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
+				}
+				else { 
+					state = GameStateFishing.Play;
+                    textTime = 0;
+                }
+            }*/
+
 			if (state != GameStateFishing.Start)
 			{
+
 				spriteBatch.Draw(Freddy, fredPosition, Color.White);
+
+				spriteBatch.Draw(Plunger, plungerPosition, Color.White);
 
 				spriteBatch.DrawString(font, "Score: " + score, new Vector2(125, 25), Color.AntiqueWhite);
 

@@ -20,7 +20,7 @@ namespace CIS598Project.Game_Entities
 
         Vector2 position;
 
-        public BoundingRectangle bounds;
+        public BoundingRectangle bounds = new(0,0, 128, 128);
 
         /// <summary>
         /// Gets the current keyboard state
