@@ -127,14 +127,9 @@ namespace CIS598Project.Rooms
 				fishes[i] = new Fish[6 * (i + 1)];
 			}
 
-			for (int i = 0; i < 1; i++)
-			{
-				for (int j = 0; j < fishes[0].Length; j++)
-				{
+			fishes[0][0] = new(new Vector2(100, 150), 100, game.GraphicsDevice.Viewport.Width);
 
-				}
-			}
-		}
+        }
 
 		public override void Activate()
 		{
@@ -150,7 +145,16 @@ namespace CIS598Project.Rooms
 			Screens[1] = _content.Load<Texture2D>("Fruity_Maze/Textures/Screen/Screen");
 			Screens[2] = _content.Load<Texture2D>("Fruity_Maze/Textures/Screen/ScreenBorder");
 
-			backgroundMusic = _content.Load<Song>("Fishing/Sounds/Song/Water_theme");
+            for (int i = 0; i < fishes.Length; i++)
+            {
+				for (int j = 0; j < fishes[i].Length; j++) 
+				{
+					fishes[i][j].LoadContent(_content);
+				}
+            }
+
+
+            backgroundMusic = _content.Load<Song>("Fishing/Sounds/Song/Water_theme");
 
 			backgrounds[0] = _content.Load<Texture2D>("Fishing/Textures/Backgrounds/Background");
 			backgrounds[1] = _content.Load<Texture2D>("Fishing/Textures/Backgrounds/Water");
