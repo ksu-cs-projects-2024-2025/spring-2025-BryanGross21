@@ -44,7 +44,7 @@ namespace CIS598Project.Game_Entities
         /// <summary>
         /// Moves the fish to the left of the screen
         /// </summary>
-        bool movingLeft;
+        bool movingLeft = true;
 
         public Fish(Vector2 position, int score, int sideOfScreen) 
         {
@@ -86,7 +86,7 @@ namespace CIS598Project.Game_Entities
                 fish[2] = content.Load<Texture2D>("Fishing/Textures/Fish/Blue_3");
                 speedMultiplier = 1.3;
             }
-            else if (score == 400)
+            else if (score == 500)
             {
                 fish[0] = content.Load<Texture2D>("Fishing/Textures/Fish/Pink_2");
                 fish[1] = content.Load<Texture2D>("Fishing/Textures/Fish/Pink_1");
@@ -124,11 +124,11 @@ namespace CIS598Project.Game_Entities
 
             if (movingLeft)
             {
-                position.X += ((float)speedMultiplier * 10);
+                position.X -= ((float)speedMultiplier * 4);
             }
             else 
             {
-                position.X -= ((float)speedMultiplier * 10);
+                position.X += ((float)speedMultiplier * 4);
             }
            
             bounds.X = position.X;  // Update bounds position X
@@ -152,7 +152,13 @@ namespace CIS598Project.Game_Entities
                     fishAnimationFrame = 0;
                 }
             }
-            spriteBatch.Draw(fish[fishAnimationFrame], position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
+            if (movingLeft)
+            {
+                spriteBatch.Draw(fish[fishAnimationFrame], position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
+            }
+            else {
+				spriteBatch.Draw(fish[fishAnimationFrame], position, null, Color.White, 0f, Vector2.Zero, 1f, SpriteEffects.FlipHorizontally, 0);
+			}
         }
     }
 }

@@ -3589,6 +3589,78 @@
 /processorParam:TextureFormat=Color
 /build:Fishing/Textures/Backgrounds/Background.png
 
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy1.png
+
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy2.png
+
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy3.png
+
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy4.png
+
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy5.png
+
+#begin Fishing/Textures/Backgrounds/Foxy/Foxy6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Backgrounds/Foxy/Foxy6.png
+
 #begin Fishing/Textures/Backgrounds/Water.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -3816,6 +3888,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Fishing/Textures/Fish/Purple_3.png
+
+#begin Fishing/Textures/Ship/Fishing_supplies/pearl.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Fishing/Textures/Ship/Fishing_supplies/pearl.png
 
 #begin Fishing/Textures/Ship/Fishing_supplies/Plunger.png
 /importer:TextureImporter

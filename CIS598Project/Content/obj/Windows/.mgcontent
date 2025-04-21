@@ -320,6 +320,12 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Sounds/Soundeffects/plunger_collect.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Sounds/Soundeffects/plunger_release.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Background.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy1.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy2.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy4.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy5.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Foxy/Foxy6.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Backgrounds/Water.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Fish/Blue_1.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Fish/Blue_2.png</File>
@@ -339,6 +345,7 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Fish/Purple_1.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Fish/Purple_2.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Fish/Purple_3.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Ship/Fishing_supplies/pearl.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Ship/Fishing_supplies/Plunger.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Ship/Fred/Fred_center.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fishing/Textures/Ship/Fred/Fred_Left.png</File>
@@ -490,6 +497,13 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Thank_You_For_Your_Patience_2_.ogg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

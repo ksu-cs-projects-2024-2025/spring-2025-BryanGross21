@@ -535,3 +535,10 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Ship\Fred\Fred_center.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Ship\Fred\Fred_Left.xnb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Ship\Fred\Fred_Right.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Ship\Fishing_supplies\pearl.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy1.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy2.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy3.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy4.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy5.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Fishing\Textures\Backgrounds\Foxy\Foxy6.xnb

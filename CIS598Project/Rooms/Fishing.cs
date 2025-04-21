@@ -10,9 +10,8 @@ using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+
 
 
 
@@ -25,7 +24,8 @@ namespace CIS598Project.Rooms
 	{
 		Start = 0,
 		Play,
-		Win
+		Win,
+		Secret
 	}
 	public class Fishing : GameScreen
 	{
@@ -45,6 +45,8 @@ namespace CIS598Project.Rooms
 
 		Texture2D Plunger;
 
+		Texture2D Pearl;
+
 		Texture2D crashScreen;
 
 		Song backgroundMusic;
@@ -57,6 +59,7 @@ namespace CIS598Project.Rooms
 
 		SoundEffectInstance StateChange;
 
+		int showOnce = 0;
 
 		SoundEffectInstance crashing;
 
@@ -70,6 +73,8 @@ namespace CIS598Project.Rooms
 
 
 		bool releasePlunger = false;
+
+		bool collides = false;
 
 		bool crash = false;
 
@@ -85,7 +90,7 @@ namespace CIS598Project.Rooms
 
 		private double roundTimer = 0;
 
-		string[] ourple = { "Hello there,\nwhat's wrong?", "Hmm? You don't want to\ntalk? Why not?", "Your parents say you\ncan't talk to strangers?", "Well they are smart, you \nshouldn't talk to strangers.", "However, you want to \nknow something cool?", "I'm not a stranger,\nI'm a friend of yours.", "Okay, you'll talk.\nThat's great!", "What was your problem...", "Hmm, none of your friends showed\nup for your birthday?", "Well, who needs them?\nI'm your friend and I know \njust how to celebrate your birthday.", "Just follow me and I'll take you\nto a special party room just for you." };
+		string[] ourple = { "Impressive, I've never seen \nanyone fish like that before.", "That's right, I'm \nyour pal, Fredbear.", "Say you seem like you would\nbe an excellent crew on a ship.", "Do you know what that means?", "Yes, Foxy!", "Foxy wants to meet you backstage\nto make you his second mate", "Really!", "Follow me and \nI'll take you to him..." };
 
 		int ourpleCount = 0;
 
@@ -93,10 +98,15 @@ namespace CIS598Project.Rooms
 
 		double ourpleTimer = 0;
 
-		int chicaCount = 5;
+		int foxyCount = 5;
 
-		double chicaTimer = 0;
+		double foxyTimer = 0;
 
+		bool pearlMoveLeft = false;
+
+		int fishRow = 0;
+
+		int fishColumn = 0;
 
 
 		private KeyboardState pastKeyboardState;
@@ -107,8 +117,14 @@ namespace CIS598Project.Rooms
 		ContentManager _content;
 
 		int round = 0; //Starts at 0 and ends at 2 to correlate with the fish array
+
+		Vector2 pearlLocation;
 			
 		BoundingRectangle plunger = new(0, 0, 104, 68);
+
+		BoundingRectangle floor = new(0, 980, 1920, 100);
+
+		BoundingRectangle pearl = new(0, 0, 128, 128);
 
 		Vector2 plungerPosition = new(0, 200);
 
@@ -124,11 +140,8 @@ namespace CIS598Project.Rooms
 			this.player = player;
 			for (int i = 0; i < fishes.Length; i++)
 			{
-				fishes[i] = new Fish[6 * (i + 1)];
+				fishes[i] = new Fish[12];
 			}
-
-			fishes[0][0] = new(new Vector2(100, 150), 100, game.GraphicsDevice.Viewport.Width);
-
         }
 
 		public override void Activate()
@@ -140,6 +153,54 @@ namespace CIS598Project.Rooms
 
 			Freddy = _content.Load<Texture2D>("Fishing/Textures/Ship/Fred/Fred_Left");
 			Plunger = _content.Load<Texture2D>("Fishing/Textures/Ship/Fishing_supplies/Plunger");
+
+
+			//Round 1 Fish
+			fishes[0][0] = new(new Vector2(500, 325), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][1] = new(new Vector2(550, 425), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][2] = new(new Vector2(900, 450), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][3] = new(new Vector2(0, 500), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][4] = new(new Vector2(875, 575), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][5] = new(new Vector2(655, 775), 600, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][6] = new(new Vector2(950, 300), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][7] = new(new Vector2(350, 350), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][8] = new(new Vector2(90, 470), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][9] = new(new Vector2(250, 525), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][10] = new(new Vector2(23, 590), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[0][11] = new(new Vector2(900, 700), 600, game.GraphicsDevice.Viewport.Width - 150);
+
+			//Round 2 Fish
+			fishes[1][0] = new(new Vector2(500, 325), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][1] = new(new Vector2(550, 425), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][2] = new(new Vector2(900, 450), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][3] = new(new Vector2(0, 500), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][4] = new(new Vector2(875, 575), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][5] = new(new Vector2(655, 775), 600, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][6] = new(new Vector2(950, 300), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][7] = new(new Vector2(350, 350), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][8] = new(new Vector2(90, 470), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][9] = new(new Vector2(250, 525), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][10] = new(new Vector2(23, 590), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[1][11] = new(new Vector2(900, 700), 600, game.GraphicsDevice.Viewport.Width - 150);
+
+			//Round 3 Fish
+			fishes[2][0] = new(new Vector2(500, 325), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][1] = new(new Vector2(550, 425), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][2] = new(new Vector2(900, 450), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][3] = new(new Vector2(0, 500), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][4] = new(new Vector2(875, 575), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][5] = new(new Vector2(655, 775), 600, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][6] = new(new Vector2(950, 300), 100, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][7] = new(new Vector2(350, 350), 200, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][8] = new(new Vector2(90, 470), 300, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][9] = new(new Vector2(250, 525), 400, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][10] = new(new Vector2(23, 590), 500, game.GraphicsDevice.Viewport.Width - 150);
+			fishes[2][11] = new(new Vector2(900, 700), 600, game.GraphicsDevice.Viewport.Width - 150);
+
+
+
+
+
 
 			Screens[0] = _content.Load<Texture2D>("Fruity_Maze/Textures/Screen/scanlines");
 			Screens[1] = _content.Load<Texture2D>("Fruity_Maze/Textures/Screen/Screen");
@@ -153,17 +214,24 @@ namespace CIS598Project.Rooms
 				}
             }
 
-
+			Pearl = _content.Load<Texture2D>("Fishing/Textures/Ship/Fishing_supplies/pearl");
+			release = _content.Load<SoundEffect>("Fishing/Sounds/Soundeffects/plunger_release");
+			GameStateChange = _content.Load<SoundEffect>("Fishing/Sounds/Soundeffects/plunger_collect");
             backgroundMusic = _content.Load<Song>("Fishing/Sounds/Song/Water_theme");
+
+			Crash = _content.Load<SoundEffect>("Duck_Pond/Duck_Pond_Sounds/df");
+			crashScreen = _content.Load<Texture2D>("Duck_Pond/Crash");
 
 			backgrounds[0] = _content.Load<Texture2D>("Fishing/Textures/Backgrounds/Background");
 			backgrounds[1] = _content.Load<Texture2D>("Fishing/Textures/Backgrounds/Water");
+
+			pearlLocation = new Vector2(0, game.GraphicsDevice.Viewport.Height - 200);
 
 			font = _content.Load<SpriteFont>("MiniGame_Font");
 			
 			for (int i = 5; i >= 0; i--) 
 			{
-				Foxy[i] = _content.Load<Texture2D>("Fruity_Maze/Textures/Chica/Chica" + (i + 1));
+				Foxy[i] = _content.Load<Texture2D>("Fishing/Textures/Backgrounds/Foxy/Foxy" + (i + 1));
 			}
 
 			MediaPlayer.Play(backgroundMusic);
@@ -201,7 +269,11 @@ namespace CIS598Project.Rooms
 
                 fredPosition = new(0, 125);
 
-            }
+				roundTimer = 0;
+
+				pearlLocation = new Vector2(0, game.GraphicsDevice.Viewport.Height - 200);
+
+			}
 
 			if (state == GameStateFishing.Play)
 			{
@@ -225,34 +297,245 @@ namespace CIS598Project.Rooms
 						fredPosition.X = 25;
 					}
 
-                    roundTimer += .025;
 
-                    if (roundTimer >= 60)
-                    {
-                        roundTimer = 0;
-                    }
+					if (pearlLocation.X >= game.GraphicsDevice.Viewport.Width - 125)
+					{
+						pearlMoveLeft = true;
+					}
+					else if (pearlLocation.X <= 0)
+					{
+						pearlMoveLeft = false;
+					}
 
-                    if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
-                    {
-                        releasePlunger = true;
-                    }
+					if (pearlMoveLeft)
+					{
+						pearlLocation.X -= 4;
+					}
+					else
+					{
+						pearlLocation.X += 4;
+					}
 
-                    plungerPosition.X = fredPosition.X - 50;
+					pearl.X = pearlLocation.X;  // Update bounds position X
+					pearl.Y = pearlLocation.Y;  // Update bounds position Y
 
-                }
+					roundTimer += .025;
 
-				if (releasePlunger) 
+					if (roundTimer >= 60)
+					{
+						score += 0;
+						round += 1;
+						state = GameStateFishing.Start;
+					}
+
+					if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
+					{
+						release.Play();
+						releasePlunger = true;
+					}
+
+					for (int i = round; i < (1 + round); i++)
+					{
+						for (int j = 0; j < fishes[i].Length; j++)
+						{
+							fishes[i][j].Update(gameTime);
+						}
+					}
+
+
+					plungerPosition.X = fredPosition.X - 50;
+
+				}
+
+
+				if (releasePlunger)
 				{
-					plungerPosition.Y += 10;
+					if (collides == false)
+					{
+						plungerPosition.Y += 10;
+
+						for (int i = round; i < (1 + round); i++)
+						{
+							for (int j = 0; j < fishes[i].Length; j++)
+							{
+								fishes[i][j].Update(gameTime);
+							}
+						}
+
+						if (pearlLocation.X >= game.GraphicsDevice.Viewport.Width - 125)
+						{
+							pearlMoveLeft = true;
+						}
+						else if (pearlLocation.X <= 0)
+						{
+							pearlMoveLeft = false;
+						}
+
+						if (pearlMoveLeft)
+						{
+							pearlLocation.X -= 4;
+						}
+						else
+						{
+							pearlLocation.X += 4;
+						}
+
+						pearl.X = pearlLocation.X;  // Update bounds position X
+						pearl.Y = pearlLocation.Y;  // Update bounds position Y
+
+					}
+
+					for (int i = round; i < (1 + round); i++)
+					{
+						for (int j = 0; j < fishes[i].Length; j++)
+						{
+							if (plunger.collidesWith(fishes[i][j].bounds))
+							{
+								collides = true;
+								fishRow = i;
+								fishColumn = j;
+							}
+						}
+					}
+
+					if (plunger.collidesWith(pearl))
+					{
+						collides = true;
+						if (StateChange == null)
+						{
+							score += 1000;
+							StateChange = GameStateChange.CreateInstance();
+							StateChange.Play();
+						}
+						if (StateChange.State != SoundState.Playing)
+						{
+							round += 1;
+							state = GameStateFishing.Start;
+							StateChange = null;
+							releasePlunger = false;
+							collides = false;
+						}
+					}
+
+					if (plunger.collidesWith(floor))
+					{
+						collides = true;
+						if (StateChange == null)
+						{
+							score += 0;
+							StateChange = GameStateChange.CreateInstance();
+							StateChange.Play();
+						}
+						if (StateChange.State != SoundState.Playing)
+						{
+							releasePlunger = false;
+							collides = false;
+							round += 1;
+							state = GameStateFishing.Start;
+							StateChange = null;
+						}
+					}
+
+					if (collides)
+					{
+						if (StateChange == null)
+						{
+							score += fishes[fishRow][fishColumn].score;
+							StateChange = GameStateChange.CreateInstance();
+							StateChange.Play();
+						}
+						if (StateChange.State != SoundState.Playing)
+						{
+							round += 1;
+							state = GameStateFishing.Start;
+							StateChange = null;
+							releasePlunger = false;
+							collides = false;
+						}
+
+					}
+
+					}
+				}
+
+			if (round == 3)
+			{
+				StateChange = null;
+				releasePlunger = false;
+				collides = false;
+				if (score < 1500 || player.foundSecret[7])
+				{
+					state = GameStateFishing.Win;
+				}
+				else
+				{
+					MediaPlayer.Stop();
+					state = GameStateFishing.Secret;
+				}
+			}
+
+			if (state == GameStateFishing.Win || state == GameStateFishing.Secret)
+			{
+				if (released == null)
+				{
+					MediaPlayer.Stop();
+					released = release.CreateInstance();
+					released.Play();
+				}
+				if (released.State != SoundState.Playing)
+				{
+					player.ticketAmount += score;
+					if (player.foundSecret[7] || score < 1500)
+					{
+						for (int i = 0; i < player.consecutivePlays.Length; i++)
+						{
+							if (i != 0)
+							{
+								player.consecutivePlays[i] = 0;
+							}
+
+						}
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					}
+				}
+			}
+
+			if (crash)
+				{
+					if (crashing == null)
+					{
+						crashing = Crash.CreateInstance();
+						crashing.Play();
+					}
+					if (crashing.State != SoundState.Playing)
+					{
+					for (int i = 0; i < player.consecutivePlays.Length; i++)
+					{
+						if (i != 0)
+						{
+							player.consecutivePlays[i] = 0;
+						}
+					}
+						if (state == GameStateFishing.Secret)
+						{
+							player.foundSecret[7] = true;
+						}
+
+						foreach (var screen in ScreenManager.GetScreens())
+							screen.ExitScreen();
+
+						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					}
 				}
 
 				plunger.X = plungerPosition.X;
 				plunger.Y = plungerPosition.Y;
 
 			}
-			
 
-		}
 
 		/// <summary>
 		/// Draws the sprite using the supplied SpriteBatch
@@ -299,6 +582,30 @@ namespace CIS598Project.Rooms
 
 				spriteBatch.Draw(Freddy, fredPosition, Color.White);
 
+
+				if (round != 3)
+				{
+					for (int i = round; i < (round + 1); i++)
+					{
+						for (int j = 0; j < fishes[i].Length; j++)
+						{
+							fishes[i][j].Draw(gameTime, spriteBatch);
+						}
+					}
+				}
+				else 
+				{
+					for (int i = 2; i < 3; i++)
+					{
+						for (int j = 0; j < fishes[i].Length; j++)
+						{
+							fishes[i][j].Draw(gameTime, spriteBatch);
+						}
+					}
+				}
+
+				spriteBatch.Draw(Pearl, pearlLocation, Color.White);
+
 				spriteBatch.Draw(Plunger, plungerPosition, Color.White);
 
 				spriteBatch.DrawString(font, "Score: " + score, new Vector2(125, 25), Color.AntiqueWhite);
@@ -306,11 +613,57 @@ namespace CIS598Project.Rooms
 				spriteBatch.DrawString(font, ((int)(60 - roundTimer)).ToString(), new Vector2(100, graphics.Viewport.Height - 200), Color.AntiqueWhite, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0);
 			}
 
+			if (state == GameStateFishing.Win || state == GameStateFishing.Secret)
+			{
+
+				spriteBatch.DrawString(font, "You scored: " + score + " tickets!!!", new Vector2(graphics.Viewport.Width / 2 - 150, graphics.Viewport.Height / 2 - 100), Color.AntiqueWhite);
+			}
+
+
 			spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
 
 			spriteBatch.Draw(Screens[0], Vector2.Zero, Color.White);
 			spriteBatch.Draw(Screens[1], Vector2.Zero, Color.White);
 			spriteBatch.Draw(Screens[2], Vector2.Zero, Color.White);
+
+
+			if (state == GameStateFishing.Secret)
+			{
+				foxyTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+				if (foxyTimer >= 3 && foxyCount > 0)
+				{
+					foxyCount--;
+					foxyTimer -= 3;
+				}
+
+				if (foxyCount == 0)
+				{
+					purpleDialogue = true;
+				}
+
+				spriteBatch.Draw(Foxy[foxyCount], Vector2.Zero, Color.White);
+			}
+
+			if (purpleDialogue && crash == false)
+			{
+				ourpleTimer += gameTime.ElapsedGameTime.TotalSeconds;
+				spriteBatch.DrawString(font, ourple[ourpleCount], new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 2 - 100), Color.Purple);
+				if (ourpleTimer > 10)
+				{
+					ourpleCount++;
+					ourpleTimer -= 10;
+				}
+				if (ourpleCount == ourple.Length)
+				{
+					crash = true;
+				}
+			}
+
+			if (crash)
+			{
+				spriteBatch.Draw(crashScreen, Vector2.Zero, Color.White);
+			}
 
 
 			spriteBatch.End();
