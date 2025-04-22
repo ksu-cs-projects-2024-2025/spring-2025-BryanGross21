@@ -97,12 +97,12 @@ namespace CIS598Project.Rooms
 		public DuckPond(Game game,Player player) 
 		{
 			this.game = game;
-			if (player.consecutivePlays[1] == 1 && player.foundSecret[1] == false)
+			if (player.consecutivePlays[0] == 1 && player.foundSecret[1] == false)
 			{
 				duckType = DuckType.GFred;
 				game.Window.Title = "Fredbear and Friends";
 			}
-			else if (player.consecutivePlays[1] == 2 && player.foundSecret[1] == false)
+			else if (player.consecutivePlays[0] == 2 && player.foundSecret[1] == false)
 			{
 				duckType = DuckType.SadFred;
 				game.Window.Title = "Fredbear";
@@ -114,7 +114,7 @@ namespace CIS598Project.Rooms
 
 			for (int i = 0; i < player.consecutivePlays.Length; i++) 
 			{
-				if (i != 1) 
+				if (i != 0) 
 				{
 					player.consecutivePlays[i] = 0;
 				}
@@ -301,12 +301,12 @@ namespace CIS598Project.Rooms
 				}
 				if (timeToShowScore == 100)
 				{
-					playerRef.consecutivePlays[1] += 1;
+					playerRef.consecutivePlays[0] += 1;
 					playerRef.ticketAmount += score;
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(playerRef, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(playerRef, game), PlayerIndex.One);
 				}
 			}
 			else if (duckType == DuckType.SadFred && close == true)
@@ -321,10 +321,10 @@ namespace CIS598Project.Rooms
                     if (timeToShowScore == 2)
 					{
                         Crash.Play();
-						playerRef.foundSecret[1] = true;
+						playerRef.foundSecret[0] = true;
 						for (int i = 0; i < playerRef.consecutivePlays.Length; i++)
 						{
-							if (i != 1)
+							if (i != 0)
 							{
 								playerRef.consecutivePlays[i] = 0;
 							}
@@ -339,7 +339,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(playerRef, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(playerRef, game), PlayerIndex.One);
 				}
             }
 

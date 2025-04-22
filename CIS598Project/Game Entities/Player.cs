@@ -9,18 +9,15 @@ namespace CIS598Project.Game_Entities
 {
 	public class Player
 	{
-		public int[] consecutivePlays = new int[16];
+		public int[] consecutivePlays = new int[8];
 
 		public int fruityMazeWins = 0;
 
 		public int ballpitPlays = 0;
 
-		/// <summary>
-		/// 0 represents the ballpit tower, 1 represents prize king
-		/// </summary>
-		public int[] losses = new int[2];
+		public int ballpitTowerLosses;
 
-		public bool[] foundSecret = new bool[16];
+		public bool[] foundSecret = new bool[8];
 
 		public int ticketAmount;
 
@@ -31,7 +28,7 @@ namespace CIS598Project.Game_Entities
 				consecutivePlays[i] = 0;
 				foundSecret[i] = false;
 			}
-			losses[0] = 0;
+			ballpitTowerLosses = 0;
 		}
 	}
 }

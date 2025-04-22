@@ -446,7 +446,7 @@ namespace CIS598Project.Rooms
                         foreach (var screen in ScreenManager.GetScreens())
                             screen.ExitScreen();
 
-                        ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+                        ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
                     }
 				}
 			}
@@ -482,7 +482,7 @@ namespace CIS598Project.Rooms
                             foreach (var screen in ScreenManager.GetScreens())
 								screen.ExitScreen();
 
-							ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+							ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 						}
                     }
                 }
@@ -496,7 +496,7 @@ namespace CIS598Project.Rooms
                     }
                     if (crashing.State != SoundState.Playing)
                     {
-                        player.foundSecret[7] = true;
+                        player.foundSecret[5] = true;
                         for (int i = 0; i < player.consecutivePlays.Length; i++)
                         {
                             if (i != 0)
@@ -510,7 +510,7 @@ namespace CIS598Project.Rooms
                         foreach (var screen in ScreenManager.GetScreens())
                             screen.ExitScreen();
 
-                        ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+                        ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
                     }
                 }
             }
@@ -529,7 +529,7 @@ namespace CIS598Project.Rooms
                     currentRound++;
 					if (currentRound > roundAmount) 
 					{
-						if (player.foundSecret[7])
+						if (player.foundSecret[5])
 						{
 							gameState = GameStateMemory.win;
 						}

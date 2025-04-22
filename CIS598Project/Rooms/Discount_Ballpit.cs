@@ -125,6 +125,8 @@ namespace CIS598Project.Rooms
 
 		bool showFinalThought;
 
+		bool showCrashScreen;
+
 		string[] thoughts = { "Loser.", "Has no friends.", "Moron.", "Fatty.", "Why would anyone be friends with you?", "Ha you're so pathetic."};
 
 		string finalThought = "I would like a balloon...";
@@ -146,12 +148,12 @@ namespace CIS598Project.Rooms
 
 			if (_content == null) _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-			if (PlayerRef.ballpitPlays == 0 || PlayerRef.foundSecret[2])
+			if (PlayerRef.ballpitPlays == 0 || PlayerRef.foundSecret[1])
 			{
 				backgrounds[0] = _content.Load<Texture2D>("Discount_Ballpit/Textures/Background/Ballpit_Background_1");
 				backgrounds[1] = _content.Load<Texture2D>("Discount_Ballpit/Textures/Background/Ballpit_Background_1_purple");
 			}
-			else if (!PlayerRef.foundSecret[2]) 
+			else if (!PlayerRef.foundSecret[1]) 
 			{
 				if (PlayerRef.ballpitPlays == 1)
 				{
@@ -319,40 +321,40 @@ namespace CIS598Project.Rooms
 				{
 					reactionTimer -= 3;
 
-					if (PlayerRef.foundSecret[2] == true)
+					if (PlayerRef.foundSecret[1] == true)
 					{
 						fredbear = FredbearState.idle;
 						ballpit = ballpitState.wait;
 						MediaPlayer.Play(songs[0]);
 					}
-					else if (roundNum != 6 || misses == 5 && PlayerRef.foundSecret[2] != true)
+					else if (roundNum != 6 || misses == 5 && PlayerRef.foundSecret[1] != true)
 					{
-						if (misses == 0 && previousSong != songs[0] && PlayerRef.foundSecret[2] == false)
+						if (misses == 0 && previousSong != songs[0] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[0]);
 							previousSong = songs[0];
 						}
-						else if (misses == 1 && previousSong != songs[1] && PlayerRef.foundSecret[2] == false)
+						else if (misses == 1 && previousSong != songs[1] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[1]);
 							previousSong = songs[1];
 						}
-						else if (misses == 2 && previousSong != songs[2] && PlayerRef.foundSecret[2] == false)
+						else if (misses == 2 && previousSong != songs[2] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[2]);
 							previousSong = songs[2];
 						}
-						else if (misses == 3 && previousSong != songs[3] && PlayerRef.foundSecret[2] == false)
+						else if (misses == 3 && previousSong != songs[3] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[3]);
 							previousSong = songs[3];
 						}
-						else if (misses == 4 && previousSong != songs[4] && PlayerRef.foundSecret[2] == false)
+						else if (misses == 4 && previousSong != songs[4] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[4]);
 							previousSong = songs[4];
 						}
-						else if (misses == 5 && previousSong != songs[5] && PlayerRef.foundSecret[2] == false)
+						else if (misses == 5 && previousSong != songs[5] && PlayerRef.foundSecret[1] == false)
 						{
 							MediaPlayer.Play(songs[5]);
 							previousSong = songs[5];
@@ -368,7 +370,7 @@ namespace CIS598Project.Rooms
 
 			}
 
-			if (roundNum == 6 && misses == 5 && PlayerRef.foundSecret[2] == false)
+			if (roundNum == 6 && misses == 5 && PlayerRef.foundSecret[1] == false)
 			{
 				if (cry == null)
 				{
@@ -381,7 +383,7 @@ namespace CIS598Project.Rooms
 				}
 
 			}
-			else if (roundNum == 6 && misses != 5 && PlayerRef.foundSecret[2] == false)
+			else if (roundNum == 6 && misses != 5 && PlayerRef.foundSecret[1] == false)
 			{
 				if (complete == null)
 				{
@@ -400,10 +402,10 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(PlayerRef, game), PlayerIndex.One);
 				}
 			}
-			else if (roundNum == 6 && PlayerRef.foundSecret[2] == true) 
+			else if (roundNum == 6 && PlayerRef.foundSecret[1] == true) 
 			{
 				if (complete == null)
 				{
@@ -422,10 +424,26 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(PlayerRef, game), PlayerIndex.One);
 				}
 			}
 
+			if (showCrashScreen) 
+			{
+                PlayerRef.ticketAmount += score;
+                PlayerRef.ballpitPlays += 1;
+                PlayerRef.foundSecret[1] = true;
+                for (int i = 0; i < PlayerRef.consecutivePlays.Length; i++)
+                {
+                    PlayerRef.consecutivePlays[i] = 0;
+
+                }
+                foreach (var screen in ScreenManager.GetScreens())
+                    screen.ExitScreen();
+
+                ScreenManager.AddScreen(new MainGame_Screen(PlayerRef, game), PlayerIndex.One);
+            }
+				
 
 			}
 
@@ -438,11 +456,11 @@ namespace CIS598Project.Rooms
 
 			spriteBatch.Begin();
 
-			if (misses != 5 && PlayerRef.foundSecret[2] != true)
+			if (misses != 5 && PlayerRef.foundSecret[1] != true)
 			{
 				spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
 			}
-			else if (misses == 5 && PlayerRef.foundSecret[2] != true)
+			else if (misses == 5 && PlayerRef.foundSecret[1] != true)
 			{
 				spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
 			}
@@ -451,11 +469,11 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
             }
 
-            if (misses != 5 || PlayerRef.foundSecret[2] == true)
+            if (misses != 5 || PlayerRef.foundSecret[1] == true)
             {
                 spriteBatch.DrawString(font, "Score: " + score, Vector2.Zero, Color.White);
             }
-            else if (misses == 5 && PlayerRef.foundSecret[2] != true && showFinalThought == false)
+            else if (misses == 5 && PlayerRef.foundSecret[1] != true && showFinalThought == false)
             {
 				thoughtsTimer += gameTime.ElapsedGameTime.TotalSeconds;
 				if (thoughtsTimer >= 1.5)
@@ -478,7 +496,7 @@ namespace CIS598Project.Rooms
 				fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
 				double gate = 0; //How fast the animation should go based off the amount of misses
-				if (misses == 0 || PlayerRef.foundSecret[2] == true)
+				if (misses == 0 || PlayerRef.foundSecret[1] == true)
 				{
 					gate = .5;
 				}
@@ -554,12 +572,29 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(jumped, fredbearPosition, Color.White);
 			}
 
-			if (fredbear == FredbearState.fail || PlayerRef.foundSecret[2] == true )
+            if (fredbear == FredbearState.fail && misses == 5 && PlayerRef.foundSecret[1] == false)
+            {
+                fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
+				if (showFinalThought)
+				{
+					if (fredbearTimer >= .3)
+					{
+						fredbear_Frame++;
+						if (fredbear_Frame >= 5)
+						{
+							fredbear_Frame = 0;
+						}
+						fredbearTimer -= .3;
+					}
+				}
+                spriteBatch.Draw(Golden_Cry[fredbear_Frame], new Vector2(fredbearPosition.X, fredbearPosition.Y + 200), null, Color.White, 0f, new Vector2(194 / 2, 325f / 2f), .75f, SpriteEffects.None, 0);
+            }
+            else if (fredbear == FredbearState.fail)
 			{
                 fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
 
                 double gate = 0; //How fast the animation should go based off the amount of misses
-                if (misses == 0 || PlayerRef.foundSecret[2] == true)
+                if (misses == 0 || PlayerRef.foundSecret[1] == true)
                 {
                     gate = .5;
                 }
@@ -592,20 +627,6 @@ namespace CIS598Project.Rooms
 
                 spriteBatch.Draw(Fredbear_Cry[fredbear_Frame], new Vector2(fredbearPosition.X, fredbearPosition.Y + 100), Color.White);
             }
-			else if (fredbear == FredbearState.fail && misses == 5 && PlayerRef.foundSecret[2] == false) 
-			{
-				fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (fredbearTimer >= .3) 
-				{
-                    fredbear_Frame++;
-                    if (fredbear_Frame >= 5)
-                    {
-                        fredbear_Frame = 0;
-                    }
-                    fredbearTimer -= .3;
-                }
-                spriteBatch.Draw(Golden_Cry[fredbear_Frame], new Vector2(fredbearPosition.X, fredbearPosition.Y + 200), null, Color.White, 0f, new Vector2(194 / 2, 325f / 2f), .75f, SpriteEffects.None, 0);
-            }
 
 			if (showFinalThought) 
 			{
@@ -626,17 +647,8 @@ namespace CIS598Project.Rooms
 						crashed.Play();
 					}
 					if(crashed.State != SoundState.Playing)
-					{ 
-						PlayerRef.foundSecret[0] = true;
-						for (int i = 0; i < PlayerRef.consecutivePlays.Length; i++) 
-						{
-							PlayerRef.consecutivePlays[i] = 0;
-							
-						}
-						foreach (var screen in ScreenManager.GetScreens())
-							screen.ExitScreen();
-
-						ScreenManager.AddScreen(new GameSelect(PlayerRef, game), PlayerIndex.One);
+					{
+						showCrashScreen = true;
 					}
 				}
 			}

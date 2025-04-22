@@ -122,7 +122,7 @@ namespace CIS598Project.Rooms
 				victory = true;
 				character = charType.Bonnie;
 			}
-			else if (randomValue >= 95 && !player.foundSecret[11])
+			else if (randomValue >= 95 && !player.foundSecret[3])
 			{
 				score = 5000;
 				victory = true;
@@ -269,7 +269,7 @@ namespace CIS598Project.Rooms
 				{
 					if (lost.State != SoundState.Playing)
 					{
-						player.losses[0]++;
+						player.ballpitTowerLosses++;
 						for (int i = 0; i < player.consecutivePlays.Length; i++)
 						{
 							player.consecutivePlays[i] = 0;
@@ -278,14 +278,14 @@ namespace CIS598Project.Rooms
 						foreach (var screen in ScreenManager.GetScreens())
 							screen.ExitScreen();
 
-						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+						ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 					}
 				}
 				if (horn != null)
 				{
 					if (horn.State != SoundState.Playing)
 					{
-						player.losses[0] = 0;
+						player.ballpitTowerLosses = 0;
 						for (int i = 0; i < player.consecutivePlays.Length; i++)
 						{
 							player.consecutivePlays[i] = 0;
@@ -294,7 +294,7 @@ namespace CIS598Project.Rooms
 						foreach (var screen in ScreenManager.GetScreens())
 							screen.ExitScreen();
 
-						ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+						ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 					}
 				}
 			}
@@ -321,8 +321,8 @@ namespace CIS598Project.Rooms
 				}
 				if (crashing.State != SoundState.Playing) 
 				{
-					player.foundSecret[11] = true;
-					player.losses[0] = 0;
+					player.foundSecret[3] = true;
+					player.ballpitTowerLosses = 0;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
 						player.consecutivePlays[i] = 0;
@@ -331,7 +331,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
 		}

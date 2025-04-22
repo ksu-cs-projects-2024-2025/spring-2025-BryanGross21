@@ -95,36 +95,36 @@ namespace CIS598Project.Rooms
 
 			this.game = game;
 
-			if (!player.foundSecret[0])
+			if (!player.foundSecret[2])
 			{
-				if (player.consecutivePlays[0] == 0)
+				if (player.consecutivePlays[2] == 0)
 				{
 					character = charType.Fredbear;
 					background = new Texture2D[20];
 				}
-				else if (player.consecutivePlays[0] == 1)
+				else if (player.consecutivePlays[2] == 1)
 				{
 					character = charType.Chica;
 					background = new Texture2D[20];
-					game.Window.Title = "Susie, lost her dog.";
+					game.Window.Title = "Susie, lost in the maze.";
 				}
-				else if (player.consecutivePlays[0] == 2)
+				else if (player.consecutivePlays[2] == 2)
 				{
 					character = charType.Bonnie;
 					background = new Texture2D[20];
-					game.Window.Title = "Jeremy, given a gift.";
+					game.Window.Title = "Jeremy, staring at colors.";
 				}
-				else if (player.consecutivePlays[0] == 3)
+				else if (player.consecutivePlays[2] == 3)
 				{
 					character = charType.Freddy;
 					background = new Texture2D[20];
-					game.Window.Title = "Gabriel, lost in a dance.";
+					game.Window.Title = "Gabriel, stuck looking at others.";
 				}
-				else if (player.consecutivePlays[0] == 4)
+				else if (player.consecutivePlays[2] == 4)
 				{
 					character = charType.Foxy;
 					background = new Texture2D[20];
-					game.Window.Title = "Fritz, sailed the seven seas.";
+					game.Window.Title = "Fritz, fished and pulled up a beast.";
 				}
 				else
 				{
@@ -163,29 +163,29 @@ namespace CIS598Project.Rooms
 			}
 
 
-			if (!player.foundSecret[0])
+			if (!player.foundSecret[2])
 			{
-				if (player.consecutivePlays[0] == 0)
+				if (player.consecutivePlays[2] == 0)
 				{
 					backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop");
 					victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Fredbear/FredbearB");
 				}
-				else if (player.consecutivePlays[0] == 1)
+				else if (player.consecutivePlays[2] == 1)
 				{
 					backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop_Chica");
 					victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Chica/ChicaB");
 				}
-				else if (player.consecutivePlays[0] == 2)
+				else if (player.consecutivePlays[2] == 2)
 				{
 					backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop_Bonnie");
 					victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Bonnie/BonnieB");
 				}
-				else if (player.consecutivePlays[0] == 3)
+				else if (player.consecutivePlays[2] == 3)
 				{
 					backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop_Freddy");
 					victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Freddy/FreddyB");
 				}
-				else if (player.consecutivePlays[0] == 4)
+				else if (player.consecutivePlays[2] == 4)
 				{
 					backgroundSong = _content.Load<Song>("Balloon_Barrel/Sounds/Music/A_slice_and_a_scoop_Foxy");
 					victoryScreen[0] = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Foxy/FoxyB");
@@ -272,10 +272,10 @@ namespace CIS598Project.Rooms
 				if (horn.State != SoundState.Playing)
 				{
 					player.ticketAmount += score;
-					player.consecutivePlays[0]++;
+					player.consecutivePlays[2]++;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
+						if (i != 2)
 						{
 							player.consecutivePlays[i] = 0;
 						}
@@ -284,7 +284,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
 
@@ -310,11 +310,11 @@ namespace CIS598Project.Rooms
 				}
 				if (crashing.State != SoundState.Playing) 
 				{
-					player.consecutivePlays[0]++;
-					player.foundSecret[0] = true;
+					player.consecutivePlays[2]++;
+					player.foundSecret[2] = true;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
+						if (i != 2)
 						{
 							player.consecutivePlays[i] = 0;
 						}
@@ -327,7 +327,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				
 				}
 			}

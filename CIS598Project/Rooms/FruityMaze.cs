@@ -153,7 +153,7 @@ namespace CIS598Project.Rooms
 			this.game = game;
 			this.player = player;
 			game.IsMouseVisible = false;
-			if (player.foundSecret[5] == false)
+			if (player.foundSecret[4] == false)
 			{
 				if (player.fruityMazeWins == 0)
 				{
@@ -381,7 +381,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
 
@@ -407,7 +407,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
 
@@ -420,7 +420,7 @@ namespace CIS598Project.Rooms
 				}
 				if (crashing.State != SoundState.Playing)
 				{
-					player.foundSecret[5] = true;
+					player.foundSecret[4] = true;
 					if (state == GameState.Win)
 					{
 						player.ticketAmount += score;
@@ -436,7 +436,7 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
-					ScreenManager.AddScreen(new GameSelect(player, game), PlayerIndex.One);
+					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Duck_Pond/Idles/Fredbear_Duck_1/0018.png</SourceFile>
-  <SourceTime>2025-03-10T18:43:56.1031387-05:00</SourceTime>
+  <SourceTime>2025-03-12T13:14:15.3664336-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Duck_Pond/Idles/Fredbear_Duck_1/0018.xnb</DestFile>
-  <DestTime>2025-04-20T20:33:38.9807679-05:00</DestTime>
+  <DestTime>2025-04-21T16:51:05.7968207-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
