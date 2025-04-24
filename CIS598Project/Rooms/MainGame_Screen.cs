@@ -370,6 +370,8 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(controls[1], new Vector2(graphics.Viewport.Width / 2 + 300, graphics.Viewport.Height / 2 - 250), Color.White);
                 spriteBatch.Draw(controls[3], new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 - 260), Color.White);
 
+				spriteBatch.DrawString(font, "Tickets: " + player.ticketAmount, Vector2.Zero, Color.White);
+
 				if (tutorialShow) 
 				{
 					spriteBatch.Draw(Overlay, Vector2.Zero, Color.White);
