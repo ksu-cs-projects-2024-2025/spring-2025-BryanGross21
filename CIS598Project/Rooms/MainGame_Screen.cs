@@ -93,7 +93,7 @@ namespace CIS598Project.Rooms
             gameSelectors[6] = new(6, new Vector2(250, 650), game, player);
             gameSelectors[7] = new(7, new Vector2(250, 450), game, player);
 
-			fredPosition = new Vector2(450, 250);
+			fredPosition = new Vector2(250, 250);
         }
 
 		public override void Activate()
@@ -172,15 +172,66 @@ namespace CIS598Project.Rooms
 					MediaPlayer.Resume();
 				}
 			}
+
+			fredUpdate();
 		}
 
-		/*private bool fredUpdate() 
+		private void fredUpdate() 
 		{
-			if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyDown(Keys.A)) 
+			//Handle the player's input to go to the next node
+			if (preventMove == false)
 			{
-
+				if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyDown(Keys.A))
+				{
+					nodePosition--;
+					if (nodePosition < 0) 
+					{
+						nodePosition = 7;
+					}
+					preventMove = true;
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyDown(Keys.D))
+				{
+					nodePosition++;
+					if (nodePosition > 7)
+					{
+						nodePosition = 0;
+					}
+					preventMove = true;
+				}
 			}
-		}*/
+
+			//Update Freddy to move to the next node
+			if (preventMove) 
+			{
+				if (fredPosition.X != gameSelectors[nodePosition].position.X) 
+				{
+					if (fredPosition.X > gameSelectors[nodePosition].position.X)
+					{
+						fredPosition.X -= 25;
+					}
+					else if (fredPosition.X < gameSelectors[nodePosition].position.X) 
+					{
+						fredPosition.X += 25;
+					}
+				}
+				if (fredPosition.Y != gameSelectors[nodePosition].position.Y) 
+				{
+					if (fredPosition.Y > gameSelectors[nodePosition].position.Y)
+					{
+						fredPosition.Y -= 25;
+					}
+					else if (fredPosition.Y < gameSelectors[nodePosition].position.Y)
+					{
+						fredPosition.Y += 25;
+					}
+				}
+				if (fredPosition.X == gameSelectors[nodePosition].position.X && gameSelectors[nodePosition].position.Y == fredPosition.Y) 
+				{
+					preventMove = false;
+				}
+			}
+		}
 
 		/// <summary>
 		/// Draws the sprite using the supplied SpriteBatch

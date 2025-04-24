@@ -23,7 +23,7 @@ namespace CIS598Project.Game_Entities
         /// <summary>
         /// The position located on the map screen
         /// </summary>
-        Vector2 position;
+        public Vector2 position;
 
         /// <summary>
         /// The image to represent the minigame
