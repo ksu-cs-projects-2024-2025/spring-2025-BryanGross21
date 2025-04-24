@@ -248,7 +248,7 @@ namespace CIS598Project.Rooms
 				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
 				{
 					victory = true;
-					score += 1500;
+					score += 500;
 					MediaPlayer.Stop();
 				}
 			}
@@ -257,7 +257,7 @@ namespace CIS598Project.Rooms
 				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
 				{
 					victory = true;
-					score += 1500;
+					score += 500;
 					MediaPlayer.Stop();
 				}
 			}

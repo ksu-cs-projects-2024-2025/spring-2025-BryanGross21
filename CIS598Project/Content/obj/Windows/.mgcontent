@@ -413,6 +413,7 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Screen/ScreenBorder.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Signs/End.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Fruity_Maze/Textures/Signs/Start.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/gameSelectionOverlay.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Memory/Sounds/Ambience/buzz.ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Memory/Sounds/Soundeffects/Colors/black.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Memory/Sounds/Soundeffects/Colors/blue.wav</File>
@@ -720,6 +721,7 @@
     <File>Desktop_Selection/Textures/taskbar/stage.png</File>
     <File>Desktop_Selection/Textures/taskbar/storeFredb.png</File>
     <File>Desktop_Selection/Textures/taskbar/store.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

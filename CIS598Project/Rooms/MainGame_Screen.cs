@@ -43,6 +43,13 @@ namespace CIS598Project.Rooms
 
 		MapNode[] gameSelectors = new MapNode[8];
 
+		Texture2D Overlay;
+
+		/// <summary>
+		/// Retrieves the script to show the description, name, and controls for each minigame
+		/// </summary>
+		MinigameDictionary messages;
+
 		double fredAnimationTimer = 0;
 
 		int fredAnimationCount = 0;
@@ -50,6 +57,9 @@ namespace CIS598Project.Rooms
 		bool showFredbear = false;
 
 		bool preventMove = false; //Prevents Freddy from moving until he reaches his next position
+
+		//Shows the current minigames tutorial
+		bool tutorialShow = false;
 
 		/// <summary>
 		/// 0 - 3 are for the screens, 4 is for the fredbear helper
@@ -80,10 +90,7 @@ namespace CIS598Project.Rooms
 			this.player = player;
 			game.IsMouseVisible = true;
 			game.Window.Title = "Fredbear and Friends: Arcade";
-			/*for (int i = 0; i < gameSelectors.Length; i++) 
-			{
-				gameSelectors
-			}*/
+
 			gameSelectors[0] = new(0, new Vector2(250, 250), game, player);
             gameSelectors[1] = new(1, new Vector2(450, 250), game, player);
 			gameSelectors[2] = new(2, new Vector2(450, 450), game, player);
@@ -94,7 +101,10 @@ namespace CIS598Project.Rooms
             gameSelectors[7] = new(7, new Vector2(250, 450), game, player);
 
 			fredPosition = new Vector2(250, 250);
+
+			messages = new();
         }
+
 
 		public override void Activate()
 		{
@@ -109,6 +119,8 @@ namespace CIS598Project.Rooms
 					node.LoadContent(_content);
 				}
 			}
+
+			messages.LoadContent(_content);
 
 			//The music for each screen
 			backgroundMusic[0] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/8BitTravel(Map)");
@@ -140,9 +152,11 @@ namespace CIS598Project.Rooms
             controls[3] = _content.Load<Texture2D>("Desktop_Selection/Textures/map/controls/d_key");
             controls[4] = _content.Load<Texture2D>("Desktop_Selection/Textures/map/controls/e_key");
 
+			Overlay = _content.Load<Texture2D>("gameSelectionOverlay");
+
 			font = _content.Load<SpriteFont>("MiniGame_Font");
 
-            //MediaPlayer.Play(backgroundMusic[(int)state]);
+            MediaPlayer.Play(backgroundMusic[(int)state]);
 			MediaPlayer.IsRepeating = true;
 		}
 
@@ -173,13 +187,54 @@ namespace CIS598Project.Rooms
 				}
 			}
 
-			fredUpdate();
+			if (state == MainGame_ScreenState.map && showFredbear == false)
+			{
+				fredUpdate();
+			}
+		}
+
+		private void transitionToMinigame() 
+		{
+			foreach (var screen in ScreenManager.GetScreens())
+				screen.ExitScreen();
+			if (nodePosition == 0) 
+			{
+				ScreenManager.AddScreen(new DuckPond(game, player), null);
+			}
+			if (nodePosition == 1)
+			{
+				ScreenManager.AddScreen(new Discount_Ballpit(game, player), null);
+			}
+			if (nodePosition == 2)
+			{
+				ScreenManager.AddScreen(new BalloonBarrel(game, player), null);
+			}
+			if (nodePosition == 3)
+			{
+				ScreenManager.AddScreen(new Ballpit_Tower(game, player), null);
+			}
+			if (nodePosition == 4)
+			{
+				ScreenManager.AddScreen(new FruityMaze(game, player), null);
+			}
+			if (nodePosition == 5)
+			{
+				ScreenManager.AddScreen(new Memory_Match(game, player), null);
+			}
+			if (nodePosition == 6)
+			{
+				ScreenManager.AddScreen(new Security(game, player), null);
+			}
+			if (nodePosition == 7)
+			{
+				ScreenManager.AddScreen(new Fishing(game, player), null);
+			}
 		}
 
 		private void fredUpdate() 
 		{
 			//Handle the player's input to go to the next node
-			if (preventMove == false)
+			if (preventMove == false && tutorialShow == false)
 			{
 				if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyDown(Keys.A))
 				{
@@ -198,6 +253,24 @@ namespace CIS598Project.Rooms
 						nodePosition = 0;
 					}
 					preventMove = true;
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.E)) 
+				{
+					tutorialShow = true;
+					//preventMove = true; //Don't want the player to move and select a new game while a tutorial message is shown
+				}
+			}
+
+			//Get ready to go to the next screen for the minigame or to exit back to the map selection
+			if (tutorialShow) 
+			{
+				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
+				{
+					transitionToMinigame();
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.Escape))
+				{
+					tutorialShow = false;
 				}
 			}
 
@@ -297,9 +370,14 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(controls[1], new Vector2(graphics.Viewport.Width / 2 + 300, graphics.Viewport.Height / 2 - 250), Color.White);
                 spriteBatch.Draw(controls[3], new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 - 260), Color.White);
 
+				if (tutorialShow) 
+				{
+					spriteBatch.Draw(Overlay, Vector2.Zero, Color.White);
+					messages.Draw(spriteBatch, nodePosition, graphics.Viewport.Width, graphics.Viewport.Height);
+				}
 
-				
-            }
+
+			}
 
 			spriteBatch.End();
 		}

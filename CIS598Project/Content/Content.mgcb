@@ -4627,6 +4627,18 @@
 /processorParam:TextureFormat=Color
 /build:Fruity_Maze/Textures/Signs/Start.png
 
+#begin gameSelectionOverlay.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:gameSelectionOverlay.png
+
 #begin Memory/Sounds/Ambience/buzz.ogg
 /importer:OggImporter
 /processor:SongProcessor
