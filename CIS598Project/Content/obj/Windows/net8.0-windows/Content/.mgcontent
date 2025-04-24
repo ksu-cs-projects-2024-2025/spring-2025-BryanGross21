@@ -713,13 +713,13 @@
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
-    <File xsi:nil="true" />
+    <File>Desktop_Selection/Textures/taskbar/map.png</File>
+    <File>Desktop_Selection/Textures/taskbar/saveFredb.png</File>
+    <File>Desktop_Selection/Textures/taskbar/save.png</File>
+    <File>Desktop_Selection/Textures/taskbar/stageFredb.png</File>
+    <File>Desktop_Selection/Textures/taskbar/stage.png</File>
+    <File>Desktop_Selection/Textures/taskbar/storeFredb.png</File>
+    <File>Desktop_Selection/Textures/taskbar/store.png</File>
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

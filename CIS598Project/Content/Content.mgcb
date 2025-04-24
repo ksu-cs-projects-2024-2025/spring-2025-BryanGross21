@@ -2063,7 +2063,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/map_select.png
+/build:Desktop_Selection/Textures/taskbar/map_select.png;Desktop_Selection/Textures/taskbar/map.png
 
 #begin Desktop_Selection/Textures/taskbar/save_select_fredbear.png
 /importer:TextureImporter
@@ -2075,7 +2075,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/save_select_fredbear.png
+/build:Desktop_Selection/Textures/taskbar/save_select_fredbear.png;Desktop_Selection/Textures/taskbar/saveFredb.png
 
 #begin Desktop_Selection/Textures/taskbar/save_select.png
 /importer:TextureImporter
@@ -2087,7 +2087,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/save_select.png
+/build:Desktop_Selection/Textures/taskbar/save_select.png;Desktop_Selection/Textures/taskbar/save.png
 
 #begin Desktop_Selection/Textures/taskbar/stage_select_fredbear.png
 /importer:TextureImporter
@@ -2099,7 +2099,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/stage_select_fredbear.png
+/build:Desktop_Selection/Textures/taskbar/stage_select_fredbear.png;Desktop_Selection/Textures/taskbar/stageFredb.png
 
 #begin Desktop_Selection/Textures/taskbar/stage_select.png
 /importer:TextureImporter
@@ -2111,7 +2111,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/stage_select.png
+/build:Desktop_Selection/Textures/taskbar/stage_select.png;Desktop_Selection/Textures/taskbar/stage.png
 
 #begin Desktop_Selection/Textures/taskbar/store_select_fredbear.png
 /importer:TextureImporter
@@ -2123,7 +2123,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/store_select_fredbear.png
+/build:Desktop_Selection/Textures/taskbar/store_select_fredbear.png;Desktop_Selection/Textures/taskbar/storeFredb.png
 
 #begin Desktop_Selection/Textures/taskbar/store_select.png
 /importer:TextureImporter
@@ -2135,7 +2135,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:Desktop_Selection/Textures/taskbar/store_select.png
+/build:Desktop_Selection/Textures/taskbar/store_select.png;Desktop_Selection/Textures/taskbar/store.png
 
 #begin Discount_Ballpit/Sounds/Songs/A_slice_and_a_scoop_miss1.ogg
 /importer:OggImporter

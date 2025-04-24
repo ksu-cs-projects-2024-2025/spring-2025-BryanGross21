@@ -582,3 +582,10 @@ C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\obj\Debug\net
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\obj\Debug\net8.0-windows\CIS598Project.pdb
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\obj\Debug\net8.0-windows\CIS598Project.genruntimeconfig.cache
 C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\obj\Debug\net8.0-windows\ref\CIS598Project.dll
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\map.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\save.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\stage.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\store.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\stageFredb.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\storeFredb.xnb
+C:\Users\bryan\source\repos\spring-2025-BryanGross21\CIS598Project\bin\Debug\net8.0-windows\Content\Desktop_Selection\Textures\taskbar\saveFredb.xnb

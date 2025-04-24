@@ -519,7 +519,7 @@ namespace CIS598Project.Rooms
 			{
 				showSequence = false;
 				gameState = GameStateMemory.intermission;
-				if (guessingIndex >= 2) //currentRound + 4)
+				if (guessingIndex >= currentRound + 4)
 				{
 					score += 250;
                     guessingIndex = 0;

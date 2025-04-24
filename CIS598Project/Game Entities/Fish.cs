@@ -22,15 +22,6 @@ namespace CIS598Project.Game_Entities
 
         public BoundingRectangle bounds = new(0,0, 128, 128);
 
-        /// <summary>
-        /// Gets the current keyboard state
-        /// </summary>
-        private KeyboardState currentKeyboardState;
-        /// <summary>
-        /// Gets the previous keyboard state
-        /// </summary>
-        private KeyboardState pastKeyboardState;
-
         private int sideOfScreen;
 
         private int fishAnimationFrame = 0;
@@ -108,8 +99,6 @@ namespace CIS598Project.Game_Entities
         /// <param name="gameTime">The GameTime object</param>
         public void Update(GameTime gameTime)
         {
-            pastKeyboardState = currentKeyboardState;
-            currentKeyboardState = Keyboard.GetState();
 
             float t = (float)gameTime.ElapsedGameTime.TotalSeconds;
 

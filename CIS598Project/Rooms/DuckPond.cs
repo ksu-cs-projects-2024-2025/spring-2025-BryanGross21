@@ -457,14 +457,6 @@ namespace CIS598Project.Rooms
 			Color color = Color.White;
             if (!ducks[i].selected && showDucks[i])
             {
-				if (ducks[i].points == 900)
-				{
-					color = Color.Green;
-				}
-				else if (ducks[i].points == 500) 
-				{
-					color = Color.Red;
-				}
                 spriteBatch.Draw(idle[duckIdleAnimationFrame], new Vector2(graphics.Viewport.Width / 2 + x, graphics.Viewport.Height / 2 + y), null, color, 0f, new Vector2(97.3f, 76.6f), 1f, SpriteEffects.None, 0);
                 spriteBatch.Draw(overlay, whereToDraw, null, Color.White, 0f, new Vector2(42, 42), SpriteEffects.None, 0);
             }
