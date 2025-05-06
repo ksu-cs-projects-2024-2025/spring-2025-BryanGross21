@@ -16,7 +16,6 @@ namespace CIS598Project.StateManagement
         private readonly List<GameScreen> _tmpScreensList = new List<GameScreen>();
 
         private readonly ContentManager _content;
-        private readonly InputState _input = new InputState();
 
         private bool _isInitialized;
 
@@ -84,7 +83,6 @@ namespace CIS598Project.StateManagement
         public override void Update(GameTime gameTime)
         {
             // Read in the keyboard and gamepad
-            _input.Update();
 
             // Make a copy of the screen list, to avoid confusion if 
             // the process of updating a screen adds or removes others
@@ -107,7 +105,7 @@ namespace CIS598Project.StateManagement
                     // if this is the first active screen, let it handle input 
                     if (!otherScreenHasFocus)
                     {
-                        screen.HandleInput(gameTime, _input);
+
                         otherScreenHasFocus = true;
                     }
 

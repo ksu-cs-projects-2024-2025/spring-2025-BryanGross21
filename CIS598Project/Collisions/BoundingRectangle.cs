@@ -51,11 +51,6 @@ namespace CIS598Project.Collisions
 			return CollisionHelper.Collides(this, other);
 		}
 
-        public bool collidesWith(BoundingCircle other)
-        {
-            return CollisionHelper.Collides(this, other);
-        }
-
         public bool collidesWith(BoundingRectanglePriority other)
 		{
 			return CollisionHelper.Collides(this, other);

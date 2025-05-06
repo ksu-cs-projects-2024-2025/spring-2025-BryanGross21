@@ -166,14 +166,6 @@ namespace CIS598Project.StateManagement
         }
 
         /// <summary>
-        /// Handles input for this screen.  Only called when the screen is active,
-        /// and not when another screen has taken focus.
-        /// </summary>
-        /// <param name="gameTime">An object representing time in the game</param>
-        /// <param name="input">An object representing input</param>
-        public virtual void HandleInput(GameTime gameTime, InputState input) { }
-
-        /// <summary>
         /// Draws the GameScreen.  Only called with the screen is active, and not 
         /// when another screen has taken the focus.
         /// </summary>

@@ -13,11 +13,6 @@ namespace CIS598Project.Game_Entities
     public class MapNode
     {
 
-        /// <summary>
-        /// This and player are used simply for passing the game and player entities into the minigames
-        /// </summary>
-        Game game;
-
         Player player;
 
         /// <summary>
@@ -39,7 +34,6 @@ namespace CIS598Project.Game_Entities
         {
             referenceType = (MinigameRef)reference;
             this.position = position;
-            this.game = game;
             this.player = player;
         }
 

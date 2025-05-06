@@ -11,17 +11,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms.VisualStyles;
 using CIS598Project.Collisions;
+
 
 namespace CIS598Project.Rooms
 {
 	public enum MainGame_ScreenState 
 	{
 		map,
-		stage,
-		shop,
-		save
+		stage = 2,
+		shop = 4,
+		save = 6
 	}
 	public class MainGame_Screen : GameScreen
 	{
@@ -45,12 +45,30 @@ namespace CIS598Project.Rooms
 
 		Texture2D Overlay;
 
+		Texture2D StageBackground;
+
+		Texture2D[] staticProps = new Texture2D[11];
+
+		Texture2D[] fan = new Texture2D[2];
+
+		int fanAnimationFrame = 0;
+
+		double fanAnimationTimer = 0;
+
+		Texture2D[] traffic = new Texture2D[3];
+
+		int trafficAnimationFrame = 0;
+
+		double trafficAnimationTimer = 0;
+
 		/// <summary>
 		/// Retrieves the script to show the description, name, and controls for each minigame
 		/// </summary>
 		MinigameDictionary messages;
 
-		double fredAnimationTimer = 0;
+        BoundingRectangle mouse = new(0, 0, 64, 64);
+
+        double fredAnimationTimer = 0;
 
 		int fredAnimationCount = 0;
 
@@ -60,6 +78,8 @@ namespace CIS598Project.Rooms
 
 		//Shows the current minigames tutorial
 		bool tutorialShow = false;
+
+		bool isShowtime = false;
 
 		/// <summary>
 		/// 0 - 3 are for the screens, 4 is for the fredbear helper
@@ -80,7 +100,11 @@ namespace CIS598Project.Rooms
 
         private MouseState currentMousePosition;
 
+
 		MainGame_ScreenState state = MainGame_ScreenState.map;
+
+		MainGame_ScreenState pastState = MainGame_ScreenState.map;
+
 
 		int currentGame = 0;
 
@@ -156,11 +180,36 @@ namespace CIS598Project.Rooms
 
 			font = _content.Load<SpriteFont>("MiniGame_Font");
 
-            MediaPlayer.Play(backgroundMusic[(int)state]);
+			selections[0] = new(0, 1026, 192, 54);
+			selections[1] = new(198, 1026, 192, 54);
+            selections[2] = new(396, 1026, 192, 54);
+
+			StageBackground = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Stage_background");
+
+			staticProps[0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Stage");
+			staticProps[1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Sanitation_Station");
+			staticProps[2] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Paper_Pals");
+			staticProps[3] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Table");
+			staticProps[4] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Table_with_hats");
+			staticProps[5] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/present");
+			staticProps[6] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings");
+			staticProps[7] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster");
+			staticProps[8] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/fazerblast");
+			staticProps[9] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor");
+			staticProps[10] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Gumball_Swivelhands");
+
+			fan[0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/fan_1");
+			fan[1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/fan_2");
+
+			traffic[0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/traffic_light_1");
+			traffic[1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/traffic_light_2");
+			traffic[2] = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/traffic_light_3");
+
+			MediaPlayer.Play(backgroundMusic[(int)state]);
 			MediaPlayer.IsRepeating = true;
 		}
 
-	
+
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
@@ -168,6 +217,11 @@ namespace CIS598Project.Rooms
 
 			pastKeyboardState = currentKeyboardState;
 			currentKeyboardState = Keyboard.GetState();
+
+			pastMousePosition = currentMousePosition;
+			currentMousePosition = Mouse.GetState();
+
+			pastState = state;
 
 			if (!ScreenManager.Game.IsActive)
 			{
@@ -187,11 +241,54 @@ namespace CIS598Project.Rooms
 				}
 			}
 
+			Vector2 mousePosition = new Vector2(currentMousePosition.X, currentMousePosition.Y);
+
 			if (state == MainGame_ScreenState.map && showFredbear == false)
 			{
 				fredUpdate();
 			}
-		}
+
+			if (isShowtime == false)
+			{
+				if (tutorialShow == false)
+				{
+					if (mouse.collidesWith(selections[0]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.map)
+						{
+							state = MainGame_ScreenState.map;
+						}
+					}
+
+					if (mouse.collidesWith(selections[1]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.stage)
+						{
+							state = MainGame_ScreenState.stage;
+						}
+					}
+				}
+			}
+
+			if (pastState != state) 
+			{
+				if (state == MainGame_ScreenState.stage) 
+				{
+					MediaPlayer.Stop();
+					if (player.itemsUnlocked[0][0]) 
+					{
+						MediaPlayer.Play(backgroundMusic[3]);
+					}
+				}
+				if (state == MainGame_ScreenState.map) 
+				{
+					MediaPlayer.Play(backgroundMusic[0]);
+				}
+			}
+
+            mouse.X = mousePosition.X;
+            mouse.Y = mousePosition.Y;
+        }
 
 		private void transitionToMinigame() 
 		{
@@ -321,14 +418,6 @@ namespace CIS598Project.Rooms
 
 			spriteBatch.Begin();
 
-			if (showFredbear)
-			{
-				spriteBatch.Draw(TaskBar[(int)state + 1], Vector2.Zero, Color.White);
-			}
-			else 
-			{
-                spriteBatch.Draw(TaskBar[(int)state], Vector2.Zero, Color.White);
-            }
 
 			if (state == MainGame_ScreenState.map) 
 			{
@@ -377,9 +466,98 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(Overlay, Vector2.Zero, Color.White);
 					messages.Draw(spriteBatch, nodePosition, graphics.Viewport.Width, graphics.Viewport.Height);
 				}
-
-
 			}
+
+			if (state == MainGame_ScreenState.stage) 
+			{
+				spriteBatch.Draw(StageBackground, Vector2.Zero, Color.White);
+
+				if (player.itemsUnlocked[0][0]) 
+				{
+					spriteBatch.Draw(staticProps[0], new Vector2(775, 200), Color.White);
+				}
+				if (player.itemsUnlocked[0][9])
+				{
+					spriteBatch.Draw(staticProps[8], new Vector2(100, 305), Color.White);
+				}
+				if (player.itemsUnlocked[0][1])
+				{
+					spriteBatch.Draw(staticProps[1], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][2])
+				{
+					spriteBatch.Draw(staticProps[2], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][6])
+				{
+					spriteBatch.Draw(staticProps[6], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][7])
+				{
+
+					if (isShowtime)
+					{
+						trafficAnimationTimer += gameTime.ElapsedGameTime.TotalSeconds;
+						if (trafficAnimationTimer > .75)
+						{
+							trafficAnimationFrame++;
+							if (trafficAnimationFrame >= 3)
+							{
+								trafficAnimationFrame = 0;
+							}
+							trafficAnimationTimer -= .75;
+						}
+					}
+					spriteBatch.Draw(traffic[trafficAnimationFrame], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][8])
+				{
+					spriteBatch.Draw(staticProps[7], new Vector2(500, 255), Color.White);
+				}
+				if (player.itemsUnlocked[0][10])
+				{
+					fanAnimationTimer += gameTime.ElapsedGameTime.TotalSeconds;
+					if (fanAnimationTimer > .25)
+					{
+						fanAnimationFrame++;
+						if (fanAnimationFrame >= 2) 
+						{
+							fanAnimationFrame = 0;
+						}
+						fanAnimationTimer -= .25;
+					}
+					spriteBatch.Draw(fan[fanAnimationFrame], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][12])
+				{
+					spriteBatch.Draw(staticProps[10], Vector2.Zero, Color.White);
+				}
+				if (player.itemsUnlocked[0][3])
+				{
+					if (player.itemsUnlocked[0][4])
+					{
+						spriteBatch.Draw(staticProps[4], new Vector2(0, 737), Color.White);
+						spriteBatch.Draw(staticProps[3], new Vector2(620, 737), Color.White);
+						spriteBatch.Draw(staticProps[4], new Vector2(graphics.Viewport.Width - 684, 737), Color.White);
+					}
+					else
+					{
+						spriteBatch.Draw(staticProps[3], new Vector2(0, 737), Color.White);
+						spriteBatch.Draw(staticProps[3], new Vector2(620, 737), Color.White);
+						spriteBatch.Draw(staticProps[3], new Vector2(graphics.Viewport.Width - 684, 737), Color.White);
+					}
+				}
+			}
+
+			if (showFredbear)
+			{
+				spriteBatch.Draw(TaskBar[(int)state + 1], Vector2.Zero, Color.White);
+			}
+			else
+			{
+				spriteBatch.Draw(TaskBar[(int)state], Vector2.Zero, Color.White);
+			}
+
 
 			spriteBatch.End();
 		}

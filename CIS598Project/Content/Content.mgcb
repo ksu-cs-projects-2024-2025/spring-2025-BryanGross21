@@ -1771,6 +1771,18 @@
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Songs/8BitTravel(Map).ogg
 
+#begin Desktop_Selection/Sounds/Songs/8BitTravel(Map).ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/8BitTravel(Map).ogg
+
+#begin Desktop_Selection/Sounds/Songs/Broken8Bit(Save).ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/Broken8Bit(Save).ogg
+
 #begin Desktop_Selection/Sounds/Songs/Broken8Bit(Save).ogg
 /importer:OggImporter
 /processor:SongProcessor
@@ -1782,6 +1794,30 @@
 /processor:SongProcessor
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Songs/RunningLights(Store).ogg
+
+#begin Desktop_Selection/Sounds/Songs/RunningLights(Store).ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/RunningLights(Store).ogg
+
+#begin Desktop_Selection/Sounds/Songs/stage_end.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/stage_end.wav
+
+#begin Desktop_Selection/Sounds/Songs/stage_intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/stage_intro.wav
+
+#begin Desktop_Selection/Sounds/Songs/stage(acting).ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/stage(acting).ogg
 
 #begin Desktop_Selection/Sounds/Songs/stage(acting).ogg
 /importer:OggImporter
@@ -1795,6 +1831,18 @@
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Songs/stage(no_act).ogg
 
+#begin Desktop_Selection/Sounds/Songs/stage(no_act).ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Songs/stage(no_act).ogg
+
+#begin Desktop_Selection/Sounds/Soundeffects/Level_over.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/Level_over.wav
+
 #begin Desktop_Selection/Sounds/Soundeffects/Level_over.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
@@ -1807,11 +1855,47 @@
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Soundeffects/Level_select.wav
 
+#begin Desktop_Selection/Sounds/Soundeffects/Level_select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/Level_select.wav
+
 #begin Desktop_Selection/Sounds/Soundeffects/menu_select.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Soundeffects/menu_select.wav
+
+#begin Desktop_Selection/Sounds/Soundeffects/menu_select.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/menu_select.wav
+
+#begin Desktop_Selection/Sounds/Soundeffects/stage_end.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/stage_end.wav
+
+#begin Desktop_Selection/Sounds/Soundeffects/stage_intro.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/stage_intro.wav
+
+#begin Desktop_Selection/Textures/map/controls/a_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/controls/a_key.png
 
 #begin Desktop_Selection/Textures/map/controls/a_key.png
 /importer:TextureImporter
@@ -1837,6 +1921,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/controls/d_key.png
 
+#begin Desktop_Selection/Textures/map/controls/d_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/controls/d_key.png
+
 #begin Desktop_Selection/Textures/map/controls/e_key.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1848,6 +1944,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/controls/e_key.png
+
+#begin Desktop_Selection/Textures/map/controls/e_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/controls/e_key.png
+
+#begin Desktop_Selection/Textures/map/controls/s_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/controls/s_key.png
 
 #begin Desktop_Selection/Textures/map/controls/s_key.png
 /importer:TextureImporter
@@ -1873,6 +1993,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/controls/w_key.png
 
+#begin Desktop_Selection/Textures/map/controls/w_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/controls/w_key.png
+
 #begin Desktop_Selection/Textures/map/Fred/Fred_Frame_1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1884,6 +2016,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/Fred/Fred_Frame_1.png
+
+#begin Desktop_Selection/Textures/map/Fred/Fred_Frame_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/Fred/Fred_Frame_1.png
+
+#begin Desktop_Selection/Textures/map/Fred/Fred_Frame_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/Fred/Fred_Frame_2.png
 
 #begin Desktop_Selection/Textures/map/Fred/Fred_Frame_2.png
 /importer:TextureImporter
@@ -1909,6 +2065,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/Fred/Fred_Frame_3.png
 
+#begin Desktop_Selection/Textures/map/Fred/Fred_Frame_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/Fred/Fred_Frame_3.png
+
 #begin Desktop_Selection/Textures/map/path/balloonBarrel_picture.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1920,6 +2088,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/balloonBarrel_picture.png
+
+#begin Desktop_Selection/Textures/map/path/balloonBarrel_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/balloonBarrel_picture.png
+
+#begin Desktop_Selection/Textures/map/path/ballpit_Picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/ballpit_Picture.png
 
 #begin Desktop_Selection/Textures/map/path/ballpit_Picture.png
 /importer:TextureImporter
@@ -1945,6 +2137,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/ballpitTower_picture.png
 
+#begin Desktop_Selection/Textures/map/path/ballpitTower_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/ballpitTower_picture.png
+
 #begin Desktop_Selection/Textures/map/path/coin.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1956,6 +2160,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/coin.png
+
+#begin Desktop_Selection/Textures/map/path/coin.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/coin.png
+
+#begin Desktop_Selection/Textures/map/path/duckpond_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/duckpond_picture.png
 
 #begin Desktop_Selection/Textures/map/path/duckpond_picture.png
 /importer:TextureImporter
@@ -1981,6 +2209,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/fish_picture.png
 
+#begin Desktop_Selection/Textures/map/path/fish_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/fish_picture.png
+
 #begin Desktop_Selection/Textures/map/path/fruity_picture.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1992,6 +2232,30 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/fruity_picture.png
+
+#begin Desktop_Selection/Textures/map/path/fruity_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/fruity_picture.png
+
+#begin Desktop_Selection/Textures/map/path/horizonal_path.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/horizonal_path.png
 
 #begin Desktop_Selection/Textures/map/path/horizonal_path.png
 /importer:TextureImporter
@@ -2017,6 +2281,30 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/memory_picture.png
 
+#begin Desktop_Selection/Textures/map/path/memory_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/memory_picture.png
+
+#begin Desktop_Selection/Textures/map/path/security_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/security_picture.png
+
 #begin Desktop_Selection/Textures/map/path/security_picture.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2040,6 +2328,954 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/vertical_path.png
+
+#begin Desktop_Selection/Textures/map/path/vertical_path.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/vertical_path.png
+
+#begin Desktop_Selection/Textures/Shop/SB/Sleep/sleep.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Shop/SB/Sleep/sleep.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-1.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-1.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-1.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-1.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-2.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-2.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-2.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-2.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-3.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-3.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-3.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-3.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-4.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-4.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-4.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-4.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-5.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-5.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-5.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-5.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-6.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-6.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-6.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-6.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-7.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-7.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains-7.png.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains-7.png.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/curtains.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/curtains.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fan_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fan_1.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fan_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fan_1.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fan_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fan_2.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fan_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fan_2.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fazerblast.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fazerblast.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/fazerblast.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/fazerblast.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Gumball_Swivelhands.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Gumball_Swivelhands.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Gumball_Swivelhands.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Gumball_Swivelhands.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Paper_Pals.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Paper_Pals.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Paper_Pals.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Paper_Pals.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/present.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/present.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/present.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/present.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Sanitation_Station.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Sanitation_Station.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Sanitation_Station.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Sanitation_Station.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Showtime_monitor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Showtime_monitor.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Showtime_monitor.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Showtime_monitor.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Stage_background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Stage_background.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Stage_background.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Stage_background.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Stage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Stage.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Stage.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Stage.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Table_with_hats.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Table_with_hats.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Table_with_hats.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Table_with_hats.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Table.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Table.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/Table.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/Table.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_1.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_1.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_2.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_2.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_3.png
+
+#begin Desktop_Selection/Textures/Stage/Background_Props/traffic_light_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Background_Props/traffic_light_3.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_no_prop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_no_prop.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_1.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_2.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_perform_3.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_Power_Off.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_Power_Off.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_power_on_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_power_on_1.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/Bonnie_power_on_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/Bonnie_power_on_2.png
+
+#begin Desktop_Selection/Textures/Stage/Bon/guitar_upright.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Bon/guitar_upright.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_no_prop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_no_prop.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_perform_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_perform_1.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_perform_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_perform_2.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_perform_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_perform_3.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_power_off.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_power_off.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_power_on_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_power_on_1.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/Chica_power_on_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/Chica_power_on_2.png
+
+#begin Desktop_Selection/Textures/Stage/Chica/mr_cupcake.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Chica/mr_cupcake.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_no_prop.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_no_prop.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_perform_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_perform_1.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_perform_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_perform_2.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_perform_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_perform_3.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_power_off.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_power_off.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_1.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_2.png
+
+#begin Desktop_Selection/Textures/Stage/Fred/Microphone.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/Stage/Fred/Microphone.png
+
+#begin Desktop_Selection/Textures/taskbar/map_select_fredbear.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/map_select_fredbear.png
 
 #begin Desktop_Selection/Textures/taskbar/map_select_fredbear.png
 /importer:TextureImporter
@@ -2065,6 +3301,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/map_select.png;Desktop_Selection/Textures/taskbar/map.png
 
+#begin Desktop_Selection/Textures/taskbar/map_select.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/map_select.png
+
 #begin Desktop_Selection/Textures/taskbar/save_select_fredbear.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2076,6 +3324,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/save_select_fredbear.png;Desktop_Selection/Textures/taskbar/saveFredb.png
+
+#begin Desktop_Selection/Textures/taskbar/save_select_fredbear.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/save_select_fredbear.png
 
 #begin Desktop_Selection/Textures/taskbar/save_select.png
 /importer:TextureImporter
@@ -2089,6 +3349,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/save_select.png;Desktop_Selection/Textures/taskbar/save.png
 
+#begin Desktop_Selection/Textures/taskbar/save_select.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/save_select.png
+
 #begin Desktop_Selection/Textures/taskbar/stage_select_fredbear.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2100,6 +3372,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/stage_select_fredbear.png;Desktop_Selection/Textures/taskbar/stageFredb.png
+
+#begin Desktop_Selection/Textures/taskbar/stage_select_fredbear.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/stage_select_fredbear.png
 
 #begin Desktop_Selection/Textures/taskbar/stage_select.png
 /importer:TextureImporter
@@ -2113,6 +3397,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/stage_select.png;Desktop_Selection/Textures/taskbar/stage.png
 
+#begin Desktop_Selection/Textures/taskbar/stage_select.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/stage_select.png
+
 #begin Desktop_Selection/Textures/taskbar/store_select_fredbear.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2125,6 +3421,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/store_select_fredbear.png;Desktop_Selection/Textures/taskbar/storeFredb.png
 
+#begin Desktop_Selection/Textures/taskbar/store_select_fredbear.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/store_select_fredbear.png
+
 #begin Desktop_Selection/Textures/taskbar/store_select.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2136,6 +3444,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/taskbar/store_select.png;Desktop_Selection/Textures/taskbar/store.png
+
+#begin Desktop_Selection/Textures/taskbar/store_select.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/taskbar/store_select.png
 
 #begin Discount_Ballpit/Sounds/Songs/A_slice_and_a_scoop_miss1.ogg
 /importer:OggImporter
