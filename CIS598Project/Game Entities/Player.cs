@@ -65,17 +65,8 @@ namespace CIS598Project.Game_Entities
                     itemsUnlocked[i][j] = true;
                 }
             }
-            itemsUnlocked[0][0] = true;
-			itemsUnlocked[0][1] = true;
-            itemsUnlocked[0][2] = true;
-			itemsUnlocked[0][3] = true;
-			itemsUnlocked[0][4] = true;
-			itemsUnlocked[0][6] = true;
-			itemsUnlocked[0][7] = true;
-			itemsUnlocked[0][10] = true;
-			itemsUnlocked[0][12] = true;
 
-            ballpitTowerLosses = 0;
+			ballpitTowerLosses = 0;
 		}
 	}
 }
