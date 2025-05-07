@@ -146,29 +146,46 @@ namespace CIS598Project.Rooms
 					delayTimer += gameTime.ElapsedGameTime.TotalSeconds;
 					if (delayTimer > 1) 
 					{
-						if (currentLine == secretDialogue.text.Length)
+						if (understands)
 						{
-							state = gfredState.end;
-						}
-						else {
 							currentLineLength = secretDialogue.text[currentLine].Count();
 							state = gfredState.speak;
 							delayTimer -= 1;
+						}
+						else
+						{
+							if (currentLine == secretDialogue.text.Length - 1 || currentLine == secretDialogue.text.Length)
+							{
+								state = gfredState.end;
+							}
+							else
+							{
+								currentLineLength = secretDialogue.text[currentLine].Count();
+								state = gfredState.speak;
+								delayTimer -= 1;
+							}
 						}
 					}
 				}
 				if (state == gfredState.speak) 
 				{
 					textTimer += gameTime.ElapsedGameTime.TotalSeconds;
-					if (textTimer > .25 && currentLineLength != textOnScreen.Count())
+					if (currentLineLength != textOnScreen.Count())
 					{
-						if (secretDialogue.text[currentLine][currentCharacter].ToString() != " ")
+						if (currentKeyboardState.IsKeyDown(Keys.X) && pastKeyboardState.IsKeyUp(Keys.X))
+						{
+							textOnScreen = secretDialogue.text[currentLine];
+						}
+					}
+                    if (textTimer > .1 && currentLineLength != textOnScreen.Count())
+					{
+						if (char.IsLetter(secretDialogue.text[currentLine][currentCharacter]))
 						{
 							talk.Play();
 						}
 						textOnScreen += secretDialogue.text[currentLine][currentCharacter];
 						currentCharacter += 1;
-						textTimer -= .25;
+						textTimer -= .1;
 					}
 					else
 					{
@@ -176,6 +193,8 @@ namespace CIS598Project.Rooms
 						{
 							if (currentKeyboardState.IsKeyDown(Keys.E) && pastKeyboardState.IsKeyUp(Keys.E))
 							{
+								textOnScreen = "";
+								understands = false;
 								currentCharacter = 0;
 								currentLine++;
 								state = gfredState.delay;
@@ -183,8 +202,22 @@ namespace CIS598Project.Rooms
 						}
 						else 
 						{
-
-						}
+                            if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyUp(Keys.Y))
+                            {
+                                textOnScreen = "";
+                                currentCharacter = 0;
+                                currentLine++;
+                                state = gfredState.delay;
+                            }
+                            if (currentKeyboardState.IsKeyDown(Keys.N) && pastKeyboardState.IsKeyUp(Keys.N))
+                            {
+								understands = true;
+                                textOnScreen = "";
+                                currentCharacter = 0;
+                                currentLine = secretDialogue.text.Length - 1;
+                                state = gfredState.delay;
+                            }
+                        }
 					}
 				}
 			}
@@ -219,6 +252,10 @@ namespace CIS598Project.Rooms
 				}
 				if (state == gfredState.speak)
 				{
+					if(currentLine == 3 && textOnScreen.Count() == currentLineLength) 
+					{
+						spriteBatch.DrawString(font, "Y for yes, N for n", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.White);
+					}
 					spriteBatch.DrawString(font, textOnScreen, new Vector2(graphics.Viewport.Width / 2 - 750, 25), Color.White);
 				}
 				if (state == gfredState.end) 
