@@ -15,6 +15,12 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 
 namespace CIS598Project.Rooms
 {
+	public enum gfredState 
+	{
+		delay,
+		speak,
+		end
+	}
 	public class Ending_Screen : GameScreen
 	{
 		Game game;
@@ -29,15 +35,36 @@ namespace CIS598Project.Rooms
 
 		double specsTimer;
 
+		double delayTimer;
+
+		double textTimer;
+
 		SoundEffect talk;
+
+		//The text on the screen
+		string textOnScreen = "";
+
+		//The length of the currently spoken line
+		int currentLineLength = 0;
+
+		//The current character of the line
+		int currentCharacter = 0;
+
+		int currentLine = 0;
+
+		GFredDialogue secretDialogue = new();
+
+		gfredState state = gfredState.delay;
 
 		Song[] songs = new Song[2];
 
-		bool isSpeaking = true;
+		bool understands = false;
 
 		KeyboardState pastKeyboardState;
 
 		KeyboardState currentKeyboardState;
+
+		SpriteFont font;
 
 
 		ContentManager _content;
@@ -70,6 +97,8 @@ namespace CIS598Project.Rooms
 			songs[0] = _content.Load<Song>("Endings/Soundeffects/Songs/Where_Dreams_Die");
 			songs[1] = _content.Load<Song>("Endings/Soundeffects/Songs/Void");
 
+			font = _content.Load<SpriteFont>("MiniGame_Font");
+
 			talk = _content.Load<SoundEffect>("Endings/Soundeffects/Soundeffects/gfred_speak");
 
 			MediaPlayer.IsRepeating = true;
@@ -89,8 +118,10 @@ namespace CIS598Project.Rooms
 		{
 			base.Update(gameTime, otherScreenHasFocus, false);
 
+            pastKeyboardState = currentKeyboardState;
+            currentKeyboardState = Keyboard.GetState();
 
-			if (!ScreenManager.Game.IsActive)
+            if (!ScreenManager.Game.IsActive)
 			{
 				// Pause the music or stop sound effects when the game loses focus
 				if (MediaPlayer.State == MediaState.Playing)
@@ -110,9 +141,51 @@ namespace CIS598Project.Rooms
 
 			if (secretEnding) 
 			{
-				if (isSpeaking == false) 
+				if (state == gfredState.delay) 
 				{
+					delayTimer += gameTime.ElapsedGameTime.TotalSeconds;
+					if (delayTimer > 1) 
+					{
+						if (currentLine == secretDialogue.text.Length)
+						{
+							state = gfredState.end;
+						}
+						else {
+							currentLineLength = secretDialogue.text[currentLine].Count();
+							state = gfredState.speak;
+							delayTimer -= 1;
+						}
+					}
+				}
+				if (state == gfredState.speak) 
+				{
+					textTimer += gameTime.ElapsedGameTime.TotalSeconds;
+					if (textTimer > .25 && currentLineLength != textOnScreen.Count())
+					{
+						if (secretDialogue.text[currentLine][currentCharacter].ToString() != " ")
+						{
+							talk.Play();
+						}
+						textOnScreen += secretDialogue.text[currentLine][currentCharacter];
+						currentCharacter += 1;
+						textTimer -= .25;
+					}
+					else
+					{
+						if (currentLine != 3)
+						{
+							if (currentKeyboardState.IsKeyDown(Keys.E) && pastKeyboardState.IsKeyUp(Keys.E))
+							{
+								currentCharacter = 0;
+								currentLine++;
+								state = gfredState.delay;
+							}
+						}
+						else 
+						{
 
+						}
+					}
 				}
 			}
 		}
@@ -133,14 +206,25 @@ namespace CIS598Project.Rooms
 			else 
 			{
 				spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
-				specsTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (specsTimer > 2.5) 
+				if (state != gfredState.end)
 				{
-					Random ran = new();
-					specsFrame = ran.Next(0, 3);
-					specsTimer -= 2.5;
+					specsTimer += gameTime.ElapsedGameTime.TotalSeconds;
+					if (specsTimer > 2.5)
+					{
+						Random ran = new();
+						specsFrame = ran.Next(0, 3);
+						specsTimer -= 2.5;
+					}
+					spriteBatch.Draw(specs[specsFrame], Vector2.Zero, Color.White);
 				}
-				spriteBatch.Draw(specs[specsFrame], Vector2.Zero, Color.White);
+				if (state == gfredState.speak)
+				{
+					spriteBatch.DrawString(font, textOnScreen, new Vector2(graphics.Viewport.Width / 2 - 750, 25), Color.White);
+				}
+				if (state == gfredState.end) 
+				{
+                    spriteBatch.DrawString(font, "The End.", new Vector2(graphics.Viewport.Width / 2 - 125, 25), Color.White);
+                }
 			}
 			
 			spriteBatch.End();
