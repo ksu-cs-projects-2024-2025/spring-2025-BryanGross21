@@ -21,6 +21,23 @@ namespace CIS598Project.Rooms
 
 		Player player;
 
+		Texture2D[] backgrounds = new Texture2D[2];
+
+		Texture2D[] specs = new Texture2D[3];
+
+		int specsFrame = 0;
+
+		double specsTimer;
+
+		SoundEffect talk;
+
+		Song[] songs = new Song[2];
+
+		bool isSpeaking = true;
+
+		KeyboardState pastKeyboardState;
+
+		KeyboardState currentKeyboardState;
 
 
 		ContentManager _content;
@@ -43,10 +60,29 @@ namespace CIS598Project.Rooms
 
 			if (_content == null) _content = new ContentManager(ScreenManager.Game.Services, "Content");
 
-		
+			backgrounds[0] = _content.Load<Texture2D>("Endings/Textures/normal/Happy_birthday");
+			backgrounds[1] = _content.Load<Texture2D>("Endings/Textures/secret/gfred");
+
+			specs[0] = _content.Load<Texture2D>("Endings/Textures/secret/specs_1");
+			specs[1] = _content.Load<Texture2D>("Endings/Textures/secret/specs_2");
+			specs[2] = _content.Load<Texture2D>("Endings/Textures/secret/specs_3");
+
+			songs[0] = _content.Load<Song>("Endings/Soundeffects/Songs/Where_Dreams_Die");
+			songs[1] = _content.Load<Song>("Endings/Soundeffects/Songs/Void");
+
+			talk = _content.Load<SoundEffect>("Endings/Soundeffects/Soundeffects/gfred_speak");
 
 			MediaPlayer.IsRepeating = true;
-			//MediaPlayer.Play(backgroundSong);
+			if (secretEnding)
+			{
+				MediaPlayer.Play(songs[1]);
+				MediaPlayer.IsRepeating = true;
+			}
+			else 
+			{
+				MediaPlayer.Play(songs[0]);
+				MediaPlayer.IsRepeating = true;
+			}
 		}
 
 		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
@@ -72,8 +108,13 @@ namespace CIS598Project.Rooms
 				}
 			}
 
+			if (secretEnding) 
+			{
+				if (isSpeaking == false) 
+				{
 
-
+				}
+			}
 		}
 
 		public override void Draw(GameTime gameTime)
@@ -84,6 +125,23 @@ namespace CIS598Project.Rooms
 			graphics.Clear(Color.Black);
 
 			spriteBatch.Begin();
+
+			if (secretEnding == false)
+			{
+				spriteBatch.Draw(backgrounds[0], Vector2.Zero, Color.White);
+			}
+			else 
+			{
+				spriteBatch.Draw(backgrounds[1], Vector2.Zero, Color.White);
+				specsTimer += gameTime.ElapsedGameTime.TotalSeconds;
+				if (specsTimer > 2.5) 
+				{
+					Random ran = new();
+					specsFrame = ran.Next(0, 3);
+					specsTimer -= 2.5;
+				}
+				spriteBatch.Draw(specs[specsFrame], Vector2.Zero, Color.White);
+			}
 			
 			spriteBatch.End();
 		}

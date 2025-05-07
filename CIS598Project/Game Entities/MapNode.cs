@@ -28,7 +28,7 @@ namespace CIS598Project.Game_Entities
         /// <summary>
         /// Used to reference which minigame this node will be associated with
         /// </summary>
-        MinigameRef referenceType;
+        public MinigameRef referenceType;
 
         public MapNode(int reference, Vector2 position, Game game, Player player) 
         {
@@ -75,7 +75,11 @@ namespace CIS598Project.Game_Entities
             {
                 thumbnail = content.Load<Texture2D>("Desktop_Selection/Textures/map/path/fish_picture");
             }
-        }
+			if (referenceType == MinigameRef.secret_ending)
+			{
+				thumbnail = content.Load<Texture2D>("Desktop_Selection/Textures/map/path/gfred_picture");
+			}
+		}
 
 
         /// <summary>
@@ -85,11 +89,18 @@ namespace CIS598Project.Game_Entities
         /// <param name="spriteBatch">The SpriteBatch to draw with</param>
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            if (player.foundSecret[(int)referenceType])
+            if (referenceType != MinigameRef.secret_ending)
             {
-                spriteBatch.Draw(thumbnail, position, Color.Gold);
-            }
-            else 
+                if (player.foundSecret[(int)referenceType])
+                {
+                    spriteBatch.Draw(thumbnail, position, Color.Gold);
+                }
+				else
+				{
+					spriteBatch.Draw(thumbnail, position, Color.White);
+				}
+			}
+            else
             {
                 spriteBatch.Draw(thumbnail, position, Color.White);
             }

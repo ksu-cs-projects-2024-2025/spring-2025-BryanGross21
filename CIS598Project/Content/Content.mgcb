@@ -2023,6 +2023,18 @@
 /processorParam:TextureFormat=Color
 /build:Desktop_Selection/Textures/map/path/fruity_picture.png
 
+#begin Desktop_Selection/Textures/map/path/gfred_picture.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Desktop_Selection/Textures/map/path/gfred_picture.png
+
 #begin Desktop_Selection/Textures/map/path/horizonal_path.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -4932,6 +4944,84 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Duck_Pond/Selections/Fredbear_Duck_3/0015.png
+
+#begin Endings/Soundeffects/Songs/Void.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Endings/Soundeffects/Songs/Void.ogg
+
+#begin Endings/Soundeffects/Songs/Where_Dreams_Die.ogg
+/importer:OggImporter
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:Endings/Soundeffects/Songs/Where_Dreams_Die.ogg
+
+#begin Endings/Soundeffects/Soundeffects/gfred_speak.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Endings/Soundeffects/Soundeffects/gfred_speak.wav
+
+#begin Endings/Textures/normal/Happy_birthday.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Endings/Textures/normal/Happy_birthday.png
+
+#begin Endings/Textures/secret/gfred.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Endings/Textures/secret/gfred.png
+
+#begin Endings/Textures/secret/specs_1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Endings/Textures/secret/specs_1.png
+
+#begin Endings/Textures/secret/specs_2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Endings/Textures/secret/specs_2.png
+
+#begin Endings/Textures/secret/specs_3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Endings/Textures/secret/specs_3.png
 
 #begin Fishing/Sounds/Song/Water_theme.ogg
 /importer:OggImporter

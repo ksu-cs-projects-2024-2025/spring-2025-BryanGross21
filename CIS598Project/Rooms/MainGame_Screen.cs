@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CIS598Project.Collisions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
+using System.Xml.Linq;
 
 
 namespace CIS598Project.Rooms
@@ -42,7 +43,7 @@ namespace CIS598Project.Rooms
 
 		Texture2D[] TaskBar = new Texture2D[8];
 
-		MapNode[] gameSelectors = new MapNode[8];
+		MapNode[] gameSelectors = new MapNode[9];
 
 		Texture2D Overlay;
 
@@ -188,7 +189,8 @@ namespace CIS598Project.Rooms
             gameSelectors[4] = new(4, new Vector2(650, 650), game, player);
 			gameSelectors[5] = new(5, new Vector2(450, 650), game, player);
             gameSelectors[6] = new(6, new Vector2(250, 650), game, player);
-            gameSelectors[7] = new(7, new Vector2(250, 450), game, player);
+            gameSelectors[7] = new(7, new Vector2(250, 450), game, player); 
+			gameSelectors[8] = new(8, new Vector2(250, 50), game, player);
 
 			fredPosition = new Vector2(250, 250);
 
@@ -557,16 +559,33 @@ namespace CIS598Project.Rooms
 					nodePosition--;
 					if (nodePosition < 0) 
 					{
-						nodePosition = 7;
+						if (checkFoundSecret() == false)
+						{
+							nodePosition = 7;
+						}
+						else 
+						{
+							nodePosition = 8;
+						}
 					}
 					preventMove = true;
 				}
 				if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyDown(Keys.D))
 				{
 					nodePosition++;
-					if (nodePosition > 7)
+					if (checkFoundSecret() == false)
 					{
-						nodePosition = 0;
+						if (nodePosition > 7)
+						{
+							nodePosition = 0;
+						}
+					}
+					else 
+					{
+						if (nodePosition > 8) 
+						{
+							nodePosition = 0;
+						}
 					}
 					preventMove = true;
 				}
@@ -641,6 +660,18 @@ namespace CIS598Project.Rooms
 			return true;
 		}
 
+		private bool checkFoundSecret()
+		{
+			for (int i = 0; i < player.foundSecret.Length; i++)
+			{
+				if (player.foundSecret[i] == false) 
+				{
+					return false;
+				}
+			}
+			return true;
+		}
+
 		/// <summary>
 		/// Draws the sprite using the supplied SpriteBatch
 		/// </summary>
@@ -659,6 +690,7 @@ namespace CIS598Project.Rooms
 
 			if (state == MainGame_ScreenState.map) 
 			{
+				bool found = checkFoundSecret();
 				spriteBatch.DrawString(font, "Movement: ", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2 - 250), Color.White, 0f, Vector2.Zero, .75f, SpriteEffects.None, 0);
                 spriteBatch.DrawString(font, "Selection: ", new Vector2(graphics.Viewport.Width / 2, graphics.Viewport.Height / 2), Color.White, 0f, Vector2.Zero, .75f, SpriteEffects.None, 0);
                 spriteBatch.Draw(controls[4], new Vector2(graphics.Viewport.Width / 2 + 250, graphics.Viewport.Height / 2), Color.White);
@@ -673,11 +705,23 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(mapElements[1], new Vector2(250, 550), Color.White);
                 spriteBatch.Draw(mapElements[1], new Vector2(250, 350), Color.White);
 
-                foreach (MapNode node in gameSelectors)
+				if (found)
+				{
+					spriteBatch.Draw(mapElements[1], new Vector2(250, 150), Color.White);
+				}
+
+				foreach (MapNode node in gameSelectors)
                 {
                     if (node != null)
                     {
-						node.Draw(gameTime, spriteBatch);
+						if (MinigameRef.secret_ending != node.referenceType)
+						{
+							node.Draw(gameTime, spriteBatch);
+						}
+						if (MinigameRef.secret_ending == node.referenceType && found) 
+						{
+							node.Draw(gameTime, spriteBatch);
+						}
                     }
                 }
 

@@ -17,7 +17,7 @@ namespace CIS598Project.Game_Entities
 
 		public int ballpitTowerLosses;
 
-		public bool[] foundSecret = new bool[9];
+		public bool[] foundSecret = new bool[8];
 
         /// <summary>
         /// The items present in the showroom view
@@ -56,7 +56,7 @@ namespace CIS598Project.Game_Entities
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
 				consecutivePlays[i] = 0;
-				foundSecret[i] = false;
+				foundSecret[i] = true;
 			}
             for (int i = 0; i < itemsUnlocked.Length; i++) 
             {

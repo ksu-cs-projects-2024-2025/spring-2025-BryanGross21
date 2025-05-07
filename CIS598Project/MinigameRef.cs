@@ -18,6 +18,7 @@ namespace CIS598Project
         fruity_Maze,
         memory_Match,
         security,
-        fishing
+        fishing,
+        secret_ending
     }
 }
