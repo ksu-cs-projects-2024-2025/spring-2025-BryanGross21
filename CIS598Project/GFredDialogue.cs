@@ -1,13 +1,27 @@
-﻿using System;
+﻿using CIS598Project.Game_Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace CIS598Project
 {
 	public class GFredDialogue
     {
+        string name;
+
+        public GFredDialogue(Player player) 
+        {
+            name = player.name;
+            text[23] = "Isn't that right, " + name + "?";
+            text[24] = "Find him, " + name + ". Make him pay for\nwhat he has done.";
+
+
+		}
+
         public string[] text = { "You found me huh, thought you were sly\ncoming here but I knew you would.",
             "You followed my trail and now you found me,\nguess you weren't just listening to the lies\n of your navigator.",
             "This company has tried to cover up everything,\nwhat was once a simple children's game\n has become my sanctuary,\nmy place to tell what he did.",
@@ -31,8 +45,8 @@ namespace CIS598Project
             "I would be reunited with my friends\nbut not in the way I imagined, we\nbecame trapped in these\nvessels of his design.",
             "They were all sold the same story,\nall the same tricks but under a different face.",
             "They've given up but I haven't I knew\nsomeone would find all these messages\n and that person was you.",
-            "Isn't that right, name?",
-            "Find him, name. Make him pay for\nwhat he has done.",
+            "",
+            "",
             "Only then can we pass on...",
             "Then why are you even here?"};
     }

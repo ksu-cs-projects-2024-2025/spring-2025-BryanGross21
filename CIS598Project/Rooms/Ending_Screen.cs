@@ -52,7 +52,7 @@ namespace CIS598Project.Rooms
 
 		int currentLine = 0;
 
-		GFredDialogue secretDialogue = new();
+		GFredDialogue secretDialogue;
 
 		gfredState state = gfredState.delay;
 
@@ -79,6 +79,7 @@ namespace CIS598Project.Rooms
 			this.game = game;
 			this.player = player;
 			secretEnding = ending;
+			secretDialogue = new(this.player);
 		}
 
 		public override void Activate()
