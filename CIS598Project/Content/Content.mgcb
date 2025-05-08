@@ -1831,6 +1831,18 @@
 /processorParam:Quality=Best
 /build:Desktop_Selection/Sounds/Soundeffects/menu_select.wav
 
+#begin Desktop_Selection/Sounds/Soundeffects/saved.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/saved.wav
+
+#begin Desktop_Selection/Sounds/Soundeffects/saving.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:Desktop_Selection/Sounds/Soundeffects/saving.wav
+
 #begin Desktop_Selection/Sounds/Soundeffects/stage_end.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

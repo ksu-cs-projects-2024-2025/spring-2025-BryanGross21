@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using CIS598Project.Collisions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using System.Xml.Linq;
+using System.IO;
 
 
 namespace CIS598Project.Rooms
@@ -27,7 +28,7 @@ namespace CIS598Project.Rooms
 	}
 	public class MainGame_Screen : GameScreen
 	{
-		SpriteFont font;
+        SpriteFont font;
 
 		Game game;
 
@@ -166,6 +167,8 @@ namespace CIS598Project.Rooms
 
 		MainGame_ScreenState pastState = MainGame_ScreenState.map;
 
+		MainGame_ScreenState stateToGoTo;
+
 		SoundEffect showtimeIntro;
 
 		SoundEffectInstance intro;
@@ -174,6 +177,20 @@ namespace CIS598Project.Rooms
 
 		SoundEffectInstance outro;
 
+		SoundEffect saving;
+
+		SoundEffect saved;
+
+        StringBuilder sr = new();
+
+        //Timer to simulate saving
+        double saveTimer = 0;
+
+		bool isSaving;
+
+		bool hasSaved;
+
+		SaveClass saver = new();
 
 		int currentGame = 0;
 
@@ -318,6 +335,9 @@ namespace CIS598Project.Rooms
 			showtimeIntro = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/stage_intro");
 			showtimeOutro = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/stage_end");
 
+			saving = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/saving");
+			saved = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/saved");
+
 			ShowtimeOverlay = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Overlay");
 
 			temp = _content.Load<Texture2D>("temp");
@@ -378,115 +398,52 @@ namespace CIS598Project.Rooms
 
 			Vector2 mousePosition = new Vector2(currentMousePosition.X, currentMousePosition.Y);
 
-			if (state == MainGame_ScreenState.map && showFredbear == false)
+            if (isShowtime == false)
+            {
+                if (tutorialShow == false)
+                {
+                    if (mouse.collidesWith(selections[0]))
+                    {
+                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.map)
+                        {
+                            state = MainGame_ScreenState.map;
+                        }
+                    }
+
+                    if (mouse.collidesWith(selections[1]))
+                    {
+                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.stage)
+                        {
+                            state = MainGame_ScreenState.stage;
+                        }
+                    }
+
+                    if (mouse.collidesWith(selections[3]))
+                    {
+                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.save)
+                        {
+							stateToGoTo = state;
+                            state = MainGame_ScreenState.save;
+                        }
+                    }
+                }
+            }
+
+            if (state == MainGame_ScreenState.map && showFredbear == false)
 			{
 				fredUpdate();
 			}
 
-			if (state == MainGame_ScreenState.stage && showFredbear == false)
+			if (state == MainGame_ScreenState.stage && showFredbear == false) 
 			{
-				if (currentKeyboardState.IsKeyDown(Keys.E) && isShowtime == false) 
-				{
-					isShowtime = true;
-				}
+				stageUpdate(gameTime);
 			}
 
-			if (isShowtime == false)
+			if (state == MainGame_ScreenState.save && showFredbear == false) 
 			{
-				if (tutorialShow == false)
-				{
-					if (mouse.collidesWith(selections[0]))
-					{
-						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.map)
-						{
-							state = MainGame_ScreenState.map;
-						}
-					}
-
-					if (mouse.collidesWith(selections[1]))
-					{
-						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.stage)
-						{
-							state = MainGame_ScreenState.stage;
-						}
-					}
-				}
+				saveUpdate(gameTime);
 			}
 
-			if (isShowtime && curtainRelease == false && curtainPosition != 6) 
-			{
-				MediaPlayer.Stop();
-				if (intro == null) 
-				{
-					intro = showtimeIntro.CreateInstance();
-					intro.Play();
-				}
-				if (intro.State != SoundState.Playing) 
-				{
-					curtainRelease = true;
-				}
-			}
-
-			if (curtainRelease) 
-			{
-				curtainAnimationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (curtainAnimationTimer > .5)
-				{
-					curtainPosition++;
-					if (curtainPosition == 7)
-					{ 
-						curtainPosition = 6;
-						curtainRelease = false;
-					}
-					curtainAnimationTimer -= .5;
-				}
-			}
-
-			if (curtainPosition == 5) 
-			{
-				MediaPlayer.Play(backgroundMusic[4]);
-				MediaPlayer.IsRepeating = false;
-			}
-
-			if (curtainPosition == 6 && isCredits == false) 
-			{
-				if (MediaPlayer.State != MediaState.Playing) 
-				{
-					isCredits = true;
-					MediaPlayer.Play(backgroundMusic[5]);
-				}
-			}
-
-			if (isCredits)
-			{
-				if (reachedOtherSide)
-				{
-					springBonniePosition.X += 10;
-				}
-				else 
-				{
-					springBonniePosition.X -= 10;
-				}
-
-				if (springBonniePosition.X <= -125 || springBonniePosition.X >= game.GraphicsDevice.Viewport.Width + 125) 
-				{
-					reachedOtherSide = !reachedOtherSide;
-				}
-
-				if (MediaPlayer.State != MediaState.Playing)
-				{
-					if (outro == null)
-					{
-						outro = showtimeOutro.CreateInstance();
-						outro.Play();
-					}
-					if (outro.State != SoundState.Playing) 
-					{
-						nodePosition = 9;
-						transitionToMinigame();
-					}
-				}
-			}
 
 			if (pastState != state) 
 			{
@@ -502,10 +459,138 @@ namespace CIS598Project.Rooms
 				{
 					MediaPlayer.Play(backgroundMusic[0]);
 				}
-			}
+                if (state == MainGame_ScreenState.save)
+                {
+                    MediaPlayer.Play(backgroundMusic[1]);
+                }
+            }
 
             mouse.X = mousePosition.X;
             mouse.Y = mousePosition.Y;
+        }
+
+		private void saveUpdate(GameTime gameTime)
+		{
+			if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyDown(Keys.Y) && isSaving == false && hasSaved == false)
+			{
+					isSaving = true;
+			}
+			else if(currentKeyboardState.IsKeyDown(Keys.N) && pastKeyboardState.IsKeyDown(Keys.N) && isSaving == false && hasSaved == false)
+			{
+				state = stateToGoTo;
+			}
+			if (isSaving)
+			{
+				saveTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+
+				if (saveTimer > .75)
+				{
+                    saver.save(sr, player);
+                    hasSaved = true;
+                    isSaving = false;
+                    saveTimer -= .75;
+				}
+			}
+			if (hasSaved) 
+			{
+                saveTimer += gameTime.ElapsedGameTime.TotalSeconds;
+
+
+                if (saveTimer > 1)
+                {
+                    hasSaved = false;
+					isSaving = false;
+					state = stateToGoTo;
+                    saveTimer -= 1;
+                }
+            }
+        }
+
+		private void stageUpdate(GameTime gameTime) 
+		{
+			if (showFredbear == false && checkUnlocks())
+			{
+				if (currentKeyboardState.IsKeyDown(Keys.E) && isShowtime == false)
+				{
+					isShowtime = true;
+				}
+			}
+
+            if (isShowtime && curtainRelease == false && curtainPosition != 6)
+            {
+                MediaPlayer.Stop();
+                if (intro == null)
+                {
+                    intro = showtimeIntro.CreateInstance();
+                    intro.Play();
+                }
+                if (intro.State != SoundState.Playing)
+                {
+                    curtainRelease = true;
+                }
+            }
+
+            if (curtainRelease)
+            {
+                curtainAnimationTimer += gameTime.ElapsedGameTime.TotalSeconds;
+                if (curtainAnimationTimer > .5)
+                {
+                    curtainPosition++;
+                    if (curtainPosition == 7)
+                    {
+                        curtainPosition = 6;
+                        curtainRelease = false;
+                    }
+                    curtainAnimationTimer -= .5;
+                }
+            }
+
+            if (curtainPosition == 5)
+            {
+                MediaPlayer.Play(backgroundMusic[4]);
+                MediaPlayer.IsRepeating = false;
+            }
+
+            if (curtainPosition == 6 && isCredits == false)
+            {
+                if (MediaPlayer.State != MediaState.Playing)
+                {
+                    isCredits = true;
+                    MediaPlayer.Play(backgroundMusic[5]);
+                }
+            }
+
+            if (isCredits)
+            {
+                if (reachedOtherSide)
+                {
+                    springBonniePosition.X += 10;
+                }
+                else
+                {
+                    springBonniePosition.X -= 10;
+                }
+
+                if (springBonniePosition.X <= -125 || springBonniePosition.X >= game.GraphicsDevice.Viewport.Width + 125)
+                {
+                    reachedOtherSide = !reachedOtherSide;
+                }
+
+                if (MediaPlayer.State != MediaState.Playing)
+                {
+                    if (outro == null)
+                    {
+                        outro = showtimeOutro.CreateInstance();
+                        outro.Play();
+                    }
+                    if (outro.State != SoundState.Playing)
+                    {
+                        nodePosition = 9;
+                        transitionToMinigame();
+                    }
+                }
+            }
         }
 
 		private void transitionToMinigame() 
@@ -985,6 +1070,24 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(ShowtimeOverlay, Vector2.Zero, Color.White);
 				}
 
+			}
+
+			if (state == MainGame_ScreenState.save)
+			{
+				if (!isSaving && !hasSaved)
+				{
+					spriteBatch.DrawString(font, "Save game?", new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 4), Color.White);
+
+					spriteBatch.DrawString(font, "Y for yes, N for No", new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 2), Color.White);
+				}
+				if (isSaving && hasSaved == false) 
+				{
+                    spriteBatch.DrawString(font, "Saving...", new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 4), Color.White);
+                }
+				if (hasSaved && isSaving == false) 
+				{
+                    spriteBatch.DrawString(font, "Saved!", new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 4), Color.White);
+                }
 			}
 
 			if (showFredbear)

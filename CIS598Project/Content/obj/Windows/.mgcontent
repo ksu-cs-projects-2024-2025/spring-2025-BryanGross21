@@ -168,6 +168,8 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/Level_over.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/Level_select.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/menu_select.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/saved.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/saving.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/stage_end.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/stage_intro.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/map/controls/a_key.png</File>
@@ -629,6 +631,8 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Thank_You_For_Your_Patience_2_.ogg</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

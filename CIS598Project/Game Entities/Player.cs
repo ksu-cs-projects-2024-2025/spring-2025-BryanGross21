@@ -69,7 +69,7 @@ namespace CIS598Project.Game_Entities
             {
                 for (int j = 0; j < itemsUnlocked[i].Length; j++) 
                 {
-                    itemsUnlocked[i][j] = true;
+                    itemsUnlocked[i][j] = false;
                 }
             }
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Discount_Ballpit/Textures/Gameplay_elements/Fredbear/Failed/0004.png</SourceFile>
-  <SourceTime>2025-03-31T12:39:24.5279261-05:00</SourceTime>
+  <SourceTime>2025-05-07T11:06:35.5214592-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Discount_Ballpit/Textures/Gameplay_elements/Fredbear/Failed/0004.xnb</DestFile>
-  <DestTime>2025-05-08T12:03:34.7904882-05:00</DestTime>
+  <DestTime>2025-05-08T17:24:34.4749491-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
