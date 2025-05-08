@@ -9,8 +9,8 @@ namespace CIS598Project
 	public class GFredDialogue
     {
         public string[] text = { "You found me huh, thought you were sly\ncoming here but I knew you would.",
-            "You followed my trail and now you found me,\n guess you weren't just listening to the lies\n of your navigator.",
-            "This company has tried to cover up everything,\n what was once a simple children's game\n has become my sanctuary,\nmy place to tell what he did.",
+            "You followed my trail and now you found me,\nguess you weren't just listening to the lies\n of your navigator.",
+            "This company has tried to cover up everything,\nwhat was once a simple children's game\n has become my sanctuary,\nmy place to tell what he did.",
             "He made us wake up and these machines,\nthese contraptions of horror.\nDo you understand that?",
             "Good, then you understand my plight\nand what it means. I am one of the\nmissing children, I was taken by him.",
             "Who you might be asking?",
@@ -21,7 +21,7 @@ namespace CIS598Project
             "They relented when I somehow convinced\nthem my mood would be better if\nwe still went to celebrate my special day...",
             "How I should've listened.",
             "I was still a sad sap, the other kids\nwould question my lack of friends.",
-            "They would bully and harrass me until\n I broke and wanted something.",
+            "They would bully and harrass me until\nI broke and wanted something.",
             "A balloon, I wanted a balloon\nbut none were there and...",
             "Then he should up, wearing the smiling\nfacade of the yellow rabbit beckoning\nme to follow him for there\n were my friends in the back waiting for me.",
             "I knew it was false and I ran and\nI hid but every time he found me\nand insisted I follow.",

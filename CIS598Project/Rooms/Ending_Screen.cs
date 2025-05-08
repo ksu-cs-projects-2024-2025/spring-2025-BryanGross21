@@ -104,11 +104,13 @@ namespace CIS598Project.Rooms
 			MediaPlayer.IsRepeating = true;
 			if (secretEnding)
 			{
+				player.sawEnding[1] = true;
 				MediaPlayer.Play(songs[1]);
 				MediaPlayer.IsRepeating = true;
 			}
 			else 
 			{
+				player.sawEnding[0] = true;
 				MediaPlayer.Play(songs[0]);
 				MediaPlayer.IsRepeating = true;
 			}

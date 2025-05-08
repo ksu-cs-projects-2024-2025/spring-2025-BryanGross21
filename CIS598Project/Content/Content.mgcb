@@ -6920,6 +6920,18 @@
 /processorParam:TextureFormat=Color
 /build:Security/Textures/Reflections/Fred/Fred6.png
 
+#begin temp.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:temp.png
+
 #begin Thank_You_For_Your_Patience_2_.ogg
 /importer:OggImporter
 /processor:SongProcessor

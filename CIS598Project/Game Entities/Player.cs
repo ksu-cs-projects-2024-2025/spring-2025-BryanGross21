@@ -11,6 +11,8 @@ namespace CIS598Project.Game_Entities
 	{
 		public int[] consecutivePlays = new int[8];
 
+        public string name = "Bryan";
+
 		public int fruityMazeWins = 0;
 
 		public int ballpitPlays = 0;
@@ -18,6 +20,11 @@ namespace CIS598Project.Game_Entities
 		public int ballpitTowerLosses;
 
 		public bool[] foundSecret = new bool[8];
+
+        /// <summary>
+        /// 0 is the normal ending, 1 is the secret ending
+        /// </summary>
+        public bool[] sawEnding = new bool[2];
 
         /// <summary>
         /// The items present in the showroom view

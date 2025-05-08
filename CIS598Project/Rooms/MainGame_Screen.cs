@@ -33,6 +33,8 @@ namespace CIS598Project.Rooms
 
 		Player player;
 
+		Texture2D temp;
+
 		Song[] backgroundMusic = new Song[6];
 
 		Texture2D[] controls = new Texture2D[5];
@@ -192,6 +194,11 @@ namespace CIS598Project.Rooms
             gameSelectors[7] = new(7, new Vector2(250, 450), game, player); 
 			gameSelectors[8] = new(8, new Vector2(250, 50), game, player);
 
+			selections[0] = new(0, 1026, 192, 54);
+			selections[1] = new(248, 1026, 150, 54);
+			selections[2] = new(396, 1026, 192, 54);
+			selections[3] = new(594, 1026, 192, 54);
+
 			fredPosition = new Vector2(250, 250);
 
 			messages = new();
@@ -248,10 +255,6 @@ namespace CIS598Project.Rooms
 			Overlay = _content.Load<Texture2D>("gameSelectionOverlay");
 
 			font = _content.Load<SpriteFont>("MiniGame_Font");
-
-			selections[0] = new(0, 1026, 192, 54);
-			selections[1] = new(198, 1026, 192, 54);
-            selections[2] = new(396, 1026, 192, 54);
 
 			StageBackground = _content.Load<Texture2D>("Desktop_Selection/Textures/Stage/Background_Props/Stage_background");
 
@@ -316,6 +319,8 @@ namespace CIS598Project.Rooms
 			showtimeOutro = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/stage_end");
 
 			ShowtimeOverlay = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Overlay");
+
+			temp = _content.Load<Texture2D>("temp");
 
 			for (int i = 0; i < springBonnie.Length; i++)
 			{
@@ -989,6 +994,8 @@ namespace CIS598Project.Rooms
 			else
 			{
 				spriteBatch.Draw(TaskBar[(int)state], Vector2.Zero, Color.White);
+				spriteBatch.Draw(temp, new Vector2(0, 1026), Color.White);
+				spriteBatch.Draw(temp, new Vector2(198, 1026), Color.White);
 			}
 
 
