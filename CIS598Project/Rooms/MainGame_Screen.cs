@@ -15,6 +15,7 @@ using CIS598Project.Collisions;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using System.Xml.Linq;
 using System.IO;
+using System.Security.Cryptography.Xml;
 
 
 namespace CIS598Project.Rooms
@@ -389,6 +390,9 @@ namespace CIS598Project.Rooms
 
 			arrow = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/arrow");
 
+			arrows[0] = new BoundingRectangle(game.GraphicsDevice.Viewport.Width / 2 + 750, game.GraphicsDevice.Viewport.Height / 2 - 35, 128, 128); //Right
+			arrows[1] = new BoundingRectangle(game.GraphicsDevice.Viewport.Width / 2 + 550, game.GraphicsDevice.Viewport.Height / 2 - 35, 128, 128); //Left
+
 			shopBackground = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/background");
 
 			purchase = _content.Load<SoundEffect>("Desktop_Selection/Textures/Shop/Sounds/Soundeffects/purchase");
@@ -500,6 +504,12 @@ namespace CIS598Project.Rooms
 			if (state == MainGame_ScreenState.stage && showFredbear == false) 
 			{
 				stageUpdate(gameTime);
+			}
+
+
+			if (state == MainGame_ScreenState.shop && showFredbear == false)
+			{
+				shopUpdate();
 			}
 
 			if (state == MainGame_ScreenState.save && showFredbear == false) 
@@ -794,6 +804,31 @@ namespace CIS598Project.Rooms
 				if (fredPosition.X == gameSelectors[nodePosition].position.X && gameSelectors[nodePosition].position.Y == fredPosition.Y) 
 				{
 					preventMove = false;
+				}
+			}
+		}
+
+		private void shopUpdate()
+		{
+			if (currentRow == 0 || currentRow == 1)
+			{
+				if (mouse.collidesWith(arrows[0]))
+				{
+					if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+					{
+						currentRow++;
+					}
+				}
+
+			}
+			if (currentRow == 1 || currentRow == 2) 
+			{
+				if (mouse.collidesWith(arrows[1]))
+				{
+					if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+					{
+						currentRow--;
+					}
 				}
 			}
 		}
@@ -1139,9 +1174,28 @@ namespace CIS598Project.Rooms
 
 			}
 
-			if (state == MainGame_ScreenState.shop) 
+			if (state == MainGame_ScreenState.shop)
 			{
 				spriteBatch.Draw(shopBackground, Vector2.Zero, Color.White);
+
+				spriteBatch.DrawString(font, "Tickets:\n" + player.ticketAmount.ToString(), new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 100), Color.Black);
+				if (currentRow == 0)
+				{
+					spriteBatch.DrawString(font, "Page (Props):\n" + (currentRow + 1) + "/3", new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 260), Color.Black);
+					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 750, graphics.Viewport.Height / 2 - 35), Color.White);
+				}
+				if (currentRow == 1)
+				{
+					spriteBatch.DrawString(font, "Page (Upgr.):\n" + (currentRow + 1) + "/3", new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 260), Color.Black);
+					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 750, graphics.Viewport.Height / 2 - 35), Color.White);
+					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 550, graphics.Viewport.Height / 2 - 35), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 0 );
+				}
+				if (currentRow == 2)
+				{
+					spriteBatch.DrawString(font, "Page (Anim.):\n" + (currentRow + 1) + "/3", new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 260), Color.Black);
+					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 550, graphics.Viewport.Height / 2 - 35), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 0);
+				}
+
 			}
 
 			if (state == MainGame_ScreenState.save)
