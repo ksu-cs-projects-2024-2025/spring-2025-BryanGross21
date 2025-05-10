@@ -40,6 +40,7 @@ namespace CIS598Project.Game_Entities
         /// [0][9] = fazerblast poster
         /// [0][10] = fan
         /// [0][11] = monitor
+        /// [0][12] = gumball swivelhands
         /// Upgrades
         /// [1][0] = curtains
         /// [1][1] = Confetti Floor
@@ -62,14 +63,14 @@ namespace CIS598Project.Game_Entities
             itemsUnlocked[2] = new bool[3];
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
-				consecutivePlays[i] = 0;
+				//consecutivePlays[i] = 0;
 				foundSecret[i] = true;
 			}
             for (int i = 0; i < itemsUnlocked.Length; i++) 
             {
                 for (int j = 0; j < itemsUnlocked[i].Length; j++) 
                 {
-                    itemsUnlocked[i][j] = false;
+                    itemsUnlocked[i][j] = true;
                 }
             }
 

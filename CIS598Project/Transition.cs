@@ -46,10 +46,10 @@ namespace CIS598Project
             {
                 transitionTime += gameTime.ElapsedGameTime.TotalSeconds;
 
-                if (transitionTime > .5 && transitionFrame != 5)
+                if (transitionTime > .25 && transitionFrame != 5)
                 {
                     transitionFrame++;
-                    transitionTime -= .5;
+                    transitionTime -= .25;
                 }
 
                 if (transitionFrame == 5)

@@ -30,7 +30,8 @@ namespace CIS598Project
 			Components.Add(_screens);
             //_screens.AddScreen(new Fishing(this, new Game_Entities.Player()), null);
             //_screens.AddScreen(new Ending_Screen(this, new Game_Entities.Player(), true), null);
-            _screens.AddScreen(new MainGame_Screen(new Game_Entities.Player(), this), null);
+            //_screens.AddScreen(new MainGame_Screen(new Game_Entities.Player(), this), null);
+            _screens.AddScreen(new Warning(this), null);
         }
 
         protected override void Initialize()
