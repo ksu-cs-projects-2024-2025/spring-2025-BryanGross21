@@ -160,11 +160,11 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/8BitTravel(Map).ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/Broken8Bit(Save).ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/Musicbox_ending.ogg</File>
-    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/RunningLights(Store).ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/stage_end.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/stage_intro.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/stage(acting).ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/stage(no_act).ogg</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Songs/Thank_You_For_Your_Patience_2_(shop).ogg</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/Level_over.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/Level_select.wav</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Sounds/Soundeffects/menu_select.wav</File>
@@ -192,7 +192,32 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/map/path/memory_picture.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/map/path/security_picture.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/map/path/vertical_path.png</File>
-    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/SB/Sleep/sleep.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Sounds/Soundeffects/head_plop.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Sounds/Soundeffects/purchase.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Sounds/Soundeffects/springbonnie_voice.wav</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/arrow.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/background.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/bonnie_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/celebrate_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/chica_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/confetti_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/cupcake_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/curtains_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/drawings_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/fan_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/fazer_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/fred_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/guitar_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/gumball_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/hats_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/mic_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/monitor_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/paper_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/present_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/sanitation_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/stage_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/table_node.png</File>
+    <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Shop/Textures/Everything_else/traffic_light.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Stage/Background_Props/celebrate_poster.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Stage/Background_Props/childrens_drawings.png</File>
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Stage/Background_Props/Confetti_floor.png</File>
@@ -644,6 +669,31 @@
     <File>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Transitions/transition_5.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

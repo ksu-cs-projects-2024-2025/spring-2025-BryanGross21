@@ -38,6 +38,7 @@ namespace CIS598Project.Rooms
 
 		Song[] backgroundMusic = new Song[6];
 
+		//map
 		Texture2D[] controls = new Texture2D[5];
 
 		Texture2D[] Fred = new Texture2D[3];
@@ -50,6 +51,7 @@ namespace CIS598Project.Rooms
 
 		Texture2D Overlay;
 
+		//stage
 		Texture2D ShowtimeOverlay;
 
 		Texture2D StageBackground;
@@ -110,6 +112,24 @@ namespace CIS598Project.Rooms
 
 		float songDuration = 0f;
 		float currentTime = 0f;
+
+		//Shop
+		public Texture2D[][] items = new Texture2D[3][];
+
+		public Texture2D arrow;
+
+		public Texture2D shopBackground;
+
+		SoundEffect purchase;
+
+		BoundingRectangle[][] itemsB = new BoundingRectangle[3][];
+
+		BoundingRectangle[] arrows = new BoundingRectangle[2];
+
+		SoundEffect sbTalk;
+
+		//The current row of items we are in
+		int currentRow = 0;
 
 		/// <summary>
 		/// Retrieves the script to show the description, name, and controls for each minigame
@@ -213,10 +233,14 @@ namespace CIS598Project.Rooms
 
 			selections[0] = new(0, 1026, 192, 54);
 			selections[1] = new(248, 1026, 150, 54);
-			selections[2] = new(396, 1026, 192, 54);
-			selections[3] = new(594, 1026, 192, 54);
+			selections[2] = new(454, 1026, 150, 54);
+			selections[3] = new(652, 1026, 150, 54);
 
 			fredPosition = new Vector2(250, 250);
+
+			items[0] = new Texture2D[13];
+			items[1] = new Texture2D[5];
+			items[2] = new Texture2D[3];
 
 			messages = new();
         }
@@ -241,7 +265,7 @@ namespace CIS598Project.Rooms
 			//The music for each screen
 			backgroundMusic[0] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/8BitTravel(Map)");
             backgroundMusic[1] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/Broken8Bit(Save)");
-            backgroundMusic[2] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/RunningLights(Store)");
+            backgroundMusic[2] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/Thank_You_For_Your_Patience_2_(shop)");
             backgroundMusic[3] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/stage(no_act)");
             backgroundMusic[4] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/stage(acting)");
 			backgroundMusic[5] = _content.Load<Song>("Desktop_Selection/Sounds/Songs/Musicbox_ending");
@@ -338,6 +362,37 @@ namespace CIS598Project.Rooms
 			saving = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/saving");
 			saved = _content.Load<SoundEffect>("Desktop_Selection/Sounds/Soundeffects/saved");
 
+			items[0][0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/stage_node");
+			items[0][1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/sanitation_node");
+			items[0][2] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/paper_node");
+			items[0][3] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/table_node");
+			items[0][4] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/hats_node");
+			items[0][5] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/present_node");
+			items[0][6] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/drawings_node");
+			items[0][7] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/traffic_light");
+			items[0][8] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/celebrate_node");
+			items[0][9] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/fazer_node");
+			items[0][10] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/fan_node");
+			items[0][11] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/monitor_node");
+			items[0][12] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/gumball_node");
+
+			items[1][0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/curtains_node");
+			items[1][1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/confetti_node");
+			items[1][2] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/guitar_node");
+			items[1][3] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/mic_node");
+			items[1][4] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/cupcake_node");
+
+
+			items[2][0] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/bonnie_node");
+			items[2][1] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/fred_node");
+			items[2][2] = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/chica_node");
+
+			arrow = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/arrow");
+
+			shopBackground = _content.Load<Texture2D>("Desktop_Selection/Textures/Shop/Textures/Everything_else/background");
+
+			purchase = _content.Load<SoundEffect>("Desktop_Selection/Textures/Shop/Sounds/Soundeffects/purchase");
+
 			ShowtimeOverlay = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Overlay");
 
 			temp = _content.Load<Texture2D>("temp");
@@ -418,7 +473,15 @@ namespace CIS598Project.Rooms
                         }
                     }
 
-                    if (mouse.collidesWith(selections[3]))
+					if (mouse.collidesWith(selections[2]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.shop)
+						{
+							state = MainGame_ScreenState.shop;
+						}
+					}
+
+					if (mouse.collidesWith(selections[3]))
                     {
                         if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.save)
                         {
@@ -459,13 +522,17 @@ namespace CIS598Project.Rooms
 				{
 					MediaPlayer.Play(backgroundMusic[0]);
 				}
-                if (state == MainGame_ScreenState.save)
-                {
-                    MediaPlayer.Play(backgroundMusic[1]);
-                }
-            }
+				if (state == MainGame_ScreenState.save)
+				{
+					MediaPlayer.Play(backgroundMusic[1]);
+				}
+				if (state == MainGame_ScreenState.shop)
+				{
+					MediaPlayer.Play(backgroundMusic[2]);
+				}
+			}
 
-            mouse.X = mousePosition.X;
+			mouse.X = mousePosition.X;
             mouse.Y = mousePosition.Y;
         }
 
@@ -840,19 +907,19 @@ namespace CIS598Project.Rooms
 				}
 			}
 
-			if (state == MainGame_ScreenState.stage) 
+			if (state == MainGame_ScreenState.stage)
 			{
 				spriteBatch.Draw(StageBackground, Vector2.Zero, Color.White);
 
-				if (player.itemsUnlocked[1][1]) 
+				if (player.itemsUnlocked[1][1])
 				{
 					spriteBatch.Draw(staticProps[9], Vector2.Zero, Color.White);
 				}
-				if (player.itemsUnlocked[0][0]) 
+				if (player.itemsUnlocked[0][0])
 				{
 					spriteBatch.Draw(staticProps[0], new Vector2(775, 200), Color.White);
 				}
-				if (player.itemsUnlocked[1][2] && player.itemsUnlocked[2][0] == false) 
+				if (player.itemsUnlocked[1][2] && player.itemsUnlocked[2][0] == false)
 				{
 					spriteBatch.Draw(characterProps[0], new Vector2(775, 350), Color.White);
 				}
@@ -864,7 +931,7 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.Draw(characterProps[2], new Vector2(1275, 570), Color.White);
 				}
-				if (player.itemsUnlocked[2][0]) 
+				if (player.itemsUnlocked[2][0])
 				{
 					if (player.itemsUnlocked[0][0])
 					{
@@ -884,7 +951,7 @@ namespace CIS598Project.Rooms
 							if (curtainPosition == 6)
 							{
 								performAnimationTimer += gameTime.ElapsedGameTime.TotalSeconds;
-								if (performAnimationTimer > .75) 
+								if (performAnimationTimer > .75)
 								{
 									performAnimationFrame++;
 									if (performAnimationFrame == 3)
@@ -919,7 +986,7 @@ namespace CIS598Project.Rooms
 							{
 								spriteBatch.Draw(ChicaPerform[performAnimationFrame], new Vector2(1175, 300), Color.White);
 							}
-							
+
 						}
 					}
 				}
@@ -927,7 +994,7 @@ namespace CIS598Project.Rooms
 				{
 					if (player.itemsUnlocked[0][0])
 					{
-						if (isShowtime == false || curtainPosition < 6 || isCredits) 
+						if (isShowtime == false || curtainPosition < 6 || isCredits)
 						{
 							if (player.itemsUnlocked[1][3])
 							{
@@ -940,7 +1007,7 @@ namespace CIS598Project.Rooms
 						}
 						else
 						{
-							if (curtainPosition == 6) 
+							if (curtainPosition == 6)
 							{
 								spriteBatch.Draw(FredPerform[performAnimationFrame], new Vector2(975, 300), Color.White);
 							}
@@ -974,7 +1041,7 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.Draw(staticProps[6], Vector2.Zero, Color.White);
 				}
-				if (player.itemsUnlocked[0][5]) 
+				if (player.itemsUnlocked[0][5])
 				{
 					spriteBatch.Draw(staticProps[5], new Vector2(1500, 550), Color.White);
 				}
@@ -1006,7 +1073,7 @@ namespace CIS598Project.Rooms
 					if (fanAnimationTimer > .25)
 					{
 						fanAnimationFrame++;
-						if (fanAnimationFrame >= 2) 
+						if (fanAnimationFrame >= 2)
 						{
 							fanAnimationFrame = 0;
 						}
@@ -1019,10 +1086,10 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(staticProps[10], Vector2.Zero, Color.White);
 				}
 				springBonnieTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (springBonnieTimer > .15) 
+				if (springBonnieTimer > .15)
 				{
 					springBonnieFrame++;
-					if (springBonnieFrame >= 30) 
+					if (springBonnieFrame >= 30)
 					{
 						springBonnieFrame = 0;
 					}
@@ -1055,7 +1122,7 @@ namespace CIS598Project.Rooms
 						monitorDrawing = new Rectangle(0, 384, 384, 384);
 					}
 					spriteBatch.Draw(monitor, new Vector2(955, 937), monitorDrawing, Color.White, 0f, new Vector2(monitor.Bounds.Width / 2, monitor.Bounds.Height / 2), .75f, SpriteEffects.None, 0);
-					if (checkUnlocks() && isShowtime == false) 
+					if (checkUnlocks() && isShowtime == false)
 					{
 						spriteBatch.DrawString(font, "E for showtime", new Vector2(855, 737), Color.White, 0f, Vector2.Zero, .35f, SpriteEffects.None, 0);
 					}
@@ -1065,11 +1132,16 @@ namespace CIS598Project.Rooms
 					spriteBatch.Draw(springBonnie[springBonnieFrame], springBonniePosition, null, Color.White, 0f, new Vector2(springBonnie[springBonnieFrame].Bounds.Width / 2, springBonnie[springBonnieFrame].Bounds.Height / 2), .5f, SpriteEffects.FlipHorizontally, 0);
 				}
 
-				if (isShowtime) 
+				if (isShowtime)
 				{
 					spriteBatch.Draw(ShowtimeOverlay, Vector2.Zero, Color.White);
 				}
 
+			}
+
+			if (state == MainGame_ScreenState.shop) 
+			{
+				spriteBatch.Draw(shopBackground, Vector2.Zero, Color.White);
 			}
 
 			if (state == MainGame_ScreenState.save)
@@ -1097,8 +1169,6 @@ namespace CIS598Project.Rooms
 			else
 			{
 				spriteBatch.Draw(TaskBar[(int)state], Vector2.Zero, Color.White);
-				spriteBatch.Draw(temp, new Vector2(0, 1026), Color.White);
-				spriteBatch.Draw(temp, new Vector2(198, 1026), Color.White);
 			}
 
 

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_2.png</SourceFile>
-  <SourceTime>2025-05-07T11:06:34.8948135-05:00</SourceTime>
+  <SourceTime>2025-05-06T14:39:38.9909485-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Content/Desktop_Selection/Textures/Stage/Fred/Freddy_power_on_2.xnb</DestFile>
-  <DestTime>2025-05-08T17:09:23.8109054-05:00</DestTime>
+  <DestTime>2025-05-10T12:47:28.0724185-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
