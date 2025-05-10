@@ -11,9 +11,9 @@ namespace CIS598Project
     {
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
-		private readonly ScreenManager _screens;
+        private readonly ScreenManager _screens;
 
-		public Game1()
+        public Game1()
         {
             _graphics = new GraphicsDeviceManager(this);
 			DisplayMode screen = GraphicsAdapter.DefaultAdapter.CurrentDisplayMode;
@@ -31,7 +31,7 @@ namespace CIS598Project
             //_screens.AddScreen(new Fishing(this, new Game_Entities.Player()), null);
             //_screens.AddScreen(new Ending_Screen(this, new Game_Entities.Player(), true), null);
             //_screens.AddScreen(new MainGame_Screen(new Game_Entities.Player(), this), null);
-            _screens.AddScreen(new Warning(this), null);
+            _screens.AddScreen(new MainMenu(this), null);
         }
 
         protected override void Initialize()
@@ -50,9 +50,9 @@ namespace CIS598Project
 
         protected override void Update(GameTime gameTime)
         {
-            /*if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-                Exit();*/
-
+            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
+                Exit();
+            }
             // TODO: Add your update logic here
 
             base.Update(gameTime);

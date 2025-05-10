@@ -59,7 +59,7 @@ namespace CIS598Project.Rooms
                 foreach (var screen in ScreenManager.GetScreens())
                     screen.ExitScreen();
 
-                ScreenManager.AddScreen(new GameSelection(game), PlayerIndex.One);
+                ScreenManager.AddScreen(new MainMenu(game), PlayerIndex.One);
             }
         }
 

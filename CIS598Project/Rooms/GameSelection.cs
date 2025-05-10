@@ -125,7 +125,7 @@ namespace CIS598Project.Rooms
                 }
             }
 
-            if (currentKeyboardState.IsKeyDown(Keys.E) && pastKeyboardState.IsKeyUp(Keys.E))
+            if (currentKeyboardState.IsKeyDown(Keys.E) && pastKeyboardState.IsKeyUp(Keys.E) && transition.shouldTransition == false)
             {
                 transition.shouldTransition = true;
                 gameSelected.Play();
@@ -246,7 +246,7 @@ namespace CIS598Project.Rooms
                 spriteBatch.DrawString(font, "Continue", new Vector2(graphics.Viewport.Width / 2 - 300, graphics.Viewport.Height / 2 - 50), Color.White, 0f, Vector2.Zero, 1.25f, SpriteEffects.None, 0);
                 if (topSelected)
                 {
-                    spriteBatch.DrawString(font, "Start the game with a new save,\nthe game will only save until \nyou visit the save screen or hit escape.", new Vector2(graphics.Viewport.Width / 2 - 475, graphics.Viewport.Height / 2 + 125), Color.White, 0f, Vector2.Zero, .75f, SpriteEffects.None, 0);
+                    spriteBatch.DrawString(font, "Start the game with a new save,\nthe game will only save until\nyou visit the save screen and save.", new Vector2(graphics.Viewport.Width / 2 - 475, graphics.Viewport.Height / 2 + 125), Color.White, 0f, Vector2.Zero, .75f, SpriteEffects.None, 0);
                 }
             }
             else
