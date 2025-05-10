@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrayNotify;
 using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography.Xml;
+using SharpDX.Direct2D1;
 
 
 namespace CIS598Project.Rooms
@@ -27,6 +28,7 @@ namespace CIS598Project.Rooms
 		shop = 4,
 		save = 6
 	}
+
 	public class MainGame_Screen : GameScreen
 	{
         SpriteFont font;
@@ -132,6 +134,8 @@ namespace CIS598Project.Rooms
 		//The current row of items we are in
 		int currentRow = 0;
 
+		int currentColumn = 0;
+
 		/// <summary>
 		/// Retrieves the script to show the description, name, and controls for each minigame
 		/// </summary>
@@ -215,6 +219,16 @@ namespace CIS598Project.Rooms
 
 		int currentGame = 0;
 
+		SpringBonnieDialogue sbDialogue = new();
+
+		string lineToShow = " ";
+
+		double textTime = 0;
+
+		bool isPurchasing;
+
+		int price = 1500;
+
 		public MainGame_Screen(Player player, Game game) 
 		{
 			this.game = game;
@@ -252,6 +266,25 @@ namespace CIS598Project.Rooms
 			base.Activate();
 
 			if (_content == null) _content = new ContentManager(ScreenManager.Game.Services, "Content");
+
+			itemsB[0] = new BoundingRectangle[13];
+			itemsB[1] = new BoundingRectangle[5];
+			itemsB[2] = new BoundingRectangle[3];
+
+			for (int i = 0; i < itemsB.Length; i++)
+			{
+				for (int j = 0; j < itemsB[i].Length; j++)
+				{
+					if (j < 7)
+					{
+						itemsB[i][j] = new BoundingRectangle(63 + 175 * j, 561, 128, 128);
+					}
+					else
+					{
+						itemsB[i][j] = new BoundingRectangle(63 + 175 * (j - 7), 761, 128, 128);
+					}
+				}
+			}
 
 			foreach (MapNode node in gameSelectors) 
 			{
@@ -397,6 +430,8 @@ namespace CIS598Project.Rooms
 
 			purchase = _content.Load<SoundEffect>("Desktop_Selection/Textures/Shop/Sounds/Soundeffects/purchase");
 
+			sbTalk = _content.Load<SoundEffect>("Desktop_Selection/Textures/Shop/Sounds/Soundeffects/purchase");
+
 			ShowtimeOverlay = _content.Load<Texture2D>("Balloon_Barrel/Backgrounds/Overlay");
 
 			temp = _content.Load<Texture2D>("temp");
@@ -459,7 +494,7 @@ namespace CIS598Project.Rooms
 
             if (isShowtime == false)
             {
-                if (tutorialShow == false)
+                if (tutorialShow == false && isPurchasing == false && (isSaving == false && hasSaved == false))
                 {
                     if (mouse.collidesWith(selections[0]))
                     {
@@ -509,7 +544,14 @@ namespace CIS598Project.Rooms
 
 			if (state == MainGame_ScreenState.shop && showFredbear == false)
 			{
-				shopUpdate();
+				if (isPurchasing == false)
+				{
+					shopUpdate();
+				}
+				else 
+				{
+					buyItem(currentColumn);
+				}
 			}
 
 			if (state == MainGame_ScreenState.save && showFredbear == false) 
@@ -545,6 +587,160 @@ namespace CIS598Project.Rooms
 			mouse.X = mousePosition.X;
             mouse.Y = mousePosition.Y;
         }
+
+		private void fredUpdate()
+		{
+			//Handle the player's input to go to the next node
+			if (preventMove == false && tutorialShow == false)
+			{
+				if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyDown(Keys.A))
+				{
+					nodePosition--;
+					if (nodePosition < 0)
+					{
+						if (checkFoundSecret() == false)
+						{
+							nodePosition = 7;
+						}
+						else
+						{
+							nodePosition = 8;
+						}
+					}
+					preventMove = true;
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyDown(Keys.D))
+				{
+					nodePosition++;
+					if (checkFoundSecret() == false)
+					{
+						if (nodePosition > 7)
+						{
+							nodePosition = 0;
+						}
+					}
+					else
+					{
+						if (nodePosition > 8)
+						{
+							nodePosition = 0;
+						}
+					}
+					preventMove = true;
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.E))
+				{
+					tutorialShow = true;
+					//preventMove = true; //Don't want the player to move and select a new game while a tutorial message is shown
+				}
+			}
+
+			//Get ready to go to the next screen for the minigame or to exit back to the map selection
+			if (tutorialShow)
+			{
+				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
+				{
+					transitionToMinigame();
+				}
+				if (currentKeyboardState.IsKeyDown(Keys.Escape))
+				{
+					tutorialShow = false;
+				}
+			}
+
+			//Update Freddy to move to the next node
+			if (preventMove)
+			{
+				if (fredPosition.X != gameSelectors[nodePosition].position.X)
+				{
+					if (fredPosition.X > gameSelectors[nodePosition].position.X)
+					{
+						fredPosition.X -= 25;
+					}
+					else if (fredPosition.X < gameSelectors[nodePosition].position.X)
+					{
+						fredPosition.X += 25;
+					}
+				}
+				if (fredPosition.Y != gameSelectors[nodePosition].position.Y)
+				{
+					if (fredPosition.Y > gameSelectors[nodePosition].position.Y)
+					{
+						fredPosition.Y -= 25;
+					}
+					else if (fredPosition.Y < gameSelectors[nodePosition].position.Y)
+					{
+						fredPosition.Y += 25;
+					}
+				}
+				if (fredPosition.X == gameSelectors[nodePosition].position.X && gameSelectors[nodePosition].position.Y == fredPosition.Y)
+				{
+					preventMove = false;
+				}
+			}
+		}
+
+		private void shopUpdate()
+		{
+			if (isPurchasing == false)
+			{
+				if (currentRow == 0 || currentRow == 1)
+				{
+					if (mouse.collidesWith(arrows[0]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+						{
+							currentRow++;
+						}
+					}
+
+				}
+				if (currentRow == 1 || currentRow == 2)
+				{
+					if (mouse.collidesWith(arrows[1]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+						{
+							currentRow--;
+						}
+					}
+				}
+				if (currentRow == 1)
+				{
+					price = 2500;
+				}
+				if (currentRow == 2)
+				{
+					price = 3500;
+				}
+				for (int j = 0; j < itemsB[currentRow].Length; j++)
+				{
+					if (mouse.collidesWith(itemsB[currentRow][j]))
+					{
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && player.ticketAmount >= price)
+						{
+							currentColumn = j;
+							isPurchasing = true;
+						}
+					}
+				}
+			}
+		}
+
+		private void buyItem(int currentColumn)
+		{
+
+			if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyDown(Keys.Y))
+			{
+				player.ticketAmount -= price;
+				player.itemsUnlocked[currentRow][currentColumn] = true;
+				isPurchasing = false;
+			}
+			if (currentKeyboardState.IsKeyDown(Keys.N) && pastKeyboardState.IsKeyDown(Keys.N))
+			{
+				isPurchasing = false;
+			}
+		}
 
 		private void saveUpdate(GameTime gameTime)
 		{
@@ -716,122 +912,6 @@ namespace CIS598Project.Rooms
 			}
 		}
 
-		private void fredUpdate() 
-		{
-			//Handle the player's input to go to the next node
-			if (preventMove == false && tutorialShow == false)
-			{
-				if (currentKeyboardState.IsKeyDown(Keys.A) && pastKeyboardState.IsKeyDown(Keys.A))
-				{
-					nodePosition--;
-					if (nodePosition < 0) 
-					{
-						if (checkFoundSecret() == false)
-						{
-							nodePosition = 7;
-						}
-						else 
-						{
-							nodePosition = 8;
-						}
-					}
-					preventMove = true;
-				}
-				if (currentKeyboardState.IsKeyDown(Keys.D) && pastKeyboardState.IsKeyDown(Keys.D))
-				{
-					nodePosition++;
-					if (checkFoundSecret() == false)
-					{
-						if (nodePosition > 7)
-						{
-							nodePosition = 0;
-						}
-					}
-					else 
-					{
-						if (nodePosition > 8) 
-						{
-							nodePosition = 0;
-						}
-					}
-					preventMove = true;
-				}
-				if (currentKeyboardState.IsKeyDown(Keys.E)) 
-				{
-					tutorialShow = true;
-					//preventMove = true; //Don't want the player to move and select a new game while a tutorial message is shown
-				}
-			}
-
-			//Get ready to go to the next screen for the minigame or to exit back to the map selection
-			if (tutorialShow) 
-			{
-				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
-				{
-					transitionToMinigame();
-				}
-				if (currentKeyboardState.IsKeyDown(Keys.Escape))
-				{
-					tutorialShow = false;
-				}
-			}
-
-			//Update Freddy to move to the next node
-			if (preventMove) 
-			{
-				if (fredPosition.X != gameSelectors[nodePosition].position.X) 
-				{
-					if (fredPosition.X > gameSelectors[nodePosition].position.X)
-					{
-						fredPosition.X -= 25;
-					}
-					else if (fredPosition.X < gameSelectors[nodePosition].position.X) 
-					{
-						fredPosition.X += 25;
-					}
-				}
-				if (fredPosition.Y != gameSelectors[nodePosition].position.Y) 
-				{
-					if (fredPosition.Y > gameSelectors[nodePosition].position.Y)
-					{
-						fredPosition.Y -= 25;
-					}
-					else if (fredPosition.Y < gameSelectors[nodePosition].position.Y)
-					{
-						fredPosition.Y += 25;
-					}
-				}
-				if (fredPosition.X == gameSelectors[nodePosition].position.X && gameSelectors[nodePosition].position.Y == fredPosition.Y) 
-				{
-					preventMove = false;
-				}
-			}
-		}
-
-		private void shopUpdate()
-		{
-			if (currentRow == 0 || currentRow == 1)
-			{
-				if (mouse.collidesWith(arrows[0]))
-				{
-					if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-					{
-						currentRow++;
-					}
-				}
-
-			}
-			if (currentRow == 1 || currentRow == 2) 
-			{
-				if (mouse.collidesWith(arrows[1]))
-				{
-					if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
-					{
-						currentRow--;
-					}
-				}
-			}
-		}
 
 		/// <summary>
 		/// Checks to see if the player has all items unlocked
@@ -1188,14 +1268,45 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.DrawString(font, "Page (Upgr.):\n" + (currentRow + 1) + "/3", new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 260), Color.Black);
 					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 750, graphics.Viewport.Height / 2 - 35), Color.White);
-					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 550, graphics.Viewport.Height / 2 - 35), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 0 );
+					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 550, graphics.Viewport.Height / 2 - 35), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 0);
+
 				}
 				if (currentRow == 2)
 				{
 					spriteBatch.DrawString(font, "Page (Anim.):\n" + (currentRow + 1) + "/3", new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 + 260), Color.Black);
 					spriteBatch.Draw(arrow, new Vector2(graphics.Viewport.Width / 2 + 550, graphics.Viewport.Height / 2 - 35), null, Color.White, 0f, new Vector2(0, 0), 1f, SpriteEffects.FlipHorizontally, 0);
 				}
+				for (int j = 0; j < items[currentRow].Length; j++)
+				{
+					if (j < 7)
+					{
+						if (player.itemsUnlocked[currentRow][j] == false)
+						{
+							spriteBatch.Draw(items[currentRow][j], new Vector2(63 + 175 * j, 561), Color.White);
+						}
+						else
+						{
+							spriteBatch.Draw(items[currentRow][j], new Vector2(63 + 175 * j, 561), Color.Gray);
+						}
+					}
+					else
+					{
+						if (player.itemsUnlocked[currentRow][j] == false)
+						{
+							spriteBatch.Draw(items[currentRow][j], new Vector2(63 + 175 * (j - 7), 761), Color.White);
+						}
+						else
+						{
+							spriteBatch.Draw(items[currentRow][j], new Vector2(63 + 175 * (j - 7), 761), Color.Gray);
+						}
+					}
+				}
 
+				if (isPurchasing == true) 
+				{
+				
+					spriteBatch.DrawString(font, "That item is worth\n" + price + " tickets.\nY to purchase,\nN to not", new Vector2(1336, 43), Color.White, 0f, Vector2.Zero, .75f, SpriteEffects.None, 0);
+				}
 			}
 
 			if (state == MainGame_ScreenState.save)

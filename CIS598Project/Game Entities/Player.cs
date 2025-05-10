@@ -54,7 +54,7 @@ namespace CIS598Project.Game_Entities
         /// </summary>
         public bool[][] itemsUnlocked = new bool[3][];
 
-		public int ticketAmount = 9999;
+		public int ticketAmount = 99999;
 
 		public Player() 
 		{
@@ -70,7 +70,7 @@ namespace CIS598Project.Game_Entities
             {
                 for (int j = 0; j < itemsUnlocked[i].Length; j++) 
                 {
-                    itemsUnlocked[i][j] = true;
+                    itemsUnlocked[i][j] = false;
                 }
             }
 
