@@ -218,7 +218,7 @@ namespace CIS598Project.Rooms
             }
             if (endings[1]) 
             {
-				spriteBatch.Draw(endingIcons[1], new Vector2(1720, 318), Color.White);
+				spriteBatch.Draw(endingIcons[1], new Vector2(1620, 318), Color.White);
 			}
 
             transition.Draw(gameTime, spriteBatch);
