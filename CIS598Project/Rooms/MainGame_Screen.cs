@@ -227,6 +227,8 @@ namespace CIS598Project.Rooms
 
 		int price = 1500;
 
+		Fredbear fredbear;
+
 		public MainGame_Screen(Player player, Game game) 
 		{
 			this.game = game;
@@ -248,12 +250,15 @@ namespace CIS598Project.Rooms
 			selections[1] = new(248, 1026, 150, 54);
 			selections[2] = new(454, 1026, 150, 54);
 			selections[3] = new(652, 1026, 150, 54);
+			selections[4] = new(1872, 1032, 44, 44);
 
 			fredPosition = new Vector2(250, 250);
 
 			items[0] = new Texture2D[13];
 			items[1] = new Texture2D[5];
 			items[2] = new Texture2D[3];
+
+			fredbear = new(player);
 
 			messages = new();
         }
@@ -291,6 +296,8 @@ namespace CIS598Project.Rooms
 					node.LoadContent(_content);
 				}
 			}
+
+			fredbear.LoadContent(_content);
 
 			messages.LoadContent(_content);
 
@@ -489,96 +496,118 @@ namespace CIS598Project.Rooms
 			}
 
 			Vector2 mousePosition = new Vector2(currentMousePosition.X, currentMousePosition.Y);
-
-            if (isShowtime == false)
-            {
-                if (tutorialShow == false && isPurchasing == false && (isSaving == false && hasSaved == false))
-                {
-                    if (mouse.collidesWith(selections[0]))
-                    {
-                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.map)
-                        {
-                            state = MainGame_ScreenState.map;
-                        }
-                    }
-
-                    if (mouse.collidesWith(selections[1]))
-                    {
-                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.stage)
-                        {
-                            state = MainGame_ScreenState.stage;
-                        }
-                    }
-
-					if (mouse.collidesWith(selections[2]))
+			if (showFredbear == false)
+			{
+				if (isShowtime == false)
+				{
+					if (tutorialShow == false && isPurchasing == false && (isSaving == false && hasSaved == false))
 					{
-						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.shop)
+						if (mouse.collidesWith(selections[0]))
 						{
-							state = MainGame_ScreenState.shop;
+							if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.map)
+							{
+								state = MainGame_ScreenState.map;
+							}
+						}
+
+						if (mouse.collidesWith(selections[1]))
+						{
+							if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.stage)
+							{
+								state = MainGame_ScreenState.stage;
+							}
+						}
+
+						if (mouse.collidesWith(selections[2]))
+						{
+							if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.shop)
+							{
+								state = MainGame_ScreenState.shop;
+							}
+						}
+
+						if (mouse.collidesWith(selections[3]))
+						{
+							if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.save)
+							{
+								stateToGoTo = state;
+								state = MainGame_ScreenState.save;
+							}
+						}
+
+						if (mouse.collidesWith(selections[4]))
+						{
+							if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released)
+							{
+								fredbear = new Fredbear(player);
+								fredbear.LoadContent(_content);
+								showFredbear = true;
+								fredbear.screenState = state;
+								fredbear.state = Game_Entities.FredbearState.entering;
+							}
 						}
 					}
-
-					if (mouse.collidesWith(selections[3]))
-                    {
-                        if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && state != MainGame_ScreenState.save)
-                        {
-							stateToGoTo = state;
-                            state = MainGame_ScreenState.save;
-                        }
-                    }
-                }
-            }
-
-            if (state == MainGame_ScreenState.map && showFredbear == false)
-			{
-				fredUpdate();
-			}
-
-			if (state == MainGame_ScreenState.stage && showFredbear == false) 
-			{
-				stageUpdate(gameTime);
-			}
-
-
-			if (state == MainGame_ScreenState.shop && showFredbear == false)
-			{
-				if (isPurchasing == false)
-				{
-					shopUpdate();
 				}
-				else 
+
+				if (state == MainGame_ScreenState.map && showFredbear == false)
 				{
-					buyItem(currentColumn);
+					fredUpdate();
 				}
-			}
 
-			if (state == MainGame_ScreenState.save && showFredbear == false) 
-			{
-				saveUpdate(gameTime);
-			}
-
-
-			if (pastState != state) 
-			{
-				if (state == MainGame_ScreenState.stage) 
+				if (state == MainGame_ScreenState.stage && showFredbear == false)
 				{
-					MediaPlayer.Stop();
-					if (player.itemsUnlocked[0][0]) 
+					stageUpdate(gameTime);
+				}
+
+
+				if (state == MainGame_ScreenState.shop && showFredbear == false)
+				{
+					if (isPurchasing == false)
 					{
-						MediaPlayer.Play(backgroundMusic[3]);
+						shopUpdate();
+					}
+					else
+					{
+						buyItem(currentColumn);
 					}
 				}
-				if (state == MainGame_ScreenState.map) 
+
+				if (state == MainGame_ScreenState.save && showFredbear == false)
 				{
-					MediaPlayer.Play(backgroundMusic[0]);
+					saveUpdate(gameTime);
 				}
-				if (state == MainGame_ScreenState.save)
+
+
+				if (pastState != state)
 				{
-					MediaPlayer.Play(backgroundMusic[1]);
+					if (state == MainGame_ScreenState.stage)
+					{
+						MediaPlayer.Stop();
+						if (player.itemsUnlocked[0][0])
+						{
+							MediaPlayer.Play(backgroundMusic[3]);
+						}
+					}
+					if (state == MainGame_ScreenState.map)
+					{
+						MediaPlayer.Play(backgroundMusic[0]);
+					}
+					if (state == MainGame_ScreenState.save)
+					{
+						MediaPlayer.Play(backgroundMusic[1]);
+					}
+					if (state == MainGame_ScreenState.shop)
+					{
+						MediaPlayer.Play(backgroundMusic[2]);
+					}
 				}
-				if (state == MainGame_ScreenState.shop)
+			}
+			else 
+			{
+				fredbear.Update(gameTime);
+				if (fredbear.hasLeft) 
 				{
-					MediaPlayer.Play(backgroundMusic[2]);
+					showFredbear = false;
 				}
 			}
 
@@ -715,7 +744,7 @@ namespace CIS598Project.Rooms
 				{
 					if (mouse.collidesWith(itemsB[currentRow][j]))
 					{
-						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && player.ticketAmount >= price)
+						if (currentMousePosition.LeftButton == ButtonState.Pressed && pastMousePosition.LeftButton == ButtonState.Released && player.ticketAmount >= price && player.itemsUnlocked[currentRow][j] == false)
 						{
 							currentColumn = j;
 							isPurchasing = true;
@@ -1011,7 +1040,7 @@ namespace CIS598Project.Rooms
                 spriteBatch.Draw(controls[1], new Vector2(graphics.Viewport.Width / 2 + 300, graphics.Viewport.Height / 2 - 250), Color.White);
                 spriteBatch.Draw(controls[3], new Vector2(graphics.Viewport.Width / 2 + 400, graphics.Viewport.Height / 2 - 260), Color.White);
 
-				spriteBatch.DrawString(font, "Tickets: " + player.ticketAmount, Vector2.Zero, Color.White);
+				spriteBatch.DrawString(font, "Tickets: " + player.ticketAmount, new Vector2(graphics.Viewport.Width - 750, 0), Color.White);
 
 				if (tutorialShow) 
 				{
@@ -1328,6 +1357,7 @@ namespace CIS598Project.Rooms
 			if (showFredbear)
 			{
 				spriteBatch.Draw(TaskBar[(int)state + 1], Vector2.Zero, Color.White);
+				fredbear.Draw(gameTime, spriteBatch, graphics);
 			}
 			else
 			{

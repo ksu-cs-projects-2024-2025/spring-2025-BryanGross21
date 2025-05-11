@@ -64,13 +64,13 @@ namespace CIS598Project.Game_Entities
 			for (int i = 0; i < consecutivePlays.Length; i++) 
 			{
 				//consecutivePlays[i] = 0;
-				foundSecret[i] = true;
+				foundSecret[i] = false;
 			}
             for (int i = 0; i < itemsUnlocked.Length; i++) 
             {
                 for (int j = 0; j < itemsUnlocked[i].Length; j++) 
                 {
-                    itemsUnlocked[i][j] = false;
+                    itemsUnlocked[i][j] = true;
                 }
             }
 

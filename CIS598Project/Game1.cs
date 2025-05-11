@@ -30,8 +30,8 @@ namespace CIS598Project
 			Components.Add(_screens);
             //_screens.AddScreen(new Fishing(this, new Game_Entities.Player()), null);
             //_screens.AddScreen(new Ending_Screen(this, new Game_Entities.Player(), true), null);
-            //_screens.AddScreen(new MainGame_Screen(new Game_Entities.Player(), this), null);
-            _screens.AddScreen(new Warning(this), null);
+            _screens.AddScreen(new MainGame_Screen(new Game_Entities.Player(), this), null);
+            //_screens.AddScreen(new Warning(this), null);
         }
 
         protected override void Initialize()
@@ -50,9 +50,9 @@ namespace CIS598Project
 
         protected override void Update(GameTime gameTime)
         {
-            if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
+            /*if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
                 Exit();
-            }
+            }*/
             // TODO: Add your update logic here
 
             base.Update(gameTime);

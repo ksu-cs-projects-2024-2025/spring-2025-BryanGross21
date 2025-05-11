@@ -22,11 +22,11 @@ namespace CIS598Project.Game_Entities
 				int num = ran.Next(0, 101);
 				if (num < 75)
 				{
-					points = 100;
+					points = 250;
 				}
 				else if (num >= 75 && num < 90)
 				{
-					points = 500;
+					points = 450;
 				}
 				else 
 				{
@@ -38,11 +38,11 @@ namespace CIS598Project.Game_Entities
 				int num = ran.Next(duckNum * 7, 101);
 				if (num < 75)
 				{
-					points = 100;
+					points = 250;
 				}
 				else if (num >= 75 && num < 90)
 				{
-					points = 500;
+					points = 450;
 				}
 				else
 				{

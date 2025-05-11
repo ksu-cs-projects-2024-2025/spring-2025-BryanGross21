@@ -144,7 +144,7 @@ namespace CIS598Project.Rooms
 			
 		BoundingRectangle mouse = new(0, 0, 64, 64);
 
-		int score = 5000;
+		int score = 2000;
 
 		Player player;
 
@@ -295,11 +295,11 @@ namespace CIS598Project.Rooms
 				lowerTime += gameTime.ElapsedGameTime.TotalSeconds;
 
 
-				if (lowerTime >= 10 && score != 1000)
+				if (lowerTime >= 7.5 && score != 100)
 				{
-					score -= 1000;
+					score -= 100;
 
-					lowerTime -= 10;
+					lowerTime -= 7.5;
 				}
 
 

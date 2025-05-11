@@ -59,7 +59,7 @@ namespace CIS598Project
 			spriteBatch.DrawString(font, controls[node], new Vector2(width / 2 - 250, height / 4 + 450), Color.White, 0, Vector2.Zero, .5f, SpriteEffects.None, 0);
 
 
-			spriteBatch.DrawString(font, "Space to continue --->", new Vector2(width - 425, height - 50), Color.White, 0, Vector2.Zero, .5f, SpriteEffects.None, 0);
+			spriteBatch.DrawString(font, "Space to continue --->", new Vector2(width - 425, height - 100), Color.White, 0, Vector2.Zero, .5f, SpriteEffects.None, 0);
 		}
 	}
 }
