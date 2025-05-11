@@ -219,8 +219,6 @@ namespace CIS598Project.Rooms
 
 		int currentGame = 0;
 
-		SpringBonnieDialogue sbDialogue = new();
-
 		string lineToShow = " ";
 
 		double textTime = 0;
