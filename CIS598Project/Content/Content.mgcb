@@ -7874,6 +7874,30 @@
 /processorParam:TextureFormat=Color
 /build:Title_Screen/Textures/Menu_background.png
 
+#begin Title_Screen/Textures/Normal_Ending.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Title_Screen/Textures/Normal_Ending.png
+
+#begin Title_Screen/Textures/secret_ending.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Title_Screen/Textures/secret_ending.png
+
 #begin Title_Screen/Textures/Title_Screen.png
 /importer:TextureImporter
 /processor:TextureProcessor

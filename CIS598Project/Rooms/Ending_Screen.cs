@@ -66,6 +66,8 @@ namespace CIS598Project.Rooms
 
 		SpriteFont font;
 
+		SaveClass save;
+
 
 		ContentManager _content;
 
@@ -80,6 +82,8 @@ namespace CIS598Project.Rooms
 			this.player = player;
 			secretEnding = ending;
 			secretDialogue = new(this.player);
+			StringBuilder sb = new();
+			save = new();
 		}
 
 		public override void Activate()
@@ -121,10 +125,10 @@ namespace CIS598Project.Rooms
 		{
 			base.Update(gameTime, otherScreenHasFocus, false);
 
-            pastKeyboardState = currentKeyboardState;
-            currentKeyboardState = Keyboard.GetState();
+			pastKeyboardState = currentKeyboardState;
+			currentKeyboardState = Keyboard.GetState();
 
-            if (!ScreenManager.Game.IsActive)
+			if (!ScreenManager.Game.IsActive)
 			{
 				// Pause the music or stop sound effects when the game loses focus
 				if (MediaPlayer.State == MediaState.Playing)
@@ -142,12 +146,12 @@ namespace CIS598Project.Rooms
 				}
 			}
 
-			if (secretEnding) 
+			if (secretEnding)
 			{
-				if (state == gfredState.delay) 
+				if (state == gfredState.delay)
 				{
 					delayTimer += gameTime.ElapsedGameTime.TotalSeconds;
-					if (delayTimer > 1) 
+					if (delayTimer > 1)
 					{
 						if (understands)
 						{
@@ -160,6 +164,8 @@ namespace CIS598Project.Rooms
 							if (currentLine == secretDialogue.text.Length - 1 || currentLine == secretDialogue.text.Length)
 							{
 								state = gfredState.end;
+								player.sawEnding[1] = true;
+								save.save(new StringBuilder(), player);
 							}
 							else
 							{
@@ -170,7 +176,7 @@ namespace CIS598Project.Rooms
 						}
 					}
 				}
-				if (state == gfredState.speak) 
+				if (state == gfredState.speak)
 				{
 					textTimer += gameTime.ElapsedGameTime.TotalSeconds;
 					if (currentLineLength != textOnScreen.Count())
@@ -180,7 +186,7 @@ namespace CIS598Project.Rooms
 							textOnScreen = secretDialogue.text[currentLine];
 						}
 					}
-                    if (textTimer > .1 && currentLineLength != textOnScreen.Count())
+					if (textTimer > .1 && currentLineLength != textOnScreen.Count())
 					{
 						if (char.IsLetter(secretDialogue.text[currentLine][currentCharacter]))
 						{
@@ -203,26 +209,35 @@ namespace CIS598Project.Rooms
 								state = gfredState.delay;
 							}
 						}
-						else 
+						else
 						{
-                            if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyUp(Keys.Y))
-                            {
-                                textOnScreen = "";
-                                currentCharacter = 0;
-                                currentLine++;
-                                state = gfredState.delay;
-                            }
-                            if (currentKeyboardState.IsKeyDown(Keys.N) && pastKeyboardState.IsKeyUp(Keys.N))
-                            {
+							if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyUp(Keys.Y))
+							{
+								textOnScreen = "";
+								currentCharacter = 0;
+								currentLine++;
+								state = gfredState.delay;
+							}
+							if (currentKeyboardState.IsKeyDown(Keys.N) && pastKeyboardState.IsKeyUp(Keys.N))
+							{
 								understands = true;
-                                textOnScreen = "";
-                                currentCharacter = 0;
-                                currentLine = secretDialogue.text.Length - 1;
-                                state = gfredState.delay;
-                            }
-                        }
+								textOnScreen = "";
+								currentCharacter = 0;
+								currentLine = secretDialogue.text.Length - 1;
+								state = gfredState.delay;
+							}
+						}
 					}
 				}
+			}
+			else
+			{
+				player.sawEnding[0] = true;
+			}
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			{
+				save.save(new StringBuilder(), player);
+				game.Exit();
 			}
 		}
 

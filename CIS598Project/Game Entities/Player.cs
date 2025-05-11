@@ -73,8 +73,10 @@ namespace CIS598Project.Game_Entities
                     itemsUnlocked[i][j] = true;
                 }
             }
+            sawEnding[0] = true;
+            sawEnding[1] = true;
 
-			ballpitTowerLosses = 0;
+            ballpitTowerLosses = 0;
 		}
 	}
 }

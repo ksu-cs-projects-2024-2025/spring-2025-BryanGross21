@@ -1351,7 +1351,7 @@ namespace CIS598Project.Rooms
 				if (hasSaved && isSaving == false) 
 				{
                     spriteBatch.DrawString(font, "Saved!", new Vector2(graphics.Viewport.Width / 2 - 250, graphics.Viewport.Height / 4), Color.White);
-                }
+				}
 			}
 
 			if (showFredbear)
@@ -1362,7 +1362,16 @@ namespace CIS598Project.Rooms
 			else
 			{
 				spriteBatch.Draw(TaskBar[(int)state], Vector2.Zero, Color.White);
+				spriteBatch.DrawString(font, "Map/\nMinigames", new Vector2(25, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Stage/\nShowroom", new Vector2(25 + 198, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Shop", new Vector2(25 + 198 * 2, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Save", new Vector2(25 + 198 * 3, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Stage/\nShowroom", new Vector2(25 + 198, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				TimeSpan currentTime = DateTime.Now.TimeOfDay;
+				spriteBatch.DrawString(font, currentTime.ToString("hh':'mm"), new Vector2(1790, 1036), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
 			}
+
+
 
 
 			spriteBatch.End();

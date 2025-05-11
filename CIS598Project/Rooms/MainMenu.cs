@@ -18,7 +18,10 @@ namespace CIS598Project.Rooms
 {
     public class MainMenu : GameScreen
     {
-        Game game;
+
+		string fileName = Environment.CurrentDirectory + "\\savedata.txt";
+
+		Game game;
 
         Texture2D background;
 
@@ -48,12 +51,38 @@ namespace CIS598Project.Rooms
 
         KeyboardState currentKeyboardState;
 
+        bool[] endings = { false, false };
+
+        Texture2D[] endingIcons = new Texture2D[2];
 
 
-        public MainMenu(Game game) 
+
+        public MainMenu(Game game)
         {
             this.game = game;
-        }
+            int readLine = 0;
+            int sawEndings = 0;
+            StreamReader reader = new(fileName);
+			while (!reader.EndOfStream)
+			{
+				string line = reader.ReadLine();
+
+				if (readLine >= 20 && readLine < 22)
+				{
+					if (String.Equals("True", line))
+					{
+                        endings[sawEndings] = true;
+					}
+					else
+					{
+						endings[sawEndings] = false;
+					}
+					sawEndings++;
+				}
+				
+				readLine++;
+			}
+		}
 
         public override void Activate()
         {
@@ -71,6 +100,9 @@ namespace CIS598Project.Rooms
             logo = _content.Load<Texture2D>("Title_Screen/Textures/Title_Screen");
             backgroundMusic = _content.Load<Song>("Title_Screen/Sounds/Song/TitleScreen-FFPS");
             continued = _content.Load<SoundEffect>("Game_Selection/Sounds/Soundeffects/gameSelect");
+
+            endingIcons[0] = _content.Load<Texture2D>("Title_Screen/Textures/Normal_Ending");
+            endingIcons[1] = _content.Load<Texture2D>("Title_Screen/Textures/secret_Ending");
 
 
             MediaPlayer.Play(backgroundMusic);
@@ -179,6 +211,15 @@ namespace CIS598Project.Rooms
 
                 spriteBatch.DrawString(font, "Press Enter", new Vector2(graphics.Viewport.Width / 2 - 125, graphics.Viewport.Height / 2 + 450), colorForInstruction, 0f, Vector2.Zero, 1f, SpriteEffects.None, 0);
             }
+
+            if (endings[0]) 
+            {
+                spriteBatch.Draw(endingIcons[0], new Vector2(45, 318), Color.White);
+            }
+            if (endings[1]) 
+            {
+				spriteBatch.Draw(endingIcons[1], new Vector2(1720, 318), Color.White);
+			}
 
             transition.Draw(gameTime, spriteBatch);
 
