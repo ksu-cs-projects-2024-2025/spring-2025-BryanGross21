@@ -62,26 +62,29 @@ namespace CIS598Project.Rooms
             this.game = game;
             int readLine = 0;
             int sawEndings = 0;
-            StreamReader reader = new(fileName);
-			while (!reader.EndOfStream)
-			{
-				string line = reader.ReadLine();
+            if (File.Exists(fileName))
+            {
+                StreamReader reader = new(fileName);
+                while (!reader.EndOfStream)
+                {
+                    string line = reader.ReadLine();
 
-				if (readLine >= 20 && readLine < 22)
-				{
-					if (String.Equals("True", line))
-					{
-                        endings[sawEndings] = true;
-					}
-					else
-					{
-						endings[sawEndings] = false;
-					}
-					sawEndings++;
-				}
-				
-				readLine++;
-			}
+                    if (readLine >= 20 && readLine < 22)
+                    {
+                        if (String.Equals("True", line))
+                        {
+                            endings[sawEndings] = true;
+                        }
+                        else
+                        {
+                            endings[sawEndings] = false;
+                        }
+                        sawEndings++;
+                    }
+
+                    readLine++;
+                }
+            }
 		}
 
         public override void Activate()

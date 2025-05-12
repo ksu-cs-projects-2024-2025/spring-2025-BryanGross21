@@ -54,29 +54,13 @@ namespace CIS598Project.Game_Entities
         /// </summary>
         public bool[][] itemsUnlocked = new bool[3][];
 
-		public int ticketAmount = 99999;
+		public int ticketAmount = 0;
 
 		public Player() 
 		{
             itemsUnlocked[0] = new bool[13];
             itemsUnlocked[1] = new bool[5];
             itemsUnlocked[2] = new bool[3];
-			for (int i = 0; i < consecutivePlays.Length; i++) 
-			{
-				//consecutivePlays[i] = 0;
-				foundSecret[i] = false;
-			}
-            for (int i = 0; i < itemsUnlocked.Length; i++) 
-            {
-                for (int j = 0; j < itemsUnlocked[i].Length; j++) 
-                {
-                    itemsUnlocked[i][j] = true;
-                }
-            }
-            sawEnding[0] = true;
-            sawEnding[1] = true;
-
-            ballpitTowerLosses = 0;
 		}
 	}
 }
