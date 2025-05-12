@@ -665,7 +665,7 @@ namespace CIS598Project.Rooms
 			//Get ready to go to the next screen for the minigame or to exit back to the map selection
 			if (tutorialShow)
 			{
-				if (currentKeyboardState.IsKeyDown(Keys.Space) && pastKeyboardState.IsKeyUp(Keys.Space))
+				if (currentKeyboardState.IsKeyDown(Keys.Enter) && pastKeyboardState.IsKeyUp(Keys.Enter))
 				{
 					transitionToMinigame();
 				}
@@ -896,7 +896,9 @@ namespace CIS598Project.Rooms
 		private void transitionToMinigame() 
 		{
 			foreach (var screen in ScreenManager.GetScreens())
+			{
 				screen.ExitScreen();
+			}
 			if (nodePosition == 0) 
 			{
 				ScreenManager.AddScreen(new DuckPond(game, player), null);
