@@ -240,9 +240,15 @@ namespace CIS598Project.Rooms
 			MediaPlayer.IsRepeating = true;
 		}
 
-	
+        public override void Unload()
+        {
+            base.Unload();
 
-		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+
+            _content.Unload();
+        }
+
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, false);
 
@@ -446,6 +452,8 @@ namespace CIS598Project.Rooms
                         foreach (var screen in ScreenManager.GetScreens())
                             screen.ExitScreen();
 
+						Unload();
+
                         ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
                     }
 				}
@@ -482,6 +490,8 @@ namespace CIS598Project.Rooms
                             foreach (var screen in ScreenManager.GetScreens())
 								screen.ExitScreen();
 
+							Unload();
+
 							ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 						}
                     }
@@ -509,6 +519,8 @@ namespace CIS598Project.Rooms
                         player.ticketAmount += score;
                         foreach (var screen in ScreenManager.GetScreens())
                             screen.ExitScreen();
+
+						Unload();
 
                         ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
                     }

@@ -337,6 +337,8 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
+					Unload();
+
 					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				
 				}

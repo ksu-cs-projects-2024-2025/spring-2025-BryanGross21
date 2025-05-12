@@ -275,7 +275,15 @@ namespace CIS598Project.Rooms
 			MediaPlayer.IsRepeating = true;
 		}
 
-		private Security_Children GenerateChildren() 
+        public override void Unload()
+        {
+            base.Unload();
+
+
+            _content.Unload();
+        }
+
+        private Security_Children GenerateChildren() 
 		{
 			Security_Children child = new();
 			return child.generateChild(currentRound);
@@ -434,6 +442,8 @@ namespace CIS598Project.Rooms
 						foreach (var screen in ScreenManager.GetScreens())
 							screen.ExitScreen();
 
+						Unload();
+
 						ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 					}
 					else
@@ -465,6 +475,8 @@ namespace CIS598Project.Rooms
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
 
+					Unload();
+
 					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
 			}
@@ -489,6 +501,8 @@ namespace CIS598Project.Rooms
 					}
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
+
+					Unload();
 
 					ScreenManager.AddScreen(new MainGame_Screen(player, game), PlayerIndex.One);
 				}
