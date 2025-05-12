@@ -463,9 +463,15 @@ namespace CIS598Project.Rooms
 			MediaPlayer.IsRepeating = true;
 		}
 
+        public override void Unload()
+        {
+            base.Unload();
 
+           
+            _content.Unload();
+        }
 
-		public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
+        public override void Update(GameTime gameTime, bool otherScreenHasFocus, bool coveredByOtherScreen)
 		{
 			base.Update(gameTime, otherScreenHasFocus, false);
 
@@ -898,6 +904,7 @@ namespace CIS598Project.Rooms
 			foreach (var screen in ScreenManager.GetScreens())
 			{
 				screen.ExitScreen();
+				Unload();
 			}
 			if (nodePosition == 0) 
 			{
