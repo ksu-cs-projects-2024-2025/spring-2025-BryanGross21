@@ -1071,15 +1071,15 @@ namespace CIS598Project.Rooms
 				{
 					spriteBatch.Draw(staticProps[0], new Vector2(775, 200), Color.White);
 				}
-				if (player.itemsUnlocked[1][2] && player.itemsUnlocked[2][0] == false)
+				if (player.itemsUnlocked[1][2] && player.itemsUnlocked[2][0] == false && player.itemsUnlocked[0][0])
 				{
 					spriteBatch.Draw(characterProps[0], new Vector2(775, 350), Color.White);
 				}
-				if (player.itemsUnlocked[1][3] && player.itemsUnlocked[2][1] == false)
+				if (player.itemsUnlocked[1][3] && player.itemsUnlocked[2][1] == false && player.itemsUnlocked[0][0])
 				{
 					spriteBatch.Draw(characterProps[1], new Vector2(1075, 590), Color.White);
 				}
-				if (player.itemsUnlocked[1][4] && player.itemsUnlocked[2][2] == false)
+				if (player.itemsUnlocked[1][4] && player.itemsUnlocked[2][2] == false && player.itemsUnlocked[0][0])
 				{
 					spriteBatch.Draw(characterProps[2], new Vector2(1275, 570), Color.White);
 				}

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\gfreddialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:gfreddialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\rooms\\fishing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:rooms\\fishing.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\gfreddialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|solutionrelative:gfreddialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3428ACA1-2741-43F4-A880-EED4DCB96F1D}|CIS598Project.csproj|c:\\users\\bryan\\source\\repos\\spring-2025-bryangross21\\cis598project\\fredbeardialogue.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -122,7 +122,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -154,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GFredDialogue.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\GFredDialogue.cs",
               "RelativeDocumentMoniker": "GFredDialogue.cs",
@@ -276,7 +276,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Fishing.cs",
               "DocumentMoniker": "C:\\Users\\bryan\\source\\repos\\spring-2025-BryanGross21\\CIS598Project\\Rooms\\Fishing.cs",
               "RelativeDocumentMoniker": "Rooms\\Fishing.cs",
