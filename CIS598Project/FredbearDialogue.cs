@@ -50,8 +50,8 @@ namespace CIS598Project
 			hints[1][2] = "Do you like balloons? I do,\n so just keep grabbing them.";
 			hints[1][3] = "Keep fishing up prize balls, eventually\n something else will happen.";
 			hints[1][4] = "If you're good at the maze,\nbeat it more.";
-			hints[1][5] = "You haven't fully kept an eye\n on all the children, do that.";
-			hints[1][6] = "Match all the sequences.";
+			hints[1][5] = "Match all the sequences.";
+			hints[1][6] = "You haven't fully kept an eye\n on all the children, do that.";
 			hints[1][7] = "Fish up the highest score you can.";
             hints[1][8] = "Go see them....";
 		}

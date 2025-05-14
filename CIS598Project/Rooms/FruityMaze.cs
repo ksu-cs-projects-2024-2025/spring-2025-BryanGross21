@@ -157,7 +157,7 @@ namespace CIS598Project.Rooms
 				{
 					emote = Emotion.Sad;
 				}
-				else 
+				else if(player.fruityMazeWins == 2)
 				{
 					emote = Emotion.Creepy;
 					game.Window.Title = "Don't listen to him...";
@@ -291,17 +291,16 @@ namespace CIS598Project.Rooms
 
 			end = true;
 
-
 			if (state == GameState.Play)
 			{
 				lowerTime += gameTime.ElapsedGameTime.TotalSeconds;
 
 
-				if (lowerTime >= 7.5 && score != 100)
+				if (lowerTime >= 3.5 && score != 100)
 				{
 					score -= 100;
 
-					lowerTime -= 7.5;
+					lowerTime -= 3.5;
 				}
 
 

@@ -25,7 +25,7 @@ namespace CIS598Project
         public string[] text = { "You found me huh, thought you were sly\ncoming here but I knew you would.",
             "You followed my trail and now you found me.",
             "This company has tried to cover up everything,\nwhat was once a simple children's game\n has become my sanctuary,\nmy place to tell what he did.",
-            "He made us wake up and these machines,\nthese contraptions of horror.\nDo you understand that?",
+            "He made us wake up in these machines,\nthese contraptions of horror.\nDo you understand that?",
             "Good, then you understand my plight\nand what it means. I am one of the\nmissing children, I was taken by him.",
             "Who you might be asking?",
             "The Yellow Rabbit or should I say\nthe man behind the visage of him.",

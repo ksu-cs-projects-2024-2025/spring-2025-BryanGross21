@@ -471,7 +471,7 @@ namespace CIS598Project.Rooms
 				StateChange = null;
 				releasePlunger = false;
 				collides = false;
-				if (score < 1500 || player.foundSecret[7])
+				if (score < 1000 || player.foundSecret[7])
 				{
 					state = GameStateFishing.Win;
 				}
@@ -492,7 +492,7 @@ namespace CIS598Project.Rooms
 				}
 				if (released.State != SoundState.Playing)
 				{
-					if (player.foundSecret[7] || score < 1500)
+					if (player.foundSecret[7] || score < 1000)
 					{
 						player.ticketAmount += score;
 						for (int i = 0; i < player.consecutivePlays.Length; i++)

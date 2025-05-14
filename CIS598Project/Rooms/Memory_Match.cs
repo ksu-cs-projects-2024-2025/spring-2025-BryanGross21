@@ -92,7 +92,7 @@ namespace CIS598Project.Rooms
 		bool showAlternativeWin = false;
 
 
-		string[] ourple = { "Heya there, pal.", "You're really smart if\nyou beat that game.", "It must've ate so\nmany of your tokens up.", "No?", "Well still no one has\nbeat that game before.", "Don't you want\nmto be rewarded?", "Really, I insist follow me and \nI'll give you a nice reward." };
+		string[] ourple = { "Heya there, pal.", "You're really smart if\nyou beat that game.", "It must've ate so\nmany of your tokens up.", "No?", "Well still no one has\nbeat that game before.", "Don't you want\nto be rewarded?", "Really, I insist follow me and \nI'll give you a nice reward." };
 
 		int ourpleCount = 0;
 
@@ -518,7 +518,7 @@ namespace CIS598Project.Rooms
 			{
 				showSequence = false;
 				gameState = GameStateMemory.intermission;
-				if (guessingIndex >= currentRound + 4)
+				if (guessingIndex >= currentRound + 2)
 				{
 					score += 250;
                     guessingIndex = 0;

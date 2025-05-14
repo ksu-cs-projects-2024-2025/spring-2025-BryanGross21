@@ -61,7 +61,6 @@ namespace CIS598Project.Game_Entities
             itemsUnlocked[0] = new bool[13];
             itemsUnlocked[1] = new bool[5];
             itemsUnlocked[2] = new bool[3];
-            ticketAmount += 999999;
 		}
 	}
 }
