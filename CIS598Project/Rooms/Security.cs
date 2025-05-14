@@ -513,9 +513,6 @@ namespace CIS598Project.Rooms
 
 		}
 
-		double duckAnimationTimer_idle = 0;
-		double duckAnimationTimer_select = 0;
-
 		/// <summary>
 		/// Draws the sprite using the supplied SpriteBatch
 		/// </summary>

@@ -1,4 +1,4 @@
-﻿using CIS598Project.Collisions;
+﻿	using CIS598Project.Collisions;
 using CIS598Project.Game_Entities;
 using CIS598Project.StateManagement;
 using Microsoft.Xna.Framework;
@@ -87,8 +87,6 @@ namespace CIS598Project.Rooms
 
 		BoundingRectanglePriority[] checkpoints = new BoundingRectanglePriority[27];
 
-		Color purple;
-
 		GameState state;
 
 		Emotion emote;
@@ -103,15 +101,11 @@ namespace CIS598Project.Rooms
 
 		bool showPoppy = true;
 
-		bool[] flashed = new bool[9];
-
 		int j = 0;
 
 		private int poppyAnimationFrame = 0;
 
 		private double poppyAnimationTimer = 0;
-
-		private double flashTimer = 0;
 
 		private double lowerTime = 0;
 

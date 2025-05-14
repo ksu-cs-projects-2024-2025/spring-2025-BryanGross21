@@ -589,7 +589,7 @@ namespace CIS598Project.Rooms
             if (fredbear == FredbearState.fail && misses == 5 && PlayerRef.foundSecret[1] == false)
             {
                 fredbearTimer += gameTime.ElapsedGameTime.TotalSeconds;
-				if (showFinalThought)
+				if (!showFinalThought)
 				{
 					if (fredbearTimer >= .3)
 					{

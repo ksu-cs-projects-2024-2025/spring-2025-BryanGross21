@@ -1366,6 +1366,13 @@ namespace CIS598Project.Rooms
 			if (showFredbear)
 			{
 				spriteBatch.Draw(TaskBar[(int)state + 1], Vector2.Zero, Color.White);
+				spriteBatch.DrawString(font, "Map/\nMinigames", new Vector2(25, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Stage/\nShowroom", new Vector2(25 + 198, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Shop", new Vector2(25 + 198 * 2, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Save", new Vector2(25 + 198 * 3, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				spriteBatch.DrawString(font, "Stage/\nShowroom", new Vector2(25 + 198, 1026), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
+				TimeSpan currentTime = DateTime.Now.TimeOfDay;
+				spriteBatch.DrawString(font, currentTime.ToString("hh':'mm"), new Vector2(1790, 1036), Color.Black, 0f, Vector2.Zero, .25f, SpriteEffects.None, 0);
 				fredbear.Draw(gameTime, spriteBatch, graphics);
 			}
 			else

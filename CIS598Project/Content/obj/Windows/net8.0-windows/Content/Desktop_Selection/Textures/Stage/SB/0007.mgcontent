@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/Desktop_Selection/Textures/Stage/SB/0007.png</SourceFile>
-  <SourceTime>2025-05-07T11:06:35.0044464-05:00</SourceTime>
+  <SourceTime>2025-05-06T16:18:43.2734878-05:00</SourceTime>
   <DestFile>C:/Users/bryan/source/repos/spring-2025-BryanGross21/CIS598Project/Content/bin/Windows/Content/Desktop_Selection/Textures/Stage/SB/0007.xnb</DestFile>
-  <DestTime>2025-05-11T22:48:03.8317859-05:00</DestTime>
+  <DestTime>2025-05-12T14:30:16.4095371-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2024-08-16T12:05:56-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

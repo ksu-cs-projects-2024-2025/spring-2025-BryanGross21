@@ -315,6 +315,7 @@ namespace CIS598Project.Rooms
 				{
                     value = ran.Next(0, 8);
                 }
+
 				if (value == 0)
 				{
 					pattern.Add(buttonColors.blue);
