@@ -84,6 +84,7 @@ namespace CIS598Project.Rooms
 
                     readLine++;
                 }
+                reader.Close();
             }
 		}
 

@@ -230,6 +230,7 @@ namespace CIS598Project.Rooms
                         }
                         readLine++;
                     }
+                    reader.Close();
                 }
                 foreach (var screen in ScreenManager.GetScreens())
                     screen.ExitScreen();

@@ -433,11 +433,7 @@ namespace CIS598Project.Rooms
 					{
 						for (int i = 0; i < player.consecutivePlays.Length; i++)
 						{
-							if (i != 0)
-							{
 								player.consecutivePlays[i] = 0;
-							}
-
 						}
 						foreach (var screen in ScreenManager.GetScreens())
 							screen.ExitScreen();
@@ -465,11 +461,7 @@ namespace CIS598Project.Rooms
 					player.ticketAmount += score;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
-
 					}
 
 					foreach (var screen in ScreenManager.GetScreens())
@@ -493,11 +485,7 @@ namespace CIS598Project.Rooms
 					player.foundSecret[6] = true;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
-
 					}
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();

@@ -82,8 +82,6 @@ namespace CIS598Project.Rooms
 
 		MemoryButton[] buttons = new MemoryButton[8];
 
-		bool[] canBePresed = new bool[8];
-
 		bool showSequence = false;
 
 		GameStateMemory gameState;
@@ -180,7 +178,7 @@ namespace CIS598Project.Rooms
 			fail = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Misc/failed");
 			Random random = new Random();
 			int ran = random.Next(0, 100);
-			if (ran < 99)
+			if (ran < 95)
 			{
 				win = _content.Load<SoundEffect>("Memory/Sounds/Soundeffects/Intermission/youwin");
             }
@@ -236,7 +234,7 @@ namespace CIS598Project.Rooms
 
 			gameState = GameStateMemory.start;
 
-			//MediaPlayer.Play(backgroundMusic);
+			MediaPlayer.Stop();
 			MediaPlayer.IsRepeating = true;
 		}
 
@@ -444,11 +442,7 @@ namespace CIS598Project.Rooms
 						player.ticketAmount += score;
                         for (int i = 0; i < player.consecutivePlays.Length; i++)
                         {
-                            if (i != 0)
-                            {
                                 player.consecutivePlays[i] = 0;
-                            }
-
                         }
                         foreach (var screen in ScreenManager.GetScreens())
                             screen.ExitScreen();
@@ -478,11 +472,7 @@ namespace CIS598Project.Rooms
                     {
                         for (int i = 0; i < player.consecutivePlays.Length; i++)
                         {
-                            if (i != 0)
-                            {
                                 player.consecutivePlays[i] = 0;
-                            }
-
                         }
 						if (gameState == GameStateMemory.win)
 						{
@@ -510,11 +500,7 @@ namespace CIS598Project.Rooms
                         player.foundSecret[5] = true;
                         for (int i = 0; i < player.consecutivePlays.Length; i++)
                         {
-                            if (i != 0)
-                            {
                                 player.consecutivePlays[i] = 0;
-                            }
-
                         }
 
                         player.ticketAmount += score;

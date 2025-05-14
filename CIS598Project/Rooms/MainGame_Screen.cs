@@ -765,6 +765,7 @@ namespace CIS598Project.Rooms
 
 			if (currentKeyboardState.IsKeyDown(Keys.Y) && pastKeyboardState.IsKeyDown(Keys.Y))
 			{
+				purchase.Play();
 				player.ticketAmount -= price;
 				player.itemsUnlocked[currentRow][currentColumn] = true;
 				isPurchasing = false;

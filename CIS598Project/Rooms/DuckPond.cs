@@ -97,28 +97,19 @@ namespace CIS598Project.Rooms
 		public DuckPond(Game game,Player player) 
 		{
 			this.game = game;
-			if (player.consecutivePlays[0] == 1 && player.foundSecret[1] == false)
+			if (player.consecutivePlays[0] == 1 && player.foundSecret[0] == false)
 			{
 				duckType = DuckType.GFred;
-				game.Window.Title = "Fredbear and Friends";
 			}
-			else if (player.consecutivePlays[0] == 2 && player.foundSecret[1] == false)
+			else if (player.consecutivePlays[0] == 2 && player.foundSecret[0] == false)
 			{
 				duckType = DuckType.SadFred;
-				game.Window.Title = "Fredbear";
 			}
 			else 
 			{
 				duckType = DuckType.Fred;
 			}
 
-			for (int i = 0; i < player.consecutivePlays.Length; i++) 
-			{
-				if (i != 0) 
-				{
-					player.consecutivePlays[i] = 0;
-				}
-			}
 			playerRef = player;
 
 			bool has900Points = false;
@@ -297,7 +288,7 @@ namespace CIS598Project.Rooms
 				canSelect = false;
 				for (int i = 0; i < playerRef.consecutivePlays.Length; i++) 
 				{
-					if (i != 1) 
+					if (i != 0) 
 					{
 						playerRef.consecutivePlays[i] = 0;
 					}

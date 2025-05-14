@@ -492,15 +492,12 @@ namespace CIS598Project.Rooms
 				}
 				if (released.State != SoundState.Playing)
 				{
-					player.ticketAmount += score;
 					if (player.foundSecret[7] || score < 1500)
 					{
+						player.ticketAmount += score;
 						for (int i = 0; i < player.consecutivePlays.Length; i++)
 						{
-							if (i != 0)
-							{
 								player.consecutivePlays[i] = 0;
-							}
 
 						}
 						foreach (var screen in ScreenManager.GetScreens())
@@ -524,14 +521,12 @@ namespace CIS598Project.Rooms
 					{
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
 					}
 						if (state == GameStateFishing.Secret)
 						{
 							player.foundSecret[7] = true;
+							player.ticketAmount += score;
 						}
 
 						foreach (var screen in ScreenManager.GetScreens())

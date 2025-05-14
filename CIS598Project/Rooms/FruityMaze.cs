@@ -342,7 +342,6 @@ namespace CIS598Project.Rooms
 			else if(state == GameState.GameOver || mouse.collidesWith(endSign) && currentCheckpoint == 26)
 			{
 				showPoppy = false;
-				flash = true;
 				if (mouse.collidesWith(endSign) && currentCheckpoint == 26) 
 				{
 					state = GameState.Win;
@@ -374,11 +373,7 @@ namespace CIS598Project.Rooms
 
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
-
 					}
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
@@ -400,12 +395,10 @@ namespace CIS598Project.Rooms
 				if (airHorn.State != SoundState.Playing) 
 				{
 					player.ticketAmount += score;
+					player.fruityMazeWins++;
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
 
 					}
 					foreach (var screen in ScreenManager.GetScreens())
@@ -433,11 +426,7 @@ namespace CIS598Project.Rooms
 					}
 					for (int i = 0; i < player.consecutivePlays.Length; i++)
 					{
-						if (i != 0)
-						{
 							player.consecutivePlays[i] = 0;
-						}
-
 					}
 					foreach (var screen in ScreenManager.GetScreens())
 						screen.ExitScreen();
